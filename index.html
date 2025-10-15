@@ -1,0 +1,107 @@
+<DOCTYPE html>
+<html lang="en">
+
+<!--Comments look like this-->
+
+<!-- this seems to work as the default landing for collection of html documents
+ documents are webpages, collection itself is a website?
+ index.html is the main page's document?
+ 
+ absence of index.html results in file explorer view-->
+
+<head>
+<meta charset='UTF-8'>
+<!-- yes I can use comments like this. tag line placement once again don't matter
+changing initial scale doesn't seem to do much? 
+I know my computer is using 2x for web 
+and I'm curious about that website GIT 340 had us testing and its scaling problems
+seriously what the heck was up with that?
+-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- yeah this is what puts the title on the tab-->
+<title>Index dot html</title>
+</head>
+
+<!-- how to put multiple style properties together-->
+<body style="background-color:OldLace; font-size:200%">
+<!--Nav begin-->
+<!-- why does navStyle exist if we're applying style inline?-->
+<nav class="navStyle" style="background-color:DarkSeaGreen";>
+    <!--"ordered list"-->
+    <!-- li within ul makes a list?-->
+    <ul>
+        <!-- from exercise: click on nav button, go to section with same ID-->
+        <!-- hashtag tells a href to look at an internal ID, not a link-->
+        <!-- live server shows it's the same as the link#section thing-->
+        <!-- a in a href apparently means anchor?-->
+        <li><a href="#meow">meow</a></li>
+        <li><a href="#mew">mew</a></li>
+        <li><a href="#mow">mow</a></li>
+
+        <!--in example, links out so it's special?-->
+        <!--<li><a href="actual link" target="_blank">mowr</a></li>-->
+        <!--assuming the target blank is the same "open in new tab" thing as in perchance-->
+        <li><a href="#mowr">mowr</a></li>
+    </ul>
+</nav>
+<!--Nav end-->
+
+<!--not sure why're were being asked to use Hello There, but it's just not me. 
+You're getting cats
+
+okay apparently we're replicating the modules page?
+whatever. This is ungraded follow-along. I do what I want with the same tricks
+-->
+<!--Headers, h1 through h6. header tag used to separate?-->
+<header id="heading" style="font-size:300%">meowr</header>
+<h1 style="color:DarkSlateGray">cat</h1>
+<h2 style="color:slategray">kitten</h2>
+
+<section id="meow">
+    <h2>meow</h2>
+    <!--I guess we can just write in the text plainly?-->
+    <!--lorem ipsum used in lesson-->
+    <!--observation, can't replicate with only 3 words:
+    why is text only showing on leftmost 20%ish of live server screen?-->
+    meow meow meow
+</section>
+
+<section id="mew">
+    <h2>mew</h2>
+    mew mew mew
+</section>
+
+<section id="mow">
+    <h2>mow</h2>
+    mow mow mow
+</section>
+
+<section id="mowr">
+    <h2>mowr</h2>
+    <!-- for linking out to other subfolder in same folder
+     a href="./foldername/"-->
+     <!-- guess: link to other document with "./cat.html/"?-->
+    mowr mowr mowr 
+    <br>
+    <a href="./cat.html">catDotHtml</a>
+    <!-- testing with cat.html confirms that-->
+    <!-- no end slash, though-->
+</section>
+</body>
+
+<!-- styling
+ think the background color can be set the same way I remember for perchance?
+ maybe not. the curly brackets within the main style tags aren't recognized by VScode
+ but I think I can apply it inline to the body tag?
+ <body style="background-color:OldLace";>
+ there we go. VScode recognizes it
+
+ think css colors can be used here?
+ OldLace for bg, SlateGray and DarkSlateGray for text? DarkSeaGreen too?-->
+
+ <!-- styles: property with a value
+ background-color is property, OldLace is value-->
+
+ <!-- lesson over. very thankful for Perchance now-->
+</html>
