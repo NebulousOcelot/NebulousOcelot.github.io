@@ -3,7 +3,7 @@ Github Username: NebulousOcelot
 
 (Currently a) Repository for ASU class AME 220, student username mecox8.
 
-10/15/2025 week 1 follow along added. index.html, cat.html, 668324738.png
+10/15/2025 week 1 follow along added. index.html, cat.html, 668324738.jpg
 
 Notes for Professor, 10/13/2025: 
 1) I'm using a username that I've used elsewhere on the internet because as stated in my introduction post, I want to make my own website eventually.
