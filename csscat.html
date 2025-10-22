@@ -1,0 +1,136 @@
+<DOCTYPE html>
+<html lang="en">
+
+<!--week 2, part 1-->
+
+<!-- style tags for one document, 
+link tags for 2+ documents using same style-->
+
+<!-- copying css example. 
+looks v similar to Perchance style block
+
+selector selector
+selector {
+property: value;
+property: value;
+}
+-->
+
+<!-- root selector
+* {
+}
+seems like root selector is the selector for the document itself?-->
+
+<!-- I love the standard 140 css colors and you are not convincing me otherwise
+referring to a color by its name is way easier than hex or rgb
+and stop with this "not grading us on color theory"
+sounds an awful lot like "oh no, don't worry about the dates in this history class"-->
+
+<!-- so it seems like style tags work the same as in Perchance, 
+so long as they're all in the document head?
+did we use document heads in perchance? hmm-->
+
+<!-- to preserve img proportions, use only one scaling property
+using both squashes the image
+however, 
+both height and width plus
+object-fit: cover
+    
+object-fit: contain
+fits image within box without squashing or cropping
+object-fit: cover
+crops it into the box without squashing-->
+
+<!-- make a circular element by using border-radius to round corners
+50% trim needed to do that
+will make oblongs if not used on a perfect square
+
+hmm
+root 2/2 all over 1
+2/root 2
+2*root2/2
+root2/1
+...
+what is the syntax for a square root?
+-->
+
+<!-- border-radius: -->
+
+<!-- 
+#id-name {
+property:value;
+} 
+
+.class-name {
+property:value;
+}
+
+parent > descendent {
+property:value;
+}
+-->
+
+<!-- observation
+every descendent step between parent and child element must be named
+
+wrapping in <p></p> tags requires .meow > p style tags
+if not, <p> will not be included in .meow
+    
+is it creating a new row for each subclass?-->
+
+<head>
+<meta charset='UTF-8'>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSS dot html</title>
+    <style>
+        * {
+            background-color: CadetBlue;
+        }
+        img {
+            height:480px;
+            width:480px;
+            object-fit:cover;
+            border-radius:50%;
+        }
+        .cat {
+            width:600px;
+            height:360px;
+            background-color:Brown;
+            border-radius:50px 50px 0px 0px;
+            border-width:12px;
+            border-color:DarkSlateGray; 
+        }
+        .cat > #meow {
+            background-color:Brown;
+            color:FloralWhite;
+            font-size:24px;
+        }
+        #meow > nav {
+            color:black;
+        }
+        nav > a button {
+            background-color:LightBlue;
+            border:none;
+            font-size:24px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- you have Siggy, I have Dune-->
+    <!-- this is the same image used for an AME 230 project-->
+    <img src="./0526241150a_HDR.jpg">
+    <section class="cat">
+        <section id="meow">
+        <nav>
+            <a href="./index.html"><button>index</button></a>
+            <a href="./cat.html"><button>catDotHtml</button></a>
+            <a href="#meow"><button>mew</button></a>
+        </nav>
+
+        Dune is the bestest and most wonderful cat ever.
+        </section>
+    </section>
+</body>
+    
+</html>
