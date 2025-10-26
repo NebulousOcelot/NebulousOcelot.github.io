@@ -21,10 +21,24 @@ seriously what the heck was up with that?
 
 <!-- yeah this is what puts the title on the tab-->
 <title>Index dot html</title>
+<style>
+    #column {
+        background-color:AntiqueWhite;
+        display:flex;
+        flex-direction:column;
+        align-items:left;
+        position:relative;
+        top:0%;
+        left:150px;
+        max-width:800px;
+        padding:20px;
+    }
+</style>
 </head>
 
 <!-- how to put multiple style properties together-->
-<body style="background-color:OldLace; font-size:200%">
+<body style="background-color:OldLace; font-size:100%">
+<section id="column">
 <!--Nav begin-->
 <!-- why does navStyle exist if we're applying style inline?-->
 <nav class="navStyle" style="background-color:DarkSeaGreen";>
@@ -64,7 +78,7 @@ whatever. This is ungraded follow-along. I do what I want with the same tricks
     <!--lorem ipsum used in lesson-->
     <!--observation, can't replicate with only 3 words:
     why is text only showing on leftmost 20%ish of live server screen?-->
-    meow meow meow
+    meow meow meow. The meowest mows to ever exist. Meow, meow, meow! Let this column stretch to the maximum width!
 </section>
 
 <section id="mew">
@@ -89,6 +103,7 @@ whatever. This is ungraded follow-along. I do what I want with the same tricks
     <a href="./cat.html">catDotHtml</a>
     <!-- testing with cat.html confirms that-->
     <!-- no end slash, though-->
+</section>
 </section>
 </body>
 

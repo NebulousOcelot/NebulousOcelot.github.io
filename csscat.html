@@ -78,13 +78,79 @@ if not, <p> will not be included in .meow
     
 is it creating a new row for each subclass?-->
 
+<!-- part 2 notes-->
+
+<!-- interesting, the live server not scaling is true for the professor too-->
+
+<!-- "this class isn't ux design" seriously?
+most of the html I know is from fussing over UX stuff on my Perchance gens-->
+
+<!--is there really a good reason for not using web safe fonts?
+I don't think "not being like everybody else" is a good reason-->
+
+<!--we're doing fonts the MDN way. the import looks clunky-->
+
+<!--why is background-color not being passed down
+is this a layering issue?-->
+
+<!--pausing to screenshot like the video says-->
+
+<!-- background-color issue
+ first, the inherit property exists
+ no background color in the root selector or it applies that whenever not specified
+ write it in the body-->
+
+<!-- really beginning to wonder how to center this
+ thinking I may want to open a Perchance gen and explore
+ or... 
+ root selector property of some kind?
+ align seems relevant. maybe? maybe not?
+ let me dissect perchance in dev tool view a bit more
+ 
+ align brings up stuff relating to "flex"
+ which I'm also seeing in dev tool view of perchance.org/minimal
+ 
+ position property plus width height properties-->
+
+<!-- looking at perchance.org/minimal, element id "output"-->
+
+<!-- position sub-properties worked
+ can't center align the main column 
+ but can control the edge distance and max-width in pixels
+ and then, using display:flex, flex-direction:column, and align-items:center, it works
+ plus text-align:center, for text. and nav, oddly.-->
+
+<!-- also I'm discovering that my live server was at 50% zoom
+ that must be the scaling issue
+ but why would it also affect the professor, then? hmm-->
+
+<!-- okay, we're good.-->
+
 <head>
 <meta charset='UTF-8'>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CSS dot html</title>
     <style>
-        * {
-            background-color: CadetBlue;
+        @font-face {
+            font-family: 'Berkshire Swash';
+            src: url('fonts/BerkshireSwash-Regular.woff2') format('woff2'),
+                url('fonts/BerkshireSwash-Regular.woff') format('woff');
+            font-weight: bold;
+            font-style: normal;
+            font-display: swap;
+        }
+        body {
+            background:CadetBlue;
+            width: 100%;
+        }
+        #column{
+            display:flex;
+            flex-direction:column;
+            align-items:center;
+            position:relative;
+            top:0%;
+            left:150px;
+            max-width:800px;
         }
         img {
             height:480px;
@@ -93,43 +159,99 @@ is it creating a new row for each subclass?-->
             border-radius:50%;
         }
         .cat {
-            width:600px;
+            max-width:inherit;
             height:360px;
+            padding:20px;
             background-color:Brown;
-            border-radius:50px 50px 0px 0px;
+            border-radius:25px 25px 0px 0px;
             border-width:12px;
             border-color:DarkSlateGray; 
         }
-        .cat > #meow {
-            background-color:Brown;
-            color:FloralWhite;
-            font-size:24px;
-        }
-        #meow > nav {
-            color:black;
+        nav {
+            text-align:center;
+            margin-bottom:10px;
         }
         nav > a button {
             background-color:LightBlue;
-            border:none;
+            width:176px;
+            height:40px;
+            padding:2px;
+            margin:6px;
+            margin-top:15px;
+            color:Black;
+            border-radius:10px;
+            border-color:LightBlue;
+            border-width:2px;
+            border-style:solid;
+            font-family:"Berkshire Swash", serif;
+            font-weight:350;
+            letter-spacing:3px;
             font-size:24px;
         }
+        a:hover button {
+            background-color:LightCyan;
+            color:DarkSlateGray;
+            border-color:PowderBlue;
+            border-width:2px;
+            border-style:solid;
+        }
+        a:active button {
+            background-color:PowderBlue;
+            color:DarkSlateGray;
+            border-color:CadetBlue;
+            border-width:2px;
+            border-style:solid;
+        }
+        .cat > .meow {
+            background-color:inherit;
+            width:inherit;
+            color:FloralWhite;
+            font-family:"Berkshire Swash", serif;
+            font-style:italic;
+            font-weight:350;
+            letter-spacing:3px;
+            font-size:24px;
+        }
+        #dune {
+            background-color:inherit;
+            font-size:40px;
+            line-height:normal;
+        }
+        #dune2 {
+            background-color:inherit;
+            line-height:normal;
+        }
+        #dune2::first-letter{
+            font-size:32px;
+        }
+
     </style>
 </head>
 
 <body>
+    <section id="column">
     <!-- you have Siggy, I have Dune-->
     <!-- this is the same image used for an AME 230 project-->
     <img src="./0526241150a_HDR.jpg">
+
     <section class="cat">
-        <section id="meow">
-        <nav>
+        <nav id="navigation">
             <a href="./index.html"><button>index</button></a>
             <a href="./cat.html"><button>catDotHtml</button></a>
-            <a href="#meow"><button>mew</button></a>
+            <a href="#meow"><button>meow</button></a>
         </nav>
 
-        Dune is the bestest and most wonderful cat ever.
+        <section class="meow">
+
+        <header id="dune">Dune the Pestery Kitty</header>
+
+        <p id="dune2">About Dune</p>
+
+        <section id="meow"></section>
+        Dune is the bestest and most wonderful cat ever.<br>Except when he's pestering me.
         </section>
+    </section>
+
     </section>
 </body>
     
