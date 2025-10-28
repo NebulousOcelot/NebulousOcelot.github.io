@@ -8,3 +8,5 @@ Github Username: NebulousOcelot
 10/22/2025 week 2 follow along part 1 added. csscat.html, 0526241150a_HDR.jpg
 
 10/25/2025 week 2 follow along part 2. updates, berkshire swash woffies.
+
+10/28/2025 week 3 follow along. new index.html, old moved to oldIndex.html, indexStyles.css.
