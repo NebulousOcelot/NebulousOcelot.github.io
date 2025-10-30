@@ -4,9 +4,169 @@
 <head>
 <meta charset="UTF-8">
 <title>Week 3 Homework</title>
+<!--Emergency paste from Week3styles.css because the link somehow broke during upload.-->
+<style>
+    @font-face {
+    font-family: 'Berkshire Swash';
+    src: url('fonts/BerkshireSwash-Regular.woff2') format('woff2'),
+    url('fonts/BerkshireSwash-Regular.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+body {
+    font-size:16px;
+    background-color:papayawhip;
+}
+nav {
+    width:256px;
+}
+.navBox {
+    background-color:goldenrod;
+    text-align:right;
+    position:fixed;
+    top:0%;
+    left:0%;
+    height:100%;
+    padding:6px;
+}
+.navBox > nav > a > button {
+    background-color:DarkSlateGray;
+}
+.navBox > nav > a:hover > button {
+    background-color:Steelblue;
+}
+.navBox > nav > a:active > button {
+    background-color:LightSteelBlue;
+}
+.endNavBox {
+    text-align:left;
+    position:fixed;
+    top:0%;
+    left:1024px;
+    height:100%;
+}
+.endNavBox > nav > a > button {
+    background-color:DarkOliveGreen;
+}
+.endNavBox > nav > a:hover > button {
+    background-color:OliveDrab;
+}
+.endNavBox > nav > a:active > button {
+    background-color:MediumSeaGreen;
+}
+#navB {
+    position:absolute;
+    bottom:0%;
+}
+a > button {
+    border-radius: 24px 24px 24px 24px;
+    border:none;
+    color:FloralWhite;
+    font-family:"Berkshire Swash", serif;
+    font-size:1.25em;
+    letter-spacing:1px;
+    padding:12px;
+    margin:8px;
+}
+a:hover > button {
+    color:white;
+}
+a:active > button {
+    color:peru;
+}
+.column {
+    background-color:floralwhite;
+    border-radius:24px 24px 24px 24px;
+    border-color:tan;
+    border-width:4px;
+    border-style:solid;
+    max-width:656px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    position:relative;
+    top:0%;
+    left:288px;
+    padding:24px;
+}
+.imgBox {
+    display:grid;
+    grid-template-columns: 300px 300px;
+    text-align:center;
+}
+.images {
+    text-align:center;
+}
+img {
+    height:324px;
+    width:244px;
+    object-fit:cover;
+    border-radius:24px 24px 24px 24px;
+    border-style:solid;
+    border-color:darkGoldenRod;
+    border-width:4px;
+}
+.nameys {
+    color:darkgoldenrod;
+    font-family:"Berkshire Swash", serif;
+    font-size:2.5em;
+    letter-spacing:1px;
+    text-align:center;
+    padding:4px;
+}
+h2 {
+    color:darkslategray;
+    font-family:"Berkshire Swash", serif;
+    font-size:1.5em;
+    letter-spacing:1px;
+    text-align:center;
+    margin-top:6px;
+}
+p {
+    color:darkolivegreen;
+    font-family:'Times New Roman', Times, serif;
+    font-weight:bold;
+    text-align:center;
+}
+@media only screen and (width <= 600px) {
+    body {
+        font-size:12px;
+    }
+    .navBox {
+        position:relative;
+        top:0%;
+        left:0%;
+        width:100%;
+        height:48px;
+        margin-bottom:12px;
+    }
+    #navA {
+        display:none;
+    }
+    .content {
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+    }
+    .column {
+        margin:12px;
+        border-width:2px;
+        left:0%;
+        max-width:none;
+    }
+    .endNavBox {
+        position:relative;
+        left: 0%;
+        text-align:center;
+    }
+    #navB {
+        position:relative;
+        top:0%;
+    }
+}
+</style>
 </head>
-
-<link rel="stylesheet" href="./week3Styles.css"/>
 
 <body>
     <section class="content">
@@ -62,3 +222,4 @@
 
 
 </html>
+
