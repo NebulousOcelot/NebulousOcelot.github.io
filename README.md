@@ -10,3 +10,5 @@ Github Username: NebulousOcelot
 10/25/2025 week 2 follow along part 2. updates, berkshire swash woffies.
 
 10/28/2025 week 3 follow along. new index.html, old moved to oldIndex.html, indexStyles.css.
+
+10/30/2025 week 3 homework. week3.html, week3styles.css, week3journal.txt, PXL_20251006_163857302.jpg, PXL_20251014_215209055.MP.jpg.
