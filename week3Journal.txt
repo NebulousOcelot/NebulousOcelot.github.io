@@ -1,0 +1,120 @@
+week 3 homework
+due Sunday 11/2
+
+usual freeform thought journaling I do for every project
+let's copy down the directions
+-----
+
+2 points: showcase your layout using Figma (link) 
+1 point: student submits their code 
+0-17 points: Student’s assignment has demonstrated deliverables of the assignment
+
+---
+The proper HTML structure (!Doc type, head, body etc...)  -- YOU WILL DO THIS ANYWAY
+Implement either a linked css or included css -  DO NOT USE INLINE -- ALSO YOU WILL DO THIS ANYWAY WHEN YOU CREATE YOUR FILE
+Create a layout using either flex, grid or positions - Surprise, this will also be done anyway. 
+Create a nav section 
+Create two sections 
+Create two parents and two children
+Implement fonts, colors and font sizes 
+Use pseudoclasses for your links 
+The layout should include more than 3 (three) divs  -- THIS WILL BE ACCOMPLISHED VERY EASILY 
+Create elements using padding, margins and borders (hint: buttons make this really easy) 
+Position anything using one of these position types: absolute, relative or sticky
+Style the elements and your layout 
+Use the @media identifier to make the page responsive
+
+2pts Extra credit:  what did I do wrong in the Positioning Practical (the one with siggy!). Hint, use the link below to refresh your memory! 
+-----
+
+okay first off
+I did notice that the positioning practical didn't achieve the Figma design
+getting my follow-along to the Figma design involved layout stuff
+so, my best guess is the absence of that
+but how does that count as "wrong?"
+or is that overthinking?
+maybe it's the pink dashed border on the buttons? 
+the given code isn't accomplishing that
+
+Whatever. 
+Copy-paste that in the text submission field
+maybe one of those is right
+
+-----
+submission guidelines
+
+link to figma design, think I know how to do that
+link to Github repo of the CSS stylesheet?
+link to webpage
+would only make sense to also link the github for the main html doc
+
+the final page has to be week3.html
+so it looks like we have a week3.html and a week3styles.css
+okay, moving into my main folder here, so I can backlink to the current index
+
+-----
+doc setup.
+
+"use pseudoclasses for links" you mean apply hover/active?
+
+this is abruptly seeming a lot less intimidating
+
+wanting to make a button at the end of the page for returning to index.html
+actually, adding in the github repo links there could work too
+
+I am thinking of the "onclick" property thingy I saw in Perchance a lot
+let's search MDN
+or maybe, just an active modifier and disguising the button-a could work?
+
+can I predict what the github repo links would be?
+copying link for cat.html
+
+https://github.com/NebulousOcelot/NebulousOcelot.github.io/blob/main/cat.html
+so that same link, except ending in week3.html and week3styles.css
+
+bottom nav, stays
+top nav, disappears
+
+concept.
+let's make this an arthur and ford page
+
+more than 3 divs
+is that > or >= 3?
+is two divs of the same class okay?
+
+okay thinking I gotta get the Figma going
+
+PXL_20251006_163857302.jpg is Ford
+PXL_20251014_215209055.MP.jpg is Arthur
+
+Concept is set
+need to get it into Figma and style
+
+effective 1280 x 800 resolution for my computer
+
+we need a font
+let's use the berkshire swash again?
+and also work in a web-safe font for the text?
+
+do I even want to test what the barebones looks like in live server.
+let's do it
+
+first off, resize the images
+
+I really wish I had an input button to tell it to display media view.
+
+Hmm. main design up, need to add more text and padding+margins
+and then do the media query view
+
+Ideal end design for the main view has been achieved.
+No wait. Hover. Dangit.
+
+Okay, did that.
+
+Media view, working.
+Regular view, let's test.
+Still works.
+
+Am I actually done?
+... yeah, I think I am.
+Upload to Github and submit.
