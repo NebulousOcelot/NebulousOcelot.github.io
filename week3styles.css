@@ -1,7 +1,7 @@
 @font-face {
     font-family: 'Berkshire Swash';
-    src: url('/BerkshireSwash-Regular.woff2') format('woff2'),
-    url('/BerkshireSwash-Regular.woff') format('woff');
+    src: url('./BerkshireSwash-Regular.woff2') format('woff2'),
+    url('./BerkshireSwash-Regular.woff') format('woff');
     font-weight: bold;
     font-style: normal;
     font-display: swap;
@@ -158,4 +158,5 @@ p {
     }
 
 }
+
 
