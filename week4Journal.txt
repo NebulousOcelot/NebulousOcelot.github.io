@@ -1,0 +1,122 @@
+okay I need someplace to start writing notes so here we go
+week 4's lecture and follow-along
+
+we're cutting right to the practical
+I'm seeing the week's content defined as "conditionals, loops, functions"
+and I'm just. is this not too easy?
+
+I just want to know how to start using Javascript without the Perchance or p5js frames
+
+slides, let's go
+
+how to integrate JS into html
+can exist within either the <head> or the end of the <body> within <script>
+or, use script tag to define src="blah.js"
+seems like same method as defining an image
+
+the slides are taller than my screen, 
+the page turner arrows are at the bottom,
+and it sends me to the top of the slides when I turn the page
+stupid UX issue
+
+console.log(), know what that is already
+...okay yeah this is seeming like a reiteration of AME 230
+
+objects is really the only new one
+we have reference pages. okay.
+seems like p5js classes and some Perchance utilities are exploiting the object framework?
+
+code to create a new object:
+const name = {type:"meow", beep:"mew"}
+const prevents reassigning it to a different variable
+const doesn't make the object itself unchangeable
+
+which... 
+okay I can think of at least one existing Perchance gen where reassigning was necessary
+that cat family gen, with the phenotype reader
+the object it acted upon had to be set equal to each cat's object to work
+
+{type:"meow", beep:"mew"}
+is called an object literal
+
+you are allowed to make empty objects
+you are allowed to use object.property = value
+
+the object literal can be fed into 
+thingy = new Object()
+
+properties can also be accessed with object.["property"]
+presumably I can feed variables into there
+
+you can give an object a method with
+{meow: function() {
+    return instructions; 
+    }
+}
+
+instructions can be anything
+
+also note on string handling
+writing text + " " + text returns "text text"
+
+this.property is usable
+
+object constructor function
+basically, define new function, set input variables, 
+tell it to assign each to this.property
+
+function Cat(meow, mew, beep) {
+    this.meow = meow;
+    this.mew = mew;
+    this.beep = beep;
+}
+
+and then use thingy = new Cat(meow, mew, beep)
+
+** is exponents
+% is modulo division, returns only remainder
+
+and now finally I see the difference between == and ===
+latter matches data type too
+
+have to do that practical now
+hmm. bored. cat in lap
+let's just watch and listen
+
+/* creates commented out quote block*/
+
+okay, I'm getting seriously bored/tired out already
+maybe this week I shall examine the example code?
+
+you are allowed to make arrays containing objects
+
+well that's surprisingly little code in the example code
+
+okay. looking at homework instructions, let me copy-paste
+-----
+Step 1:  Download this file
+Step 2:  Follow my instructions in comments 
+Step 3:  Upload the document to Canvas 
+
+HINT PLEASE READ BECAUSE IT CAN BE CONFUSING AND NEBULOUS: 
+When I ask for calling an array in the [3] position, 
+I am looking for the THIRD value - AKA THE 3RD VALUE THE ARRAY 
+(how we would reference the 3rd value is how we would say it in spoken language, 
+but how would we implement this in program)  
+
+Rubric:  
+
+1 point for submission 
+0-9 points on how accurate/correct the handout is
+-----
+
+homework.js
+let's see
+
+okay. quiz submitted.
+let's fuss over this another time?
+
+back.
+let's try and get this started?
+
+let's make a week4 embed html and a week4 script js
