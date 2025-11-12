@@ -1,0 +1,349 @@
+week5journal.txt
+
+week 5 of class, let's go.
+feeling a bit out of it 'cause I got last week's work done early
+
+starting with downloaded pdf of slides
+why is it 06 and not 05? did you delete a week or something?
+
+we do have a side goal for this week of making a functional dialog box
+that's one of my favorite perchance things
+let me copy-paste how this worked on perchance
+
+<button id="show-settings" onclick="document.getElementById('settings').showModal()">[settingsText]</button>
+<dialog id="settings">
+  <button class="close-btn" onclick="document.getElementById('settings').close()">[settingsClose]</button>
+    (various stuff)
+</dialog>
+
+and I assume this would all be in the <body>
+
+...okay that handout needs to stay open throughout my work here
+practical lecture is 2 hours in length
+the split into html/css and Javascript seems really arbitrary to me?
+
+the homework seems like it will need its own sub-folder
+week5hw created
+
+and let me copy-paste the instructions
+
+-----
+(step 1 download thingies)
+Step 2: Make the following changes by updating the DOM.    
+
+1pt student uses either the <script>....</script> within the document or links an external js doc 
+
+When you click on the hamburger menu  this icon: image.png  it shows and hides the side nav bar. 
+I have already taken care of the positioning for you. (2pts) 
+HINT you will need to create a global boolean that controls this (isOpen = true)  
+1 point: click on the hamburger menu and the side menu hides 
+1 point: click on the hamburger menu and the side menu shows 
+
+When the nav bar is hidden, the page changes width (3pts) -- see figma file below 
+1 point:  When the side bar is shown - the content is in the original place 
+2 point:  When the side bar is not shown - the content moves over and takes up more room. 
+
+on MOBILE the side bar nav must take up the full screen, and users need to click the menu button to hide it again  
+(see figma file below and check out apple.com in the responsive view for more info) 
+(3pts)  
+HINT: this is easier than you think!!! This is just all CSS :) 
+1 point: the side bar is no longer on the top, it's hidden behind the hamburger menu 
+1 point: the nav bar is shown and hidden by the hamburger menu 
+ 
+Extra Credit for Animation  (it's possible for you to do this with classes and transitions) +3 
+
+Step 3:  Upload this to your Github repo and name it anything other than index.html. 
+this is important! If you upload it as index.html it'll replace your front page.  
+SUBMIT THE LINK ON CANVAS. 
+-----
+
+on second thought. let's not use the folder?
+downloaded files are now week5.html, week5favicon-32x32.png, and week5styles.css
+
+we are going to use a week5.js. non-negotiable
+
+on homework. what an annoying font mess this is.
+let's try downloading those fonts. 
+
+fonts that I see: DM Sans, DM Serif Display, Material Symbols Outlined
+okay that last one is not cooperating
+maybe, by downloading the woff2 that appears when I follow the direct link, it will...?
+hmm. understanding looks like it's going to be difficult?
+
+observations on stylesheet.
+one, root selector used to set color names?
+two, there's a nav style being applied *after* the main block
+
+found this link
+https://developer.mozilla.org/en-US/docs/Web/CSS/initial-letter*/
+
+copying particular comment bunches
+-----
+nav > ul { 
+        /* SO TRUE STORY CLASS. I had completed the entire lecture, and I noticed that my sound got corrupted!! Fun. */ 
+        display: flex; 
+        margin: 0 auto; /* this was the culprit!!! <-- check your margins when you're trying to do anything! */ 
+        gap: 20px; /* here is where I think the sound cuts off?*/ 
+        padding: 0px; 
+        text-align: center;
+        font-size: 3rem;
+        font-style: normal;
+        font-weight: 100;
+        letter-spacing: 9px;
+        list-style-type: none;
+        justify-content: center; /* I also added some quality of life stuff like making it centered on top!*/ 
+        align-items: center; 
+    }
+-----
+body { 
+    background-color: white;
+    margin: 0px; 
+   /*margin shorthand for 
+    margin-top
+    margin-right
+    margin-bottom
+    margin-left */ 
+    padding: 0px; 
+    /* shorthand for padding 
+    padding-top
+    padding-right
+    padding-bottom
+    padding-left*/ 
+    font-size: 2rem; 
+}
+-----
+<!--used https://favicon.io/favicon-generator/ to generate assets and base code-->
+-----
+
+back to the fonts.
+why have I dived into the homework when there's a practical to do.
+whatever.
+
+...okay this is the professor's index.html
+the material-symbols-outlined is the hamburger menu
+...
+
+"Upload this to your Github repo and name it anything other than index.html. this is important! 
+If you upload it as index.html it'll replace your front page."
+
+...
+... let's try substituting this with my week 3 index
+okay. preparing a week5index
+
+if I'm correct about this, I shouldn't be actually changing any of the styles?
+I'm still gonna copy the existing styles so the page doesn't break, though
+
+the professor is putting the icon on the tab how?
+
+trying to search up how to do that.
+okay. no luck
+
+... really getting sick of this
+
+live server testing
+what the shit?
+used dev tools and uhhh
+my week5index.html is outputting the doctype within the body?
+oh my fucking god. It was the exclamation point on the doctype
+fucking hilarious
+
+... and there's no discussion board for me to tell people about this
+and I'm afraid to speak up or I'll get asked why I'm not in the discord...
+well this is not good
+guess I'm keeping it to myself
+
+and back this evening
+i noticed the positioning on week5index.html was misbehaving when the dev tool panel was open
+nagging at me to correct it so here we are
+
+I think I see it
+nav is width 18 vw and 
+hamburger is positioned at 13.5 vw
+but its size is given in fixed pixels
+can I make the hamburger size scale with vw?
+will the icon itself scale with the font-size property?
+yes. it does.
+
+but 120% made it smaller?
+so what is the default?
+hmm. inspect what it is without the font-size attached
+font-size is 24px.
+
+now to test arithmetic
+or maybe, this is where I start using js DOM stuff?
+
+now to figure this out
+okay. the document.getElementBy call needs to be saved to a variable.
+
+... and that did not work.
+new strategy: scale the positioning of the left nav and the bubble?
+
+no. neither of those are working.
+...
+thinking I need to set default pixel numbers
+
+assuming 1280 width
+content's left = 244ish
+leftnav's width = 230ish
+hamburger's left, = 172ish
+width, = 44
+and height = 44
+
+okay.
+working, but I need to set the padding/margins in the nav too?
+
+... Okay. The script isn't actually running.
+What event can I set it to in order to make it run automatically?
+
+Stack Overflow is providing this:
+<body onload="codeAddress()">
+(that has to be lowercase)
+
+wth. still no evidence that this script is even running
+yeah this is. just. wow.
+
+...
+maybe just adjust how the styling works,
+and just do the assignment the way we should?
+
+styling adjusted.
+ugh.
+
+okay.
+good god. two tries and homework is not done
+really, really frustrated with this
+think I have no choice but to watch the damned lecture
+
+okay maybe not? onclick seems to be working
+
+I can make the scripts run, but can't change the elements?
+
+good grief. it's late and I'm tired and clueless but dammit
+
+current error:
+week5.js:19 Uncaught TypeError: Cannot read properties of null (reading 'style')
+    at hideNav (week5.js:19:13)
+    at hamburgClick (week5.js:11:9)
+    at HTMLSpanElement.onclick (week5Index.html:23:70)
+week5.js:19 Uncaught TypeError: Cannot read properties of null (reading 'style')
+    at hideNav (week5.js:19:13)
+    at hamburgClick (week5.js:11:9)
+    at HTMLSpanElement.onclick (week5Index.html:23:70)
+week5.js:19 Uncaught TypeError: Cannot read properties of null (reading 'style')
+    at hideNav (week5.js:19:13)
+    at hamburgClick (week5.js:11:9)
+    at HTMLSpanElement.onclick (week5Index.html:23:70)
+week5.js:19 Uncaught TypeError: Cannot read properties of null (reading 'style')
+    at hideNav (week5.js:19:13)
+    at hamburgClick (week5.js:11:9)
+    at HTMLSpanElement.onclick (week5Index.html:23:70)
+
+it's catching on 
+leftNav.style.width = "72px";
+
+oh, okay
+for whatever reason it doesn't like the semicolon
+
+except now it's applying the style when I don't want it to be?
+
+okay, second new discovery: 
+HTML ELEMENTS CAN ONLY EXIST AS LOCAL VARIABLES.
+
+...now it seems to be working?
+
+Okay. That's objective one.
+
+Objective two, make the content move too.
+Okay. 
+
+Last one is the media view.
+
+First off, the hamburger needs to display in media view.
+Hmm.
+Let's make hamburger into a class instead.
+
+Okay media view in general needs a fix.
+default media view fixed.
+
+okay, what the heck.
+hideNav's if statement works
+showNav's does not
+no, wait. duh. left code outside the if else
+
+why is NavUl staying permanently disappeared.
+okay it works if started as hidden? but it can't start as none.
+okay, need to use visibility property to hide it at first? maybe?
+THERE WE GO.
+
+extra credit is animating it.
+I'm seeing something call interpolation on the MDN for the visbility property
+... no, that's not helpful
+Let's add active and hover to the menu?
+
+also, is there an opacity property?
+yes, there is
+can I use a time variable?
+
+or, perhaps a loop...
+
+we're gonna try reducing opacity of a hidden menu to 20%
+
+or maybe I'll just look up the transitions CSS property on MDN
+
+oh what the heck has broken now? content isn't spaced
+
+cut and pasting hamburgTransform()
+
+// first attempt at dom changes. 
+// this shouldn't be used anywhere in the final version,
+// but I'm leaving it for personal reference
+function hamburgTransform() {
+    // assumed default width
+    let defaultWidth = 1280;
+
+    // elements
+    let hamburger = document.getElementById("hamburger");
+    let leftnav = document.getElementById("leftNav");
+    let leftlist = document.getElementById("navUl");
+    let content = document.getElementById('content');
+
+    // numbers
+    let hamburgSize = 24;
+    let hamburgBubbleSize = 44;
+    let hamburgLeft = 172;
+    let leftNavWidth = 230;
+    let leftListTop = 60;
+    let contentLeft = 244;
+
+    // I think this is the right constant to use?
+    let actualWidth = innerWidth;
+    let widthRatio = actualWidth/defaultWidth;
+
+    // applying width ratio
+    hamburgSize*=widthRatio;
+    hamburgBubbleSize*=widthRatio;
+    hamburgLeft*=widthRatio;
+    leftNavWidth*=widthRatio;
+    leftListTop*=widthRatio;
+    contentLeft*=widthRatio;
+
+    // applying to elements
+    hamburger.fontSize = hamburgSize;
+    hamburger.width = hamburgBubbleSize;
+    hamburger.height = hamburgBubbleSize;
+    hamburger.left = hamburgLeft;
+    leftnav.width = leftNavWidth;
+    leftlist.marginTop = leftListMarginTop;
+    content.left = contentLeft;
+
+    console.log("Hamburger executed.");
+}
+
+somehow removing that fixed things
+
+last media view test before I draw up a Figma with the flowchart
+okay. we're good. hopefully
+
+... okay?
+... hopefully this figma is acceptable
+it is 10:30 PM
