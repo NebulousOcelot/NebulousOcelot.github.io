@@ -14,3 +14,5 @@ Github Username: NebulousOcelot
 10/30/2025 week 3 homework. week3.html, week3styles.css, week3journal.txt, week3design.png, PXL_20251006_163857302.jpg, PXL_20251014_215209055.MP.jpg.
 
 11/5/2025 week 4 homework. week4.js, week4embed.html, week4Journal.txt, updated index.
+
+11/11/2025 week 5 homework. week5index.html, week5indexstyles.css, week5.js, week5journal.txt, the favicon thingy, updated index.
