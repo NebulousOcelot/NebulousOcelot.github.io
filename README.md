@@ -16,3 +16,5 @@ Github Username: NebulousOcelot
 11/5/2025 week 4 homework. week4.js, week4embed.html, week4Journal.txt, updated index.
 
 11/11/2025 week 5 homework. week5index.html, week5indexstyles.css, week5.js, week5journal.txt, the favicon thingy, updated index.
+
+12/2/2025 final project. finalKittenGen.html, finalKittenGenStyles.css, finalKittenGenScript.js, finalCatFavicon, finalCitations.txt, finalJournaling.txt, final wireframe picture, text copies of perchance/warriors-family-advanced and perchance/kitten-generator, updated index.
