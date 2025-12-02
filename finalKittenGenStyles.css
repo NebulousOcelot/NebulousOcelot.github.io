@@ -1,0 +1,191 @@
+@font-face {
+    /* same files as in week 2 */
+    font-family: 'Berkshire Swash';
+    src: url('./BerkshireSwash-Regular.woff2') format('woff2'),
+        url('./BerkshireSwash-Regular.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+body {
+    background-color:antiquewhite;
+    font-size:16px;
+    font-family:'Times New Roman', Times, serif;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+#mainNav {
+    background-color:darkseagreen;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    /* height:76px; */
+    text-align:center;
+}
+#navText {
+    font-size:1.5em;
+}
+button {
+    font-family:'Times New Roman', Times, serif;
+    border-radius:6px;
+}
+.navButton {
+    background-color:darkslategray;
+    color:gold;
+    margin:4px;
+    padding:6px;
+    padding-left:8px;
+    padding-right:8px;
+    font-size:0.667em;
+    font-weight:bold;
+}
+a:hover > button {
+    background-color:seagreen;
+    color:wheat;
+}
+a:active > button {
+    background-color:mediumaquamarine;
+    color:ivory;
+}
+.section {
+    background-color:floralwhite;
+    /* this combined syntax on borders is p common on perchance */
+    border: 2px solid darkslategray;
+    width:80%;
+    padding:0px;
+    margin:12px;
+    text-align:center;
+}
+#titleBlock {
+    margin-top:84px;
+    width:450px;
+}
+#titleText {
+    font-size:2em;
+    font-family:"Berkshire Swash", serif;
+}
+#panelBlock {
+    width:850px;
+    padding:12px;
+    padding-bottom:20px;
+}
+table {
+    font-size:1.25em;
+}
+td {
+    padding:4px;
+    width:275px;
+}
+select {
+    font-size:0.8em;
+    width:225px;
+    padding:5px;
+}
+.leftColumn {
+    text-align:right;
+}
+.material-symbols-outlined {
+    color:darkgoldenrod;
+}
+.material-symbols-outlined:hover {
+    color:goldenrod;
+}
+.material-symbols-outlined:active {
+    color:gold;
+}
+#randomText {
+    margin:6px;
+}
+#numInput {
+    width:150px;
+    font-size:1em;
+}
+.randomButton {
+    background-color:darkslategray;
+    color:gold;
+    font-weight:bold;
+    font-size:1em;
+}
+.randomButton:hover {
+    background-color:seagreen;
+    color:wheat;
+}
+.randomButton:active {
+    background-color:mediumaquamarine;
+    color:ivory;
+}
+#outputBlock {
+    width:850px;
+    padding:12px;
+}
+#outputBlock > p {
+    margin:6px; 
+}
+#noOutput {
+    font-weight:bold;
+}
+#kittenOut {
+    visibility:hidden;
+}
+#sigText {
+    text-align:center;
+}
+dialog {
+    background-color:floralwhite;
+    border:2px solid darkslategray;
+    border-radius:6px;
+    padding-top:0px;
+    max-width:450px;
+}
+.cardClose {
+    background-color:seagreen;
+    color:wheat;
+    font-weight:bold;
+    font-size:1.25em;
+}
+.cardClose:hover {
+    background-color:mediumaquamarine;
+    color:ivory;
+}
+.cardClose:active {
+    background-color:darkslategray;
+    color:floralwhite;
+}
+.dialogTitle {
+    font-family:"Berkshire Swash", serif;
+    font-size:1.25em;
+}
+/* reduce width/overall size, make the nav relative with smaller buttons */
+@media only screen and (width <= 600px) {
+    body {
+        font-size:12px;
+    }
+    #mainNav {
+        position:relative;
+    }
+    #navText {
+        font-size:1.25em;
+    }
+    #titleBlock {
+        margin-top:6px;
+        max-width:350px;
+    }
+    #panelBlock {
+        max-width:550px;
+    }
+    td {
+        max-width:200px;
+    }
+    select {
+        width:150px;
+    }
+    dialog {
+        max-width:350px;
+    }
+    #outputBlock {
+        max-width:550px;
+        font-size:1.25em;
+    }
+}

@@ -1,0 +1,113 @@
+finalCitations.txt
+
+https://www.w3schools.com/cssref/css_colors.php
+css colors list, some color matching tools
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
+randomizing numbers in normal javascript
+
+https://stackoverflow.com/questions/1358810/how-do-i-change-the-text-of-an-element-using-javascript
+for the document.getElementById("myspan").textContent="newtext";
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String
+string functions
+note that I was already aware of includes() from Perchance
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
+array nonsense, in particular join() method
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Errors/String_literal_EOL
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types#string_literals
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#multi-line_strings
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#line_terminators
+https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/br
+perchance has me used to throwing <br> in between lines of generated text to create line breaks
+regular javascript says no, this is the path to solving that
+
+https://developer.mozilla.org/en-US/docs/Web/API/Document/createElement
+https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/p
+https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_custom_elements
+https://developer.mozilla.org/en-US/docs/Web/API/Node/insertBefore
+https://developer.mozilla.org/en-US/docs/Web/API/Node/removeChild
+answer to the above <br> issue
+
+https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=info
+That is Google Fonts > Icons > search "info"
+i in a circle symbol
+
+https://sparrows-garden.com/
+https://sparrows-garden.com/genetics.html
+https://sparrows-garden.com/genetics/cat-color-glossary.html
+example of targeted final product + ref on infocard materials
+
+** As a note, all code on Perchance.org can be viewed by clicking on "edit" at the top-right corner.
+** Main content/JS in the left panel, HTML in bottom-right
+
+https://perchance.org/kitten-generator
+example of ideal final product
+example of <select> and <option> elements
+* text file of code included in submission
+
+* General note: 
+* Each gene allele has a specific notation (cs, D, etc.) universally used in biological science and breeding.
+* Thus, the specific notation for each allele is neither my own, nor does it belong to the creators of the referenced generators.
+* It's about equivalent to using "He" for helium.
+
+https://perchance.org/warrior-cat-clans
+same author as kitten-generator above
+<table> element plus <tr>, <td>
+
+https://perchance.org/warriors-family-advanced
+generator I created in the past
+demonstration of <dialog> element and general methodology
+generating kittens is part of this one's main functionality
+* text file of code included in submission
+
+https://perchance.org/randwarriorsgen
+generator that uses <dialog> to create a settings panel
+this is where I learned to use <dialog> for warriors-family-advanced
+
+https://perchance.org/examples
+Reference I use when coding on Perchance.
+- numerical input (user input section)
+- whenever implementing the <select> element (user input section)
+- neat table formatting (multi-line output and formatting section)
+
+https://favicon.io/
+https://favicon.io/emoji-favicons/cat-face
+putting a cat icon on the tab, as learned in Week 5
+
+https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Text_styling/Web_fonts
+https://www.fontsquirrel.com/fonts/berkshire-swash
+berkshire swash font files obtained during Week 2
+
+https://www.desmos.com/scientific
+math calculator. MAT 170 introduced me
+
+Array in table format comes from AME 230
+here's code excerpts from the relevant project
+picture an array of cat faces with a random color scheme on each
+all drawn using polygons
+
+// 12 x 4. Base, tabby, muzzle, nose.
+let catColors = [
+  ['Black', 'Black', 'DarkSlateGray', 'Gray'],
+  ['DarkSlateGray', 'Black', 'LightSlateGray', 'Brown'],
+  ['Gray', 'DimGray', 'LightGray', 'LightCoral'],
+  ['Silver', 'DarkGray', 'Gainsboro', 'RosyBrown'],
+  ['WhiteSmoke', 'Gainsboro', 'White', 'Pink'],
+  ['SteelBlue', 'DarkSlateBlue', 'LightSteelBlue', 'PaleVioletRed'],
+  ['Sienna', 'Black', 'Chocolate', 'IndianRed'],
+  ['Chocolate', 'SaddleBrown', 'SandyBrown', 'Salmon'],
+  ['Wheat', 'Tan', 'Cornsilk', 'Salmon'],
+  ['Gold', 'GoldenRod', 'Moccasin', 'IndianRed'],
+  ['DarkOrange', 'OrangeRed', 'Orange', 'IndianRed'],
+  ['Tomato', 'FireBrick', 'DarkSalmon', 'PaleVioletRed'],
+];
+
+render() {
+    // ears
+    fill(catColors[this.color][1]);
+    //
+}

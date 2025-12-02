@@ -1,0 +1,688 @@
+AME 220 FINAL
+
+(start date 11/17/2025)
+
+currently in its own folder, will move into AME220 main
+
+-----
+copying overview
+-----
+Overview of Final Assignment
+
+The Final Project is a web application of your choosing. It is worth 25 points. The web application has to be:
+
+1. Have AT MOST 4 pages 
+2. Javascript and CSS 
+ (I don't care if it's linked or in the document)
+3. Have multiple sections/divs with content
+4. User Interactions: buttons, events that impact the DOM, conditionals based on dom etc...
+5. Something that will change the webpage based in Javascript
+
+Rubric
+0-5 pts: Student has showcased competency with HTML 
+(correct doc structure, unbroken links, proper styling) 
+0-5 pts: Student has showcased competency with CSS 
+(parent/child selectors, class and id styles, etc...)
+0-5 pts: Student has made website responsive for Mobile devices 
+0-5 pts: Student has showcased competency with Javascript 
+(updating the DOM, creating interactivity, calling and storing information)
+0-5 pts: Student has made a good effort with their delivery: 
+(more than 1 sentence for sections, button stylings, css animations, javascript animations, you should show this to an employer)
+
+Examples of how this can be spread:  
+
+3 pts for responsiveness
+2 pts for no broken HTML 
+
+5 points EXTRA CREDIT: student calls a REST API OR a CDN 
+
+A NOTE: For the final, I will be EXTREMELY meticulous on grading. Make sure all of your files are linked correctly, you don't have any broken images or files that do not exist. 
+-----
+examples provided
+
+Example Sites:   
+As always these are just examples, and not to be considered templates. 
+
+1.  The end result of the DOM video: 
+https://asu-ishrat.github.io/AME220/dom-example
+2.  A Buzzfeed style quiz I made for a Conference: 
+https://asu-ishrat.github.io/complexityGame/index.html
+(code: https://github.com/asu-ishrat/asu-ishrat.github.io/tree/main/complexityGame)
+
+An example of a good integration of all the items we learned in class:
+https://jsfiddle.net/7ftho6m4
+
+A website I put together to put all of our ideas in one place and to give you ideas: 
+https://github.com/asu-ishrat/asu-ishrat.github.io/tree/main/AME220/220-final 
+(https://asu-ishrat.github.io/AME220/220-final) 
+
+An example of what I do not want to see: 
+https://jsfiddle.net/5vdejuqw
+-----
+FAQ:  
+
+1. Can it be my portfolio that I have been working on all semester? 
+Absolutely. Work smarter not harder.
+I suggest an accordi.on, or an image gallery. (both are links) 
+Or, you can use this app  to put into your portfolio.  
+
+2. What does student has made a good effort with their delivery?  
+Content! I want to see things implemented. 
+Imagine your final is being showcased to a potential employer or for a scholarship. 
+I don't want to see Lorem Ipsum, I don't want to see just one line or the bare minimum.  
+See some examples that I did in JS Fiddle of Effort 
+
+3. Can I use a CDN CSS?  
+
+No. You will be deducted points for not writing your own CSS.  
+If you can make an argument for using a CDN 
+(like if you're using Leaflet and you need their CSS for the popups),  
+it needs to be a good one.  
+I need to see that you have implemented custom CSS for YOUR code, not theirs.  
+
+4. Help, GitHub is being a pain!  
+I am not grading you on your ability to use Github. 
+Zip up all of your files + assets and upload that to Canvas. 
+-----
+
+first thought.
+'meticulous on grading'
+how did the students giving broken links even make it this far?
+
+CDN css. Hmm. 
+I imagine it would be allowed to modify their provided CSS,
+as long as it's backed up by substantial custom CSS for other parts of the project?
+
+The portfolio we've been working on all semester.
+Unfortunately, that kind of clashes with the AT MOST 4 pages rule?
+Does a dialog box count as a page?
+
+either way, still going to backlink the final to my main GitHub for this class
+
+I am kind of tempted to try making a Warrior Cats generator?
+I do have a bunch of resources for that on my computer already
+maybe some experimentation? 
+See if I can get warriors-cat-clans or my version working?
+that may be too complex though
+how would I recreate the consumableList?
+
+however, adding a new DIV for each cat, and keeping the random cat count
+would possibly count as using JS to modify the DOM?
+
+I'm picturing like a list of cat divs
+and I'd hide some depending on the number?
+
+...hmm
+learning how to make a generator work without Perchance might be a good idea anyway?
+since I still want to recreate Untold Legacy someday?
+
+What is the Final Project pitch?
+need to look at that one
+
+copying Final Project pitch
+-----
+Since the Final Project covers a lot of topics. 
+It'll be a good idea to think through what it is you want to submit.  
+Grading for the Final is much more strict than the homework assignments.   
+Double check your work, double check to see if you have hit all my requirements.  
+This homework assignment is worth 10 points because it covers the Figma part of my requirements. 
+
+Submit A Figma Document Containing The Following Info: 
+
+What type of app are you trying to build?
+Is there any research that you've done into types of UIs?   
+Wireframe/design doc of what you're thinking the UI would look like. 
+Simply stating "a minimalist design" is not enough, provide me a wireframe. 
+
+Hint use https://coolors.co/ for colors 
+
+Some websites for inspiration: 
+
+Ones coded for this class by me:
+Quiz: https://asu-ishrat.github.io/complexityGame
+DOM Practical: https://asu-ishrat.github.io/AME220/dom-example
+CDN+API: https://asu-ishrat.github.io/AME220/220-final
+CSS Examples: https://asu-ishrat.github.io/AME220/midterm/midterminspo1.html
+& https://asu-ishrat.github.io/AME220/midterm/inspo2.html 
+
+Reference websites: 
+https://refero.design/
+https://land-book.com/
+https://onepagelove.com/
+https://itch.io/ (look at browser games)
+
+Do you need any help for any specific component? 
+-----
+
+Okay.
+The warrior-cat-clans recreation idea is ambitious,
+but it does provide me with a UI to point to? A clear target?
+
+Perhaps another option is to recreate the kitten generator?
+
+well if we do a warrior-cat-clans recreation, 
+the trickiest stuff should be:
+- recreation of random-selecting lists
+- recreation of the consumable list
+- creating a table to exclude specific problematic names
+
+or...
+maybe the kitten generator is a better idea?
+could fill it with all kinds of infocards about cat genetics
+and I do have both the kitten gen and my own warriors-family-advanced as UI examples
+
+...
+okay.
+let's do a kitten generator
+
+I need to nab code downloads off of Perchance
+copies of kitten-generator and warriors-family-advanced nabbed
+
+first thing to research is how to randomize things
+how to recreate the Perchance list utility
+
+okay, that's probably enough work for now
+
+11/20/25
+the best way to do infocards. 
+probably dialog + one of those icons from Google, like the hamburger? just an i in a circle?
+
+wireframe plus all kinds of thingies to figure out.
+
+should I also make a color pallette for the cats?
+I would just link out to the Cedarseed color chart, but the display on that is broken for me
+
+11/21/25
+
+need to put together the Figma
+first, I gotta collect screenshots
+and find an icon
+
+hang on. found a URL to a sparrows-garden.com in the kitten-generator
+let's poke around
+
+https://sparrows-garden.com/genetics.html
+https://sparrows-garden.com/genetics/cat-color-glossary.html
+
+... this does confirm that the cinnamon tabby kitten I saw once was indeed a cinnamon tabby
+
+okay. now get an icon?
+
+comment that sparrows-garden seems to be using tooltips
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=info" />
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=info" />
+// using this one
+
+<style>
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+</style>
+
+<span class="material-symbols-outlined">
+info
+</span>
+
+that is for the i in a circle
+
+figma. umm
+
+put it together, then make a wireframe and just drop it in there?
+
+11/24/2025
+
+thoughts.
+I will need to use JS to change the text within <p> tags.
+I'm not sure how to do this.
+If the text is saved as a property, then maybe...?
+Should probs investigate by looking at a <p> tag in dev tools.
+
+AME 220 main move accomplished.
+
+What I am seeing is that text in the document is listed as a node. 
+#text, which is child element to the wrapping tags
+and the node has the data property set to the text string?
+
+Can I mess with the css on index.html to affect the nodes?
+
+No. That did not work.
+Okay, let's look up how to change text on a page using JS.
+
+From stack overflow:
+document.getElementById("myspan").textContent="newtext";
+hmm
+
+okay I think that makes sense
+The text just needs to be in a container of some kind.
+
+documents set up
+mess with this more later
+
+We are being told to cite stack overflow in the weekly announcement.
+That is very annoying, but whatever.
+
+https://stackoverflow.com/questions/1358810/how-do-i-change-the-text-of-an-element-using-javascript
+
+There, that's the stack overflow link I used.
+
+And of course, warriors-family-advanced and the kitten-generator need citations.
+
+I don't like that the professor responded to my presentation by asking how I would call Perchance's API.
+I was never intending to say I would call Perchance's API, it's just going to be heavily referenced.
+Doesn't say good things about her capability to understand.
+
+11/25/2025
+
+voiced complaints about the citation thing in course evaluations.
+I think the new requirement is a result of professor egotism
+and my response to that shit will always be to rebel
+yes, I'm going to use resources that aren't yours
+I'm not a sheep, get used to it
+
+but I'm here because the whole "randomize values in normal JS" thing is bugging me
+so I'm gonna collect MDN refs
+maybe examine the p5.js random function
+
+MDN search calls up a standard built-in JS Object "math," of which random() is a method
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
+
+details say that the random number is 0 <= random < 1.
+similar to p5.js math
+
+copying from that page's demo:
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max);
+}
+
+This tells me that there is a floor method too.
+Max... hmm.
+Can that be an arbitrary numerical variable?
+I can see that working.
+
+Demo for getting a random number between two values:
+function getRandomArbitrary(min, max) {
+  return Math.random() * (max - min) + min;
+}
+
+I can kind of see the arithmetic on how that works.
+
+Hmm, there's examples on random integers specifically,
+but given the intended use here, do I really need that?
+it's all coinflips between two values
+can I set a condition test of Math.random() >= 0.5?
+thinking I can, honestly
+
+while here
+I'm scrolling down to browser compatibility, and uh
+node.js is listed as a browser?
+hmm
+
+is that the last external resource I need to collect for this?
+think it might be
+so now we gotta move into actually coding the thing
+
+11/26/2025
+
+now wondering if I have to cite the list of CSS colors
+https://www.w3schools.com/cssref/css_colors.php
+
+it's that.
+
+11/28/2025
+
+starting to beat myself up over not having this done
+i fucking loathe the citations requirement
+really discouraging
+
+finalCitations.txt exists now
+
+11/29/2025
+finally heard back
+citations requirement is because the professor worries about uh
+students copying her examples really closely
+I didn't know this, I'm thinking I reacted too harshly
+
+hmm maybe now start working on this
+thinking I need to get the <table> <select> and <dialog> in here
+
+okay, first test
+<dialog> works. showModal()
+
+now, to make the opening for that the i circle
+
+... okay I'm thinking I want to put an icon on the tab
+just so I can distinguish the live server easily
+think we can reference week 5 for this one
+
+and done
+
+now back to the infocard button
+
+okay, we're clear on that
+
+okay copying this here
+https://github.com/NebulousOcelot/NebulousOcelot.github.io/blob/main/fileName.txt
+
+that's how I can link to the repository of anything
+what do we need. code, js, styles, citations, journal, mainIndex.
+counting six buttons from that.
+
+6:14PM
+
+what the shit?
+.navButton {
+    background-color:black;
+    color:yellowgreen;
+    margin:4px;
+    padding:6px;
+    padding-left:8px;
+    padding-right:8px;
+    font-size:0.667em;
+    font-weight:bold;
+    border-radius:6px;
+}
+is producing a beveled edge on the button?
+i don't know how the hell I did this,
+but I like the effect
+
+I am fiddling with colors
+need to get the table in here
+
+button beveling is reproducible
+border-radius with no other border instructions causes it
+
+okay I swore I saw it working on the dialog close buttons
+is there a noinherit property?
+
+bwuh? it looks like it's not applied, then I interact with it and the edge bevels
+execution order issue, perhaps?
+There we go. The border-radius call has to happen after the dialog box styles.
+or... no, still not working
+solution:border-none on the dialog box
+or maybe not
+what the hell
+
+theory, from the floralwhite rim around the button
+the dialog box needs to be moved outside the body
+
+nope
+I don't have a way to stop this effect
+so the best I can do is mitigate its visual appearance
+dialog box has to be floral white
+
+okay, we're fine
+
+okay
+we're going to do the numerical input by combining strings within one "p" field
+this is so the user can input 100000 kittens if they wish
+
+oh, this table is just gonna be insanity apparently
+
+...
+okay
+we're making a global array variable to hold the parents' genes
+
+I'm gonna go look at an AME 230 project real quick
+table-format array
+
+so it works as let variable = [[],[],];
+and you call it as variable[rowNum][columnNum];
+
+okay that was a lot of work for one evening
+waiting until another night to finish
+next part is getting the options sorted out
+the <select> element
+
+<select oninput="variable=this.value">
+  <option value="blah"></option>
+  <option value="blah"></option>
+</select>
+
+that's the syntax
+for each gene except orange (sex-linked) I can copy-paste between mom and dad
+
+okay really need to put this away for tonight
+last comment: work berkshire swash into this somewhere
+
+12/1/2025
+nice free morning with nothing better to be done
+and I look at a heavily white-spotted cat's picture and think of a certain distinction
+we are now in select menu tedium
+
+dialog titles and matching has happened
+
+okay now I need to test the select menu
+see if it's actually resetting the variables
+
+okay yeah it is
+dev tool view also means I need to mess with the styles
+
+okay. let's get the select forest underway
+
+colorpoint: five different alleles, lovely
+C, cs (siamese), cb (burmese), c2 (blue-eyed albino), c (pink albino)
+
+that's done. whew
+
+Tedium is done!
+
+It has now occurred to me that maybe I need a function to reset the parents' gene values?
+And this requires resetting the select fields?
+Is this too complicated, or...?
+Yeah, I think it is. I can work around it by refreshing the page.
+
+Okay have to go.
+Next up: generator functionality, media responsiveness.
+okay. good morning.
+
+...why am I here in the evening when I've been grumbling about being caught up in tasks
+
+uhh. I guess some thoughts on coding it together.
+first off, I'm thinking an array containing the kittens' alleles needs to be made
+a function needs to be made containing the text output for one kitten
+so another function can loop through that as many times as necessary
+and one last function can concat it all together
+
+I'm gonna need a string and array function reference in the citations list.
+
+... okay thinking I need a simpler way of handling the parents' genes
+...
+Can I do an array within an array within an array?
+
+no, wait.
+I can't exactly tell the options to carry more than one value.
+Dammit, really do have to do this tedium.
+
+okay, allele passing is implemented
+now for the reader
+push strings into an array, then join it
+
+okay why the is <br><br> joining trick not working.
+
+okay. need to look up a resource about line breaks.
+possible resolution, copying from MDN:
+console.log("string text line 1\nstring text line 2");
+// "string text line 1
+// string text line 2"
+
+so it's a "\nstring"
+
+no, maybe not
+okay
+
+so it's looking like a different line terminator needs to be used somehow
+
+Joining the kitten array with "\n" is creating a nice effect.
+Not intentional, but I'll take it.
+
+uurf
+this is tough
+
+<p>
+  O’er all the hilltops<br />
+  Is quiet now,<br />
+  In all the treetops<br />
+  Hearest thou<br />
+  Hardly a breath;<br />
+  The birds are asleep in the trees:<br />
+  Wait, soon like these<br />
+  Thou too shalt rest.
+</p>
+
+...?
+wrong syntax all along? Maybe?
+Dammit, no.
+
+Okay, what the shit.
+Is there no way to do this?
+Then, is there a way to create new HTML elements?
+
+document.createElement(br)? 
+
+...this is going to get really damn tricky.
+
+we're copying a large block of code here, from when I thought the <br> separator could work
+
+-----
+function randomize() {
+    // cleaning array for reuse
+    kittenArray = [];
+
+    let output = document.getElementById("kittenOut");
+    let noOutput = document.getElementById("noOutput");
+
+    for (i0 = 0; i0 < numKittens; i0 += 1) {
+        kittenString = createKitten();
+        kittenArray.push(kittenString);
+
+        // cleaning array for reuse
+        DescArray = [];
+    }
+
+    // console.log confirms kittenArray to be working here
+    console.log(kittenArray);
+
+    kittensString = `${kittenArray.join("<br />")}`;
+    output.textContent = kittensString;
+
+    // changing visibility
+    output.style.visibility = "visible";
+    noOutput.style.display = "none";
+}
+
+function createKitten() {
+    kittenInherit();
+    kittenReader(kitten);
+}
+-----
+
+so the new plan is to repurpose createKitten to create new <p> elements
+two new ones. we can class them as "kittenGeneText" and "kittenPhenoText."
+
+okay, procedure:
+- create new p
+- give it text content
+- insert into DOM 
+
+okay, we're making an effort here to fix this.
+
+New error: invalid custom element name.
+
+It also occurs to me that the document will have to be cleaned of existing kittens.
+And this means referring to each one somehow.
+...Uh...
+Push each kitten into an array?
+
+is it getting hissy at me because there's a capital letter in the custom element name?
+
+okay it was
+but now we have this:
+
+finalKittenGenScript.js:77 Uncaught NotFoundError: Failed to execute 'insertBefore' on 'Node': The node before which the new node is to be inserted is not a child of this node.
+    at createKitten (finalKittenGenScript.js:77:19)
+    at randomize (finalKittenGenScript.js:53:9)
+    at HTMLButtonElement.onclick (finalKittenGen.html:271:64)
+createKitten @ finalKittenGenScript.js:77
+randomize @ finalKittenGenScript.js:53
+onclick @ finalKittenGen.html:271
+
+okay, maybe un-expedite the text content setting?
+
+That didn't fix it.
+
+... oh, now I'm going to insertBefore and I see it. 
+I'm trying to insert it into the body.
+That's not the parent node.
+
+possibly fixed, let's check
+
+removeChild now throwing the same error but progress.
+
+is this thing now complaining because there's no style tags on noOutput to remove?
+really?
+
+... hrrm
+if removing the message is a problem, how about it stays?
+
+Well that's the first time I've seen things just outright freeze.
+
+now it's bugging severely. wow.
+oh wait, no. DescArray isn't being cleaned so it's doing this.
+
+Okay, now it is working as intended.
+Let's... apply some css to the new text, and uh
+call it a night
+
+tomorrow, finish desc stringy and media responsiveness
+
+okay now the class identifier isn't showing up on the p tags
+possible solution: adjust the style on each gene text before it gets added in
+
+got it.
+now things are looking much better.
+
+so onto tomorrow I suppose
+good god that was a lot of work
+
+12/2/2025
+
+okay the decision has been made that I will need a hamburger menu for the nav
+or... hmm. Maybe there's some other option for decreasing the nav size on mobile?
+
+either way, though
+need to finish the gene reader script
+
+dilute but non-caramel kittens are being read as caramel
+as in, isCaramel is being flagged when it shouldn't be
+what is this
+I'm gonna ask it to print kitten too, so if it's an allele setting issue
+Okay yeah it is. I'm seeing DmDm when neither of those should be Dm
+Caught it. Parents' default alleles were still "DmDm".
+
+There we go.
+Now to put together the actual description.
+
+And that might be done.
+Now to move onto media responsiveness.
+What properties need to be changed?
+
+okay it appears that I promised a hamburger menu for mobile in my wireframe
+uuggh. Okay. what did I do during week 5?
+
+Hamburger not working properly whatsoever.
+Hmm, what can be done? Decrease the buttons' size?
+
+Making it position:relative and smaller seems like the best course of action.
+Am I done with this?
+
+...
+Yeah. It might just be time to upload to Github.
+
+nine files plus the index, going to Github. okay.
+let's do it

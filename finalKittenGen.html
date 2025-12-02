@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset='UTF-8'>
+        <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+
+        <link rel="icon" type="image/png" sizes="32x32" href="./finalCatFavicon-32x32.png">
+
+        <title>Kitten Generator</title>
+    </head>
+
+    <!-- script and stylesheet-->
+    <script src="./finalKittenGenScript.js"></script>
+    <link rel="stylesheet" href="./finalKittenGenStyles.css"/>
+
+    <!-- i in a circle icon-->
+    <!-- same procedure as hamburger icon from earlier in the class-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=info"/>
+
+    <body>
+        <nav id="mainNav">
+            <p id="navText">
+                <a href="https://github.com/NebulousOcelot/NebulousOcelot.github.io/blob/main/finalKittenGen.html"><button class="navButton">Code Repository</button></a>
+                <a href="https://github.com/NebulousOcelot/NebulousOcelot.github.io/blob/main/finalKittenGenScript.js"><button class="navButton">JavaScript</button></a>
+                <a href="https://github.com/NebulousOcelot/NebulousOcelot.github.io/blob/main/finalKittenGenStyles.css"><button class="navButton">CSS</button></a>
+                <a href="https://github.com/NebulousOcelot/NebulousOcelot.github.io/blob/main/finalCitations.txt"><button class="navButton">Coding Citations</button></a>
+                <a href="https://github.com/NebulousOcelot/NebulousOcelot.github.io/blob/main/finalJournaling.txt"><button class="navButton">Project Journaling</button></a>
+                <a href="./index.html"><button class="navButton">Return to Index</button></a>
+            </p>
+        </nav>
+
+        <!-- padding out the nav/title gap-->
+        <br>
+
+        <div class="section" id="titleBlock">
+            <p id="titleText">Random Kitten Creator</p>
+        </div>
+
+        <div class="section" id="panelBlock">
+
+        <!-- <button class="cardOpen" id="infocard1open" onclick="document.getElementById('firstDialog').showModal()">open infocard</button> -->
+        <table>
+            <!-- three columns: header, mother, father-->
+            <tr> <td class="leftColumn"></td> <td>Mother</td> <td>Father</td> </tr>
+
+            <!--phaeomelanin/orange row 0-->
+            <tr> <td class="leftColumn">Orange <span class="material-symbols-outlined" class="cardOpen" onclick="document.getElementById('dialog0').showModal()">info</span>
+            </td> 
+            <!-- mother orange-->
+            <td><select oninput="parents[0][0]=this.value">
+                <option value="XoXo">Black (XoXo)</option>
+                <option value="XOXo">Tortoiseshell (XOXo)</option>
+                <option value="XOXO">Orange (XOXO)</option>
+            </select></td> 
+            <!-- father orange-->
+            <td><select oninput="parents[0][1]=this.value">
+                <option value="XoY">Black (XoY)</option>
+                <option value="XOY">Orange (XOY)</option>
+            </select></td> </tr>
+
+            <!--eumelanin/black row 1-->
+            <tr> <td class="leftColumn">Browning <span class="material-symbols-outlined" class="cardOpen" onclick="document.getElementById('dialog1').showModal()">info</span>
+            </td> 
+            <!-- mother eumelanin-->
+            <td><select oninput="parents[1][0]=this.value">
+                <option value="BB">Black (BB)</option>
+                <option value="Bb">Black (Bb)</option>
+                <option value="Bb1">Black (Bb1)</option>
+                <option value="bb">Chocolate (bb)</option>
+                <option value="bb1">Chocolate (bb1)</option>
+                <option value="b1b1">Cinnamon (b1b1)</option>
+            </select></td> 
+            <!-- father eumelanin-->
+            <td><select oninput="parents[1][1]=this.value">
+                <option value="BB">Black (BB)</option>
+                <option value="Bb">Black (Bb)</option>
+                <option value="Bb1">Black (Bb1)</option>
+                <option value="bb">Chocolate (bb)</option>
+                <option value="bb1">Chocolate (bb1)</option>
+                <option value="b1b1">Cinnamon (b1b1)</option>
+            </select></td> </tr>
+
+            <!--albinism/colorpoint row 2-->
+            <tr> <td class="leftColumn">Albinism/Colorpoint <span class="material-symbols-outlined" class="cardOpen" onclick="document.getElementById('dialog2').showModal()">info</span>
+            </td> 
+            <!-- mother colorpoint-->
+            <td><select oninput="parents[2][0]=this.value">
+                <option value="CC">Not colorpoint (CC)</option>
+                <option value="Ccs">Not colorpoint (Ccs)</option>
+                <option value="Ccb">Not colorpoint (Ccb)</option>
+                <option value="Cc2">Not colorpoint (Cc2)</option>
+                <option value="Cc">Not colorpoint (Cc)</option>
+                <option value="cscs">Colorpoint (cscs)</option>
+                <option value="csc2">Colorpoint (csc2)</option>
+                <option value="csc">Colorpoint (csc)</option>
+                <option value="cscb">Mink (cscb)</option>
+                <option value="cbcb">Sepia (cbcb)</option>
+                <option value="cbc2">Sepia (cbc2)</option>
+                <option value="cbc">Sepia (cbc)</option>
+                <option value="c2c2">Blue-eyed Albino (c2c2)</option>
+                <option value="c2c">Blue-eyed Albino (c2c)</option>
+                <option value="cc">Pink-eyed Albino (cc)</option>
+            </select></td> 
+            <!-- father colorpoint-->
+            <td><select oninput="parents[2][1]=this.value">
+                <option value="CC">Not colorpoint (CC)</option>
+                <option value="Ccs">Not colorpoint (Ccs)</option>
+                <option value="Ccb">Not colorpoint (Ccb)</option>
+                <option value="Cc2">Not colorpoint (Cc2)</option>
+                <option value="Cc">Not colorpoint (Cc)</option>
+                <option value="cscs">Colorpoint (cscs)</option>
+                <option value="csc2">Colorpoint (csc2)</option>
+                <option value="csc">Colorpoint (csc)</option>
+                <option value="cscb">Mink (cscb)</option>
+                <option value="cbcb">Sepia (cbcb)</option>
+                <option value="cbc2">Sepia (cbc2)</option>
+                <option value="cbc">Sepia (cbc)</option>
+                <option value="c2c2">Blue-eyed Albino (c2c2)</option>
+                <option value="c2c">Blue-eyed Albino (c2c)</option>
+                <option value="cc">Pink-eyed Albino (cc)</option>
+            </select></td> </tr>
+
+            <!--dilution/gray row 3-->
+            <tr> <td class="leftColumn">Dilution <span class="material-symbols-outlined" class="cardOpen" onclick="document.getElementById('dialog3').showModal()">info</span>
+            </td> 
+            <!-- mother dilute-->
+            <td><select oninput="parents[3][0]=this.value">
+                <option value="DD">Not dilute (DD)</option>
+                <option value="Dd">Not dilute (Dd)</option>
+                <option value="dd">Dilute (dd)</option>
+            </select></td> 
+            <!-- father dilute-->
+            <td><select oninput="parents[3][1]=this.value">
+                <option value="DD">Not dilute (DD)</option>
+                <option value="Dd">Not dilute (Dd)</option>
+                <option value="dd">Dilute (dd)</option>
+            </select></td> </tr>
+
+            <!--diluteModifier/caramel row 4-->
+            <tr> <td class="leftColumn">Dilute Modifier <span class="material-symbols-outlined" class="cardOpen" onclick="document.getElementById('dialog4').showModal()">info</span>
+            </td> 
+            <!-- mother caramel-->
+            <td><select oninput="parents[4][0]=this.value">
+                <option value="dmdm">Not caramel (dmdm)</option>
+                <option value="Dmdm">Caramel (Dmdm)</option>
+                <option value="DmDm">Caramel (DmDm)</option>
+            </select></td> 
+            <!-- father caramel-->
+            <td><select oninput="parents[4][1]=this.value">
+                <option value="dmdm">Not caramel (dmdm)</option>
+                <option value="Dmdm">Caramel (Dmdm)</option>
+                <option value="DmDm">Caramel (DmDm)</option>
+            </select></td> </tr>
+
+            <!--dominant white row 5-->
+            <tr> <td class="leftColumn">Dominant White <span class="material-symbols-outlined" class="cardOpen" onclick="document.getElementById('dialog5').showModal()">info</span>
+            </td> 
+            <!-- mother white-->
+            <td><select oninput="parents[5][0]=this.value">
+                <option value="wdwd">Not White (wdwd)</option>
+                <option value="Wdwd">White (Wdwd)</option>
+                <option value="WdWd">White (WdWd)</option>
+            </select></td> 
+            <!-- father white-->
+            <td><select oninput="parents[5][1]=this.value">
+                <option value="wdwd">Not White (wdwd)</option>
+                <option value="Wdwd">White (Wdwd)</option>
+                <option value="WdWd">White (WdWd)</option>
+            </select></td> </tr>
+
+            <!--white spotting row 6-->
+            <tr> <td class="leftColumn">White Spotting <span class="material-symbols-outlined" class="cardOpen" onclick="document.getElementById('dialog6').showModal()">info</span>
+            </td> 
+            <!-- mother white spotting-->
+            <td><select oninput="parents[6][0]=this.value">
+                <option value="wsws">Little to no white (wsws)</option>
+                <option value="Wsws">Some to mostly white (Wsws) </option>
+                <option value="WsWs">Almost entirely white (WsWs)</option>
+            </select></td> 
+            <!-- father white spotting-->
+            <td><select oninput="parents[6][1]=this.value">
+                <option value="wsws">Little to no white (wsws)</option>
+                <option value="Wsws">Some to mostly white (Wsws) </option>
+                <option value="WsWs">Almost entirely white (WsWs)</option>
+            </select></td> </tr>
+
+            <!--agouti/tabby row 7-->
+            <tr> <td class="leftColumn">Agouti/Tabby <span class="material-symbols-outlined" class="cardOpen" onclick="document.getElementById('dialog7').showModal()">info</span>
+            </td> 
+            <!-- mother tabby-->
+            <td><select oninput="parents[7][0]=this.value">
+                <option value="aa">Solid (aa)</option>
+                <option value="Afca">Tabby (Afca)</option>
+                <option value="AfcAfc">Tabby (AfcAfc)</option>
+            </select></td> 
+            <!-- father tabby-->
+            <td><select oninput="parents[7][1]=this.value">
+                <option value="aa">Solid (aa)</option>
+                <option value="Afca">Tabby (Afca)</option>
+                <option value="AfcAfc">Tabby (AfcAfc)</option>
+            </select></td> </tr>
+
+            <!--ticked tabby row 8-->
+            <tr> <td class="leftColumn">Ticked Tabby <span class="material-symbols-outlined" class="cardOpen" onclick="document.getElementById('dialog8').showModal()">info</span>
+            </td> 
+            <!-- mother ticked tabby-->
+            <td><select oninput="parents[8][0]=this.value">
+                <option value="tata">Not ticked tabby (tata)</option>
+                <option value="Tata">Ticked Tabby (Tata)</option>
+                <option value="TaTa">Ticked Tabby (TaTa)</option>
+            </select></td>
+            <!-- father ticked tabby--> 
+            <td><select oninput="parents[8][1]=this.value">
+                <option value="tata">Not ticked tabby (tata)</option>
+                <option value="Tata">Ticked Tabby (Tata)</option>
+                <option value="TaTa">Ticked Tabby (TaTa)</option>
+            </select></td> </tr>
+
+            <!--spotted tabby row 9-->
+            <tr> <td class="leftColumn">Spotted Tabby <span class="material-symbols-outlined" class="cardOpen" onclick="document.getElementById('dialog9').showModal()">info</span>
+            </td>
+            <!-- mother spotted tabby-->
+            <td><select oninput="parents[9][0]=this.value">
+                <option value="spsp">Not spotted tabby (spsp)</option>
+                <option value="Spsp">Spotted Tabby (Spsp)</option>
+                <option value="SpSp">Spotted Tabby (SpSp)</option>
+            </select></td> 
+            <!-- father spotted tabby-->
+            <td><select oninput="parents[9][1]=this.value">
+                <option value="spsp">Not spotted tabby (spsp)</option>
+                <option value="Spsp">Spotted Tabby (Spsp)</option>
+                <option value="SpSp">Spotted Tabby (SpSp)</option>
+            </select></td> </tr>
+
+            <!--primary/mackerel/classic tabby row 10-->
+            <tr> <td class="leftColumn">Primary Tabby Type <span class="material-symbols-outlined" class="cardOpen" onclick="document.getElementById('dialog10').showModal()">info</span>
+            </td> 
+            <!-- mother tabby type-->
+            <td><select oninput="parents[10][0]=this.value">
+                <option value="McMc">Mackerel Tabby (McMc)</option>
+                <option value="Mcmc">Mackerel Tabby (Mcmc)</option>
+                <option value="mcmc">Classic Tabby (mcmc)</option>
+            </select></td> 
+            <!-- father tabby type-->
+            <td><select oninput="parents[10][1]=this.value">
+                <option value="McMc">Mackerel Tabby (McMc)</option>
+                <option value="Mcmc">Mackerel Tabby (Mcmc)</option>
+                <option value="mcmc">Classic Tabby (mcmc)</option>
+            </select></td> </tr>
+
+            <!--fur length row 11-->
+            <tr> <td class="leftColumn">Fur Length <span class="material-symbols-outlined" class="cardOpen" onclick="document.getElementById('dialog11').showModal()">info</span></td> 
+            <!-- mother fur-->
+            <td><select oninput="parents[11][0]=this.value">
+                <option value="LL">Shorthair (LL)</option>
+                <option value="Ll">Shorthair (Ll)</option>
+                <option value="ll">Longhair (ll)</option>
+            </select></td> 
+            <!-- father fur-->
+            <td><select oninput="parents[11][1]=this.value">
+                <option value="LL">Shorthair (LL)</option>
+                <option value="Ll">Shorthair (Ll)</option>
+                <option value="ll">Longhair (ll)</option>
+            </select></td> </tr>
+        </table>
+
+        </div>
+
+        <p id="randomText">
+            <input id="numInput" oninput="numKittens = Number(this.value)" placeholder="Number of kittens"/>
+            <button class="randomButton" onclick="randomize()">Generate</button>
+        </p>
+
+        <div class="section" id="outputBlock">
+            <!-- p to insert things after-->
+            <p id="noOutput">Click the button to generate kittens!</p>
+            <p id="kittenOut">No kittens here yet.</p>
+        </div>
+
+        <p id="sigText">
+            created by BraveOcelot as a final project for a web programming class <br>
+            this generator focuses on genes (commonly) found in the stray cat population <br>
+            refer to <a href="https://sparrows-garden.com/genetics/cat-color-glossary.html">Sparrow's Garden's glossary</a> for more information and pictures of cat colors
+        </p>
+        <br>
+
+        <!-- dialog forest below this line -->
+        <!-- first use of dialog outside perchance. testing shows this can stay outside the body, 
+         but given how I'm applying font-size, I think it should be here.-->
+
+        <!-- starting at 0 to follow index on the array-->
+
+        <!-- phaeomelanin/orange-->
+        <dialog id="dialog0">
+            <p class="dialogTitle">Sex-linked Orange</p>
+            <p class="dialogText">
+                The allele which causes orange-pigmented fur is sex-linked, meaning that it is carried on the X-chromosome. Male cats, having only one X-chromosome, can be either Black(Xo) or Orange(XO).<br><br>
+                Female cats, however, have two X-chromosomes. A female cat with only one orange-carrying X-chromosome will be a tortoiseshell, with patches of black and orange pigment. This is also why female orange cats are considered rare.<br><br>
+                Orange pigment is called Phaeomelanin, while black pigment is called Eumelanin.<br><br>
+                The orange coat is also sometimes called "red." This is one of many language holdovers from the word "orange" being relatively new to the English language (ex: red foxes, red-tailed hawks, etc.).
+            </p>
+            <button class="cardClose" onclick="document.getElementById('dialog0').close()">close infocard</button>
+        </dialog>
+
+        <!-- eumelanin/black/browning-->
+        <dialog id="dialog1">
+            <p class="dialogTitle">Browning (Chocolate and Cinnamon)</p>
+            <p class="dialogText">
+                Two recessive genes cause black pigment to be lightened and browned. Black(B) is dominant over Chocolate(b), which is dominant over Cinnamon(b1). Both forms of brown are rare in the wild.<br><br>
+                Orange pigment is not affected by this gene.
+            </p>
+            <button class="cardClose" onclick="document.getElementById('dialog1').close()">close infocard</button>
+        </dialog>
+
+        <!-- albinism/colorpoint-->
+        <dialog id="dialog2">
+            <p class="dialogTitle">Albinism & Colorpoints</p>
+            <p class="dialogText">
+                The colorpoint coat, celebrated as the Siamese breed, is a form of albinism. Kittens are born white, their coats darkening as they age. The colder areas of the cat's body, most notably the extremities or "points", develop more pigment. Colorpoints in colder regions have darker coats.<br><br>
+                Black colorpoints are often referred to as Seal Point.<br><br>
+                A tabby colorpoint is called a Lynx Point. They have shadows of tabby stripes in their lighter fur.<br><br>
+                The solid coat, C, is dominant over everything else. cs and cb are co-dominant. cs is the classic Siamese colorpoint, while cb is the darker Sepia colorpoint seen in the Burmese breed. When a cat has both cs and cb alleles, its coat is an even halfway point between the two; this is called Mink and is characteristic of the Tonkinese breed.<br><br>
+                c2, the blue-eyed albino, is recessive to colorpoint but dominant to c, which is the pink-eyed albino.
+            </p>
+            <button class="cardClose" onclick="document.getElementById('dialog2').close()">close infocard</button>
+        </dialog>
+
+        <!-- dilution-->
+        <dialog id="dialog3">
+            <p class="dialogTitle">Dilution (Gray)</p>
+            <p class="dialogText">
+                The recessive Dilution gene dilutes both black and orange pigment. Black becomes Gray/"Blue", Chocolate becomes the rosy-gray Lilac, and Cinnamon becomes the light brown Fawn. Orange becomes Cream, also called Buff.<br><br>
+                The dilution affects all of the pigment in a tortoiseshell's coat, producing Blue-Cream, Lilac-Cream, or Fawn-Cream.
+            </p>
+            <button class="cardClose" onclick="document.getElementById('dialog3').close()">close infocard</button>
+        </dialog>
+
+        <!-- dilute modifier-->
+        <dialog id="dialog4">
+            <p class="dialogTitle">Dilute Modifier (Caramelization)</p>
+            <p class="dialogText">
+                The dominant Dilute Modifier gene affects already-diluted pigment, turning it a browner shade. This is referred to as caramelization. Gray becomes Caramel, Lilac becomes Taupe, and Cream becomes Apricot. (A Fawn-based caramel is certainly possible, but undoubtedly rare.)
+            </p>
+            <button class="cardClose" onclick="document.getElementById('dialog4').close()">close infocard</button>
+        </dialog>
+
+        <!-- dominant white-->
+        <dialog id="dialog5">
+            <p class="dialogTitle">Dominant White</p>
+            <p class="dialogText">
+                The dominant white gene turns a cat's coat completely and totally white. <br><br>
+                Blue-eyed white cats with this gene are often born deaf, as this gene can inhibit the development of the inner ear.
+            </p>
+            <button class="cardClose" onclick="document.getElementById('dialog5').close()">close infocard</button>
+        </dialog>
+        
+        <!-- white spotting-->
+        <dialog id="dialog6">
+            <p class="dialogTitle">White Spotting (Bicolor)</p>
+            <p class="dialogText">
+                The white spotting gene creates patches of white, non-pigmented fur on a cat. It is partially dominant over the solid coat.<br><br>
+                Low-grade white spotting starts on the cat's underside, while mid-grade ("bicolor") advances onto the paws and face. High-grade white spotting leaves the ears and tail as the last splotches of color. It can sometimes be indistinguishable from dominant white.<br><br>
+                Bicolor tortoiseshells are referred to as "calico".<br><br>
+                All white or bicolor cats can have blue eyes, or more commonly, one blue eye and one with a normal color (odd eyes).<br><br>
+                A cat without this gene can still have tiny white patches, most often on the underside. This is especially common in black cats.
+            </p>
+            <button class="cardClose" onclick="document.getElementById('dialog6').close()">close infocard</button>
+        </dialog>
+
+        <!-- agouti/tabby -->
+        <dialog id="dialog7">
+            <p class="dialogTitle">Agouti (Tabby)</p>
+            <p class="dialogText">
+                The tabby is the natural wild type of cats, and is dominant over the completely solid coat.<br><br>
+                However, orange-pigmented fur will always be tabby, even if the cat is genetically not a tabby. This is called a pseudo- or ghost-tabby.<br><br>
+                Tabbies are characterized by banded hair shafts, with bands of lightened pigment, alongside stripes of solid-colored hairs. A tabby's genetic color is the color of their stripes. Most "brown" tabbies have black stripes and are therefore genetically black; a chocolate or cinnamon tabby will have brown stripes.<br><br>
+                The pattern of the tabby is controlled by other genes, but an "M" on the forehead and stripes on the legs and tail are near-universal. Marbled and rosetted tabbies have wildcat ancestry (as seen in the Bengal breed).<br><br>
+                Ticked tabby overrides Spotted tabby which overrides the primary tabby type.
+            </p>
+            <button class="cardClose" onclick="document.getElementById('dialog7').close()">close infocard</button>
+        </dialog>
+
+        <!-- ticked tabby-->
+        <dialog id="dialog8">
+            <p class="dialogTitle">Ticked Tabby</p>
+            <p class="dialogText">
+                The Ticked or Agouti Tabby is a special variant of tabby. It is essentially a tabby cat with the banded hair shafts, but no stripes, except maybe on the legs or tail. An unbroken coat of banded hairs.
+            </p>
+            <button class="cardClose" onclick="document.getElementById('dialog8').close()">close infocard</button>
+        </dialog>
+
+        <!-- spotted tabby-->
+        <dialog id="dialog9">
+            <p class="dialogTitle">Spotted Tabby</p>
+            <p class="dialogText">
+                A spotted tabby's coat is spotted, instead of striped. There are intermediate stages between spotted and mackerel (striped) tabbies. It is possible for a "broken mackerel" tabby's broken stripes to resemble spots.
+            </p>
+            <button class="cardClose" onclick="document.getElementById('dialog9').close()">close infocard</button>
+        </dialog>
+
+        <!-- primary tabby type-->
+        <dialog id="dialog10">
+            <p class="dialogTitle">Classic & Mackerel Tabbies</p>
+            <p class="dialogText">
+                The dominant mackerel tabby is the iconic, pin-stripey straight stripes pattern. The recessive classic tabby has large, blotched, swirling stripes, often forming a "bullseye" on the cat's side.
+            </p>
+            <button class="cardClose" onclick="document.getElementById('dialog10').close()">close infocard</button>
+        </dialog>
+
+        <!--fur length-->
+         <dialog id="dialog11">
+            <p class="dialogTitle">Shorthair and Longhair</p>
+            <p class="dialogText">
+                The recessive longhair gene gives a cat longer fur. Separate genes control how silky or woolly the fur can be. Genes causing curly hair or hairlessness (ex: the Sphynx breed) are often found and made into specialized breeds.
+            </p>
+            <button class="cardClose" onclick="document.getElementById('dialog11').close()">close infocard</button>
+        </dialog>
+
+    </body>
+</html>

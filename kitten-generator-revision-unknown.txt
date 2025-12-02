@@ -1,0 +1,663 @@
+https://perchance.org/kitten-generator
+
+I DO NOT OWN THIS CODE OR CONCEPT OR ANYTHING
+I AM TAKING A COPY OF THIS GENERATOR'S CODE FOR USE AS A REFERENCE
+signing mecox8 / BraveOcelot 11/17/2025
+
+<<<<< this file contains your perchance lists first, and your HTML code underneath it >>>>>
+
+
+
+title = Kitten Generator
+pageDescription
+	Phenotype for the kitten is still a work in progress for wide band, silver, and amber. Everything else works as intended!
+footNote = Inspired by sparrows-garden.com
+
+navbar = {import:navbar-plugin}
+menu = {import:cat-generators}
+
+
+// !! NOTES !!
+// white spotting: wsws very low grade, Wsws low/medium grade, WsWs medium/high grade
+// wild type and domestic agouti genes:
+// aa, Afc/a, Afc/Afc = domestic tabbies (typical aa, Aa, AA)
+// Apb/a = charcoal form of present wild tabby
+// Apb/Afc = wild form of present tabby
+// Apb/Apb = wild form tabby
+
+numberOfKittens = 1
+outputTitle = [numberOfKittens>=2 ? "Kittens" : "Kitten"]
+styling = <p style="opacity:0.6; margin-top:0px;">
+
+// thank you keyboard for not having this important character |
+
+genotype
+	[kitBlack = eumelanin.selectOne.evaluateItem, kitBlack]
+	[kitRed = phaeomelanin.selectOne.evaluateItem, kitRed]
+	[kitAlbinism = albinism.selectOne.evaluateItem, kitAlbinism]
+	[kitDilution = dilution.selectOne.evaluateItem, kitDilution]
+	[kitDiluteMod = diluteMod.selectOne.evaluateItem, kitDiluteMod]
+	[kitWhite = white.selectOne.evaluateItem, kitWhite]
+	[kitWhiteSpot = whiteSpot.selectOne.evaluateItem, kitWhiteSpot]
+	[kitAgouti = agouti.selectOne.evaluateItem, kitAgouti]
+	[kitTicked = ticked.selectOne.evaluateItem, kitTicked]
+	[kitSpotted = spotted.selectOne.evaluateItem, kitSpotted]
+	[kitPrimary = primary.selectOne.evaluateItem, kitPrimary]
+	[kitWideBand = wideBand.selectOne.evaluateItem, kitWideBand]
+	[kitSilver = silver.selectOne.evaluateItem, kitSilver]
+	[kitAmber = amber.selectOne.evaluateItem, kitAmber]
+	[kitFurLength = furLength.selectOne.evaluateItem, kitFurLength]
+	<br>[styling][phenotype]</p>
+	$output = [this.joinItems(" ")]
+
+phenotype
+	[kitFurLength!="ll" ? "Short haired" : "Long haired"],
+	[kitWhite!="wdwd" ? "white" : sealCheck]
+	[kitRed=="XoXo" || kitRed=="XoY" ? [kitAgouti!="aa" ? [kitAgouti=="Afca" || kitAgouti=="AfcAfc" ? phenoTabby.lowerCase + [kitAgouti!="aa" ? " "+[lynxCheck] : ""] : [kitAgouti=="Apba" ? "charcoal " : ""] + phenoWildTabby.lowerCase + [kitAgouti!="aa" ? " "+[lynxCheck] : ""]] : ""] : ""]
+	[phenoAlbinism.lowerCase]
+	[kitRed=="XoY" || kitRed=="XOY" ? "male" : "female"],
+	[kitWhiteSpot=="wsws" ? "with little to no white spotting" : [kitWhiteSpot=="Wsws" ? "with small to medium amounts of white spotting" : "with medium to high amounts of white spotting"]]
+	$output = ([this.joinItems(" ")])
+
+lynxCheck = [kitAlbinism!="cscs" && kitAlbinism!="cscb" && kitAlbinism!="cbcb" ? "tabby" : "lynx"]
+sealCheck = [phenoBlack=="Black" && kitAlbinism!="Ccs" && kitAlbinism!="Ccb" && kitAlbinism!="CC" ? "seal" : phenoColor.lowerCase]
+
+phenoColor
+	[kitDilution=="dd" && kitRed=="XoXo" || kitDilution=="dd" && kitRed=="XoY" ? phenoDilution : phenoSex]
+
+phenoSex
+	[kitDilution!="dd" && kitRed=="XoXo" || kitDilution!="dd" && kitRed=="XoY" ? phenoBlack : [kitDilution!="dd" && kitRed=="XOXO" || kitDilution!="dd" && kitRed=="XOY" ? "red " + phenoRedAgouti + [kitAgouti!="aa" ? " tabby" : ""] : phenoSex]]
+	[kitDilution=="dd" && kitDiluteMod=="dmdm" && kitRed!="XOXo" ? "cream " + phenoRedAgouti + [kitAgouti!="aa" ? " tabby" : ""] : phenoSex]
+	[kitDilution=="dd" && kitDiluteMod!="dmdm" && kitRed!="XOXo" ? "apricot " + phenoRedAgouti + [kitAgouti!="aa" ? " tabby" : ""] : phenoSex]
+	[kitDilution!="dd" && kitRed=="XOXo" ? [phenoBlack + " and Red " + phenoRedAgouti + phenoXOXo] : phenoSex]
+	[kitDilution=="dd" && kitDiluteMod=="dmdm" && kitRed=="XOXo" ? [phenoDilution + " and Cream " + phenoRedAgouti + phenoXOXo] : phenoSex]
+	[kitDilution=="dd" && kitDiluteMod!="dmdm" && kitRed=="XOXo" ? [phenoDiluteMod + " and Apricot " + phenoRedAgouti + phenoXOXo] : phenoSex]
+
+phenoXOXo
+	[kitWhiteSpot=="wsws" ? ", tortoiseshell" + [kitAgouti!="aa" ? "-tabby (torbie)" : ""] : phenoXOXo]
+	[kitWhiteSpot=="Wsws" ? "{, tortoiseshell|, calico}" + [kitAgouti!="aa" ? "-tabby" + [phenoXOXo==", tortoiseshell" ? " (torbie)" : " (caliby)"] : ""] : phenoXOXo]
+	[kitWhiteSpot=="WsWs" ? ", calico" + [kitAgouti!="aa" ? "-tabby (caliby)" : ""] : phenoXOXo]
+
+phenoBlack
+	[kitBlack=="BB" ? "Black" : [kitBlack=="Bb" ? "Black" : [kitBlack=="Bb1" ? "Black" : phenoBlack]]]
+	[kitBlack=="bb" ? "Chocolate" : [kitBlack=="bb1" ? "Chocolate" : phenoBlack]]
+	[kitBlack=="b1b1" ? "Cinnamon" : phenoBlack]
+
+phenoDilution
+	[kitDiluteMod=="dmdm" ? [kitBlack=="BB" ? "Blue" : [kitBlack=="Bb" ? "Blue" : [kitBlack=="Bb1" ? "Blue" : phenoDilution]]] : phenoDiluteMod]
+	[kitDiluteMod=="dmdm" ? [kitBlack=="bb" ? "Lilac" : [kitBlack=="bb1" ? "Lilac" : phenoDilution]] : phenoDiluteMod]
+	[kitDiluteMod=="dmdm" ? [kitBlack=="b1b1" ? "Fawn" : phenoDilution] : phenoDiluteMod]
+	
+phenoDiluteMod
+	[kitBlack=="BB" ? "Blue-Based Caramel" : [kitBlack=="Bb" ? "Blue-Based Caramel" : [kitBlack=="Bb1" ? "Blue-Based Caramel" : phenoDiluteMod]]]
+	[kitBlack=="bb" ? "Lilac-Based Caramel" : [kitBlack=="bb1" ? "Lilac-Based Caramel" : phenoDiluteMod]]
+	[kitBlack=="b1b1" ? "Fawn-based Caramel" : phenoDiluteMod]
+
+phenoRedAgouti
+	[kitAgouti=="aa" || kitAgouti=="Afca" || kitAgouti=="AfcAfc" ? phenoTabby.lowerCase : [kitAgouti=="Apba" ? "charcoal " : ""] + phenoWildTabby.lowerCase]
+
+phenoTabby
+	[kitTicked!="tata" ? "Ticked" + [kitAgouti=="aa" ? " (Ghost-Tabby)" : ""] : phenoTabby]
+	[kitTicked=="tata" && kitSpotted!="spsp" ? "Spotted" + [kitAgouti=="aa" ? " (Ghost-Tabby)" : ""] : phenoTabby]
+	[kitTicked=="tata" && kitSpotted=="spsp" && kitPrimary!="mcmc" ? "Mackerel" + [kitAgouti=="aa" ? " (Ghost-Tabby)" : ""] : phenoTabby]
+	[kitTicked=="tata" && kitSpotted=="spsp" && kitPrimary=="mcmc" ? "Classic" + [kitAgouti=="aa" ? " (Ghost-Tabby)" : ""] : phenoTabby]
+
+phenoWildTabby
+	[kitTicked!="tata" ? "Freckled" + [kitAgouti=="aa" ? " (Ghost-Tabby)" : ""] : phenoWildTabby]
+	[kitTicked=="tata" && kitSpotted!="spsp" ? "Rosetted" + [kitAgouti=="aa" ? " (Ghost-Tabby)" : ""] : phenoWildTabby]
+	[kitTicked=="tata" && kitSpotted=="spsp" && kitPrimary!="mcmc" ? "Braided" + [kitAgouti=="aa" ? " (Ghost-Tabby)" : ""] : phenoWildTabby]
+	[kitTicked=="tata" && kitSpotted=="spsp" && kitPrimary=="mcmc" ? "Clouded" + [kitAgouti=="aa" ? " (Ghost-Tabby)" : ""] : phenoWildTabby]
+
+phenoAlbinism
+	[kitAlbinism=="cscs" ? "Point" : phenoAlbinism]
+	[kitAlbinism=="cscb" ? "Mink" : phenoAlbinism]
+	[kitAlbinism=="cbcb" ? "Sepia" : phenoAlbinism]
+	[kitAlbinism!="cscs" && kitAlbinism!="cscb" && kitAlbinism!="cbcb" ? "" : phenoAlbinism]
+
+phenoWideBand
+phenoSilver
+phenoAmber
+
+
+//
+// basically punnett squares below
+//
+
+
+error = ERROR
+
+eumelanin
+	[queenBlack=="BB" ?   [sireBlack=="BB" ? "BB" :       [sireBlack=="Bb" ? "{BB|Bb}" :         [sireBlack=="Bb1" ? "{Bb1|BB}" :          [sireBlack=="bb" ? "Bb" :       [sireBlack=="bb1" ? "{Bb|Bb1}" :          [sireBlack=="b1b1" ? "Bb1"        : error]]]]]] : eumelanin]
+	[queenBlack=="Bb" ?   [sireBlack=="BB" ? "{BB|Bb}" :  [sireBlack=="Bb" ? "{Bb|Bb|BB|bb}" :   [sireBlack=="Bb1" ? "{Bb1|BB|Bb|bb1}" :   [sireBlack=="bb" ? "{Bb|bb}" :  [sireBlack=="bb1" ? "{Bb|Bb1|bb|bb1}" :   [sireBlack=="b1b1" ? "{Bb1|bb1}"  : error]]]]]] : eumelanin]
+	[queenBlack=="Bb1" ?  [sireBlack=="BB" ? "{BB|Bb1}" : [sireBlack=="Bb" ? "{BB|Bb|Bb1|bb1}" : [sireBlack=="Bb1" ? "{Bb1|Bb1|BB|b1b1}" : [sireBlack=="bb" ? "{Bb|bb1}" : [sireBlack=="bb1" ? "{Bb|Bb1|bb1|b1b1}" :  [sireBlack=="b1b1" ? "{Bb1|b1b1}" : error]]]]]] : eumelanin]
+	[queenBlack=="bb" ?   [sireBlack=="BB" ? "Bb" :       [sireBlack=="Bb" ? "{Bb|bb}" :         [sireBlack=="Bb1" ? "{bb1|Bb}" :          [sireBlack=="bb" ? "bb" :       [sireBlack=="bb1" ? "{bb|bb1}" :          [sireBlack=="b1b1" ? "bb1"        : error]]]]]] : eumelanin]
+	[queenBlack=="bb1" ?  [sireBlack=="BB" ? "{Bb|Bb1}" : [sireBlack=="Bb" ? "{Bb|Bb1|bb|bb1}" : [sireBlack=="Bb1" ? "{Bb1|Bb|bb1|b1b1}" :  [sireBlack=="bb" ? "{bb|bb1}" : [sireBlack=="bb1" ? "{bb|b1b1|bb1|bb1}" : [sireBlack=="b1b1" ? "{bb1|b1b1}" : error]]]]]] : eumelanin]
+	[queenBlack=="b1b1" ? [sireBlack=="BB" ? "Bb1" :      [sireBlack=="Bb" ? "{Bb1|bb1}" :       [sireBlack=="Bb1" ? "{Bb1|b1b1}" :        [sireBlack=="bb" ? "bb1" :      [sireBlack=="bb1" ? "{bb1|b1b1}" :        [sireBlack=="b1b1" ? "b1b1"       : error]]]]]] : eumelanin]
+
+
+phaeomelanin
+	[queenRed=="XoXo" ? [sireRed=="XoY" ? "{XoXo|XoXo|XoY|XoY}" : [sireRed=="XOY" ? "{XOXo|XOXo|XoY|XoY}" : error]] : phaeomelanin]
+	[queenRed=="XOXo" ? [sireRed=="XoY" ? "{XOXo|XoXo|XOY|XoY}" : [sireRed=="XOY" ? "{XOXO|XOXo|XOY|XoY}" : error]] : phaeomelanin]
+	[queenRed=="XOXO" ? [sireRed=="XoY" ? "{XOXo|XOXo|XOY|XOY}" : [sireRed=="XOY" ? "{XOXO|XOXO|XOY|XOY}" : error]] : phaeomelanin]
+
+
+albinism
+	[queenAlbinism=="CC" ?   [sireAlbinism=="CC" ? "CC" :        [sireAlbinism=="Ccs" ? "{CC|Ccs}" :            [sireAlbinism=="Ccb" ? "{CC|Ccb}" :            [sireAlbinism=="cscs" ? "Ccs" :         [sireAlbinism=="cscb" ? "{Ccs|Ccb}" :             [sireAlbinism=="cbcb" ? "Ccb"         : error]]]]]] : albinism]
+	[queenAlbinism=="Ccs" ?  [sireAlbinism=="CC" ? "{CC|Ccs}" :  [sireAlbinism=="Ccs" ? "{CC|Ccs|Ccs|cscs}" :   [sireAlbinism=="Ccb" ? "{CC|Ccs|Ccb|cscb}" :   [sireAlbinism=="cscs" ? "{Ccs|cscs}" :  [sireAlbinism=="cscb" ? "{Ccs|Ccb|cscs|cscb}" :   [sireAlbinism=="cbcb" ? "{Ccb|cscb}"  : error]]]]]] : albinism]
+	[queenAlbinism=="Ccb" ?  [sireAlbinism=="CC" ? "{CC|Ccb}" :  [sireAlbinism=="Ccs" ? "{CC|Ccs|Ccb|cscb}" :   [sireAlbinism=="Ccb" ? "{CC|Ccb|Ccb|cbcb}" :   [sireAlbinism=="cscs" ? "{Ccs|cscb}" :  [sireAlbinism=="cscb" ? "{Ccs|Ccb|cscb|cbcb}" :   [sireAlbinism=="cbcb" ? "{Ccb|cbcb}"  : error]]]]]] : albinism]
+	[queenAlbinism=="cscs" ? [sireAlbinism=="CC" ? "Ccs" :       [sireAlbinism=="Ccs" ? "{Ccs|cscs}" :          [sireAlbinism=="Ccb" ? "{Ccs|cscb}" :          [sireAlbinism=="cscs" ? "cscs" :        [sireAlbinism=="cscb" ? "{cscs|cscb}" :           [sireAlbinism=="cbcb" ? "cscb"        : error]]]]]] : albinism]
+	[queenAlbinism=="cscb" ? [sireAlbinism=="CC" ? "{Ccs|Ccb}" : [sireAlbinism=="Ccs" ? "{Ccs|Ccb|cscs|cscb}" : [sireAlbinism=="Ccb" ? "{Ccs|Ccb|cscb|cbcb}" : [sireAlbinism=="cscs" ? "{cscs|cscb}" : [sireAlbinism=="cscb" ? "{cscs|cscb|cscb|cbcb}" : [sireAlbinism=="cbcb" ? "{cscb|cbcb}" : error]]]]]] : albinism]
+	[queenAlbinism=="cbcb" ? [sireAlbinism=="CC" ? "Ccb" :       [sireAlbinism=="Ccs" ? "{Ccb|cscb}" :          [sireAlbinism=="Ccb" ? "{Ccb|cbcb}" :          [sireAlbinism=="cscs" ? "cscb" :        [sireAlbinism=="cscb" ? "{cscb|cbcb}" :           [sireAlbinism=="cbcb" ? "cbcb"        : error]]]]]] : albinism]
+
+
+dilution
+	[queenDilution=="DD" ? [sireDilution=="DD" ? "DD"      : [sireDilution=="Dd" ? "{DD|Dd}"       : [sireDilution=="dd" ? "Dd"      : error]]] : dilution]
+	[queenDilution=="Dd" ? [sireDilution=="DD" ? "{DD|Dd}" : [sireDilution=="Dd" ? "{DD|Dd|Dd|dd}" : [sireDilution=="dd" ? "{Dd|dd}" : error]]] : dilution]
+	[queenDilution=="dd" ? [sireDilution=="DD" ? "Dd"      : [sireDilution=="Dd" ? "{Dd|dd}"       : [sireDilution=="dd" ? "dd"      : error]]] : dilution]
+
+
+diluteMod
+	[queenDiluteMod=="dmdm" ? [sireDiluteMod=="dmdm" ? "dmdm"        : [sireDiluteMod=="Dmdm" ? "{Dmdm|dmdm}"           : [sireDiluteMod=="DmDm" ? "Dmdm"        : error]]] : diluteMod]
+	[queenDiluteMod=="Dmdm" ? [sireDiluteMod=="dmdm" ? "{Dmdm|dmdm}" : [sireDiluteMod=="Dmdm" ? "{DmDm|Dmdm|Dmdm|dmdm}" : [sireDiluteMod=="DmDm" ? "{DmDm|Dmdm}" : error]]] : diluteMod]
+	[queenDiluteMod=="DmDm" ? [sireDiluteMod=="dmdm" ? "Dmdm"        : [sireDiluteMod=="Dmdm" ? "{DmDm|Dmdm}"           : [sireDiluteMod=="DmDm" ? "DmDm"        : error]]] : diluteMod]
+
+
+white
+	[queenWhite=="wdwd" ? [sireWhite=="wdwd" ? "wdwd"        : [sireWhite=="Wdwd" ? "{Wdwd|wdwd}"           : [sireWhite=="WdWd" ? "Wdwd"        : error]]] : white]
+	[queenWhite=="Wdwd" ? [sireWhite=="wdwd" ? "{Wdwd|wdwd}" : [sireWhite=="Wdwd" ? "{WdWd|Wdwd|Wdwd|wdwd}" : [sireWhite=="WdWd" ? "{WdWd|Wdwd}" : error]]] : white]
+	[queenWhite=="WdWd" ? [sireWhite=="wdwd" ? "Wdwd"        : [sireWhite=="Wdwd" ? "{WdWd|Wdwd}"           : [sireWhite=="WdWd" ? "WdWd"        : error]]] : white]
+
+
+whiteSpot
+	[queenWhiteSpot=="wsws" ? [sireWhiteSpot=="wsws" ? "wsws"        : [sireWhiteSpot=="Wsws" ? "{Wsws|wsws}"           : [sireWhiteSpot=="WsWs" ? "Wsws"        : error]]] : whiteSpot]
+	[queenWhiteSpot=="Wsws" ? [sireWhiteSpot=="wsws" ? "{Wsws|wsws}" : [sireWhiteSpot=="Wsws" ? "{WsWs|Wsws|Wsws|wsws}" : [sireWhiteSpot=="WsWs" ? "{WsWs|Wsws}" : error]]] : whiteSpot]
+	[queenWhiteSpot=="WsWs" ? [sireWhiteSpot=="wsws" ? "Wsws"        : [sireWhiteSpot=="Wsws" ? "{WsWs|Wsws}"           : [sireWhiteSpot=="WsWs" ? "WsWs"        : error]]] : whiteSpot]
+
+
+agouti
+	[queenAgouti=="aa" ?     [sireAgouti=="aa" ? "aa" :          [sireAgouti=="Afca" ? "{Afca|aa}" :                 [sireAgouti=="Apba" ? "{Apba|aa}" :                 [sireAgouti=="AfcAfc" ? "Afca" :            [sireAgouti=="ApbAfc" ? "{Apba|Afca}" :                   [sireAgouti=="ApbApb" ? "Apba"            : error]]]]]] : agouti]
+	[queenAgouti=="Afca" ?   [sireAgouti=="aa" ? "{Afca|aa}" :   [sireAgouti=="Afca" ? "{AfcAfc|Afca|Afca|aa}" :     [sireAgouti=="Apba" ? "{ApbAfc|Apba|Afca|aa}" :     [sireAgouti=="AfcAfc" ? "{AfcAfc|Afca}" :   [sireAgouti=="ApbAfc" ? "{ApbAfc|AfcAfc|Apba|Afca}" :     [sireAgouti=="ApbApb" ? "{ApbAfc|Apba}"   : error]]]]]] : agouti]
+	[queenAgouti=="Apba" ?   [sireAgouti=="aa" ? "{Apba|aa}" :   [sireAgouti=="Afca" ? "{ApbAfc|Apba|Afca|aa}" :     [sireAgouti=="Apba" ? "{ApbApb|Apba|Apba|aa}" :     [sireAgouti=="AfcAfc" ? "{ApbAfc|Afca}" :   [sireAgouti=="ApbAfc" ? "{ApbApb|ApbAfc|Apba|Afca}" :     [sireAgouti=="ApbApb" ? "{ApbApb|Apba}"   : error]]]]]] : agouti]
+	[queenAgouti=="AfcAfc" ? [sireAgouti=="aa" ? "Afca" :        [sireAgouti=="Afca" ? "{AfcAfc|Afca}" :             [sireAgouti=="Apba" ? "{ApbAfc|Afca}" :             [sireAgouti=="AfcAfc" ? "AfcAfc" :          [sireAgouti=="ApbAfc" ? "{ApbAfc|AfcAfc}" :               [sireAgouti=="ApbApb" ? "ApbAfc"          : error]]]]]] : agouti]
+	[queenAgouti=="ApbAfc" ? [sireAgouti=="aa" ? "{Apba|Afca}" : [sireAgouti=="Afca" ? "{ApbAfc|AfcAfc|Apba|Afca}" : [sireAgouti=="Apba" ? "{ApbApb|ApbAfc|Apba|Afca}" : [sireAgouti=="AfcAfc" ? "{ApbAfc|AfcAfc}" : [sireAgouti=="ApbAfc" ? "{ApbApb|ApbAfc|ApbAfc|AfcAfc}" : [sireAgouti=="ApbApb" ? "{ApbApb|ApbAfc}" : error]]]]]] : agouti]
+	[queenAgouti=="ApbApb" ? [sireAgouti=="aa" ? "Apba" :        [sireAgouti=="Afca" ? "{ApbAfc|Apba}" :             [sireAgouti=="Apba" ? "{ApbApb|Apba}" :             [sireAgouti=="AfcAfc" ? "ApbAfc" :          [sireAgouti=="ApbAfc" ? "{ApbApb|ApbAfc}" :               [sireAgouti=="ApbApb" ? "ApbApb"          : error]]]]]] : agouti]
+
+
+ticked
+	[queenTicked=="tata" ? [sireTicked=="tata" ? "tata"        : [sireTicked=="Tata" ? "{Tata|tata}"           : [sireTicked=="TaTa" ? "Tata"        : error]]] : ticked]
+	[queenTicked=="Tata" ? [sireTicked=="tata" ? "{Tata|tata}" : [sireTicked=="Tata" ? "{TaTa|Tata|Tata|tata}" : [sireTicked=="TaTa" ? "{TaTa|Tata}" : error]]] : ticked]
+	[queenTicked=="TaTa" ? [sireTicked=="tata" ? "Tata"        : [sireTicked=="Tata" ? "{TaTa|Tata}"           : [sireTicked=="TaTa" ? "TaTa"        : error]]] : ticked]
+
+
+spotted
+	[queenSpotted=="spsp" ? [sireSpotted=="spsp" ? "spsp"        : [sireSpotted=="Spsp" ? "{Spsp|spsp}"           : [sireSpotted=="SpSp" ? "Spsp"        : error]]] : spotted]
+	[queenSpotted=="Spsp" ? [sireSpotted=="spsp" ? "{Spsp|spsp}" : [sireSpotted=="Spsp" ? "{SpSp|Spsp|Spsp|spsp}" : [sireSpotted=="SpSp" ? "{SpSp|Spsp}" : error]]] : spotted]
+	[queenSpotted=="SpSp" ? [sireSpotted=="spsp" ? "Spsp"        : [sireSpotted=="Spsp" ? "{SpSp|Spsp}"           : [sireSpotted=="SpSp" ? "SpSp"        : error]]] : spotted]
+
+
+primary
+	[queenPrimary=="McMc" ? [sirePrimary=="McMc" ? "McMc"        : [sirePrimary=="Mcmc" ? "{McMc|Mcmc}"           : [sirePrimary=="mcmc" ? "Mcmc"        : error]]] : primary]
+	[queenPrimary=="Mcmc" ? [sirePrimary=="McMc" ? "{McMc|Mcmc}" : [sirePrimary=="Mcmc" ? "{McMc|Mcmc|Mcmc|mcmc}" : [sirePrimary=="mcmc" ? "{Mcmc|mcmc}" : error]]] : primary]
+	[queenPrimary=="mcmc" ? [sirePrimary=="McMc" ? "Mcmc"        : [sirePrimary=="Mcmc" ? "{Mcmc|mcmc}"           : [sirePrimary=="mcmc" ? "mcmc"        : error]]] : primary]
+
+
+wideBand
+	[queenWideBand=="wbwb" ? [sireWideBand=="wbwb" ? "wbwb"        : [sireWideBand=="Wbwb" ? "{Wbwb|wbwb}"           : [sireWideBand=="WbWb" ? "Wbwb"        : error]]] : wideBand]
+	[queenWideBand=="Wbwb" ? [sireWideBand=="wbwb" ? "{Wbwb|wbwb}" : [sireWideBand=="Wbwb" ? "{WbWb|Wbwb|Wbwb|wbwb}" : [sireWideBand=="WbWb" ? "{WbWb|Wbwb}" : error]]] : wideBand]
+	[queenWideBand=="WbWb" ? [sireWideBand=="wbwb" ? "Wbwb"        : [sireWideBand=="Wbwb" ? "{WbWb|Wbwb}"           : [sireWideBand=="WbWb" ? "WbWb"        : error]]] : wideBand]
+
+
+silver
+	[queenSilver=="ii" ? [sireSilver=="ii" ? "ii"      : [sireSilver=="Ii" ? "{Ii|ii}"       : [sireSilver=="II" ? "Ii"      : error]]] : silver]
+	[queenSilver=="Ii" ? [sireSilver=="ii" ? "{Ii|ii}" : [sireSilver=="Ii" ? "{II|Ii|Ii|ii}" : [sireSilver=="II" ? "{II|Ii}" : error]]] : silver]
+	[queenSilver=="II" ? [sireSilver=="ii" ? "Ii"      : [sireSilver=="Ii" ? "{II|Ii}"       : [sireSilver=="II" ? "II"      : error]]] : silver]
+
+
+amber
+	[queenAmber=="EE" ? [sireAmber=="EE" ? "EE"      : [sireAmber=="Ee" ? "{EE|Ee}"       : [sireAmber=="ee" ? "Ee"      : error]]] : amber]
+	[queenAmber=="Ee" ? [sireAmber=="EE" ? "{EE|Ee}" : [sireAmber=="Ee" ? "{EE|Ee|Ee|ee}" : [sireAmber=="ee" ? "{Ee|ee}" : error]]] : amber]
+	[queenAmber=="ee" ? [sireAmber=="EE" ? "Ee"      : [sireAmber=="Ee" ? "{Ee|ee}"       : [sireAmber=="ee" ? "ee"      : error]]] : amber]
+
+
+furLength
+	[queenFurLength=="LL" ? [sireFurLength=="LL" ? "LL"      : [sireFurLength=="Ll" ? "{LL|Ll}"       : [sireFurLength=="ll" ? "Ll"      : error]]] : furLength]
+	[queenFurLength=="Ll" ? [sireFurLength=="LL" ? "{LL|Ll}" : [sireFurLength=="Ll" ? "{LL|Ll|Ll|ll}" : [sireFurLength=="ll" ? "{Ll|ll}" : error]]] : furLength]
+	[queenFurLength=="ll" ? [sireFurLength=="LL" ? "Ll"      : [sireFurLength=="Ll" ? "{Ll|ll}"       : [sireFurLength=="ll" ? "ll"      : error]]] : furLength]
+
+
+
+// must be the same as the first option in html >>
+queenBlack = BB
+queenRed = XoXo
+queenAlbinism = CC
+queenDilution = DD
+queenDiluteMod = dmdm
+queenWhite = wdwd
+queenWhiteSpot = wsws
+queenAgouti = aa
+queenTicked = tata
+queenSpotted = spsp
+queenPrimary = McMc
+queenWideBand = wbwb
+queenSilver = ii
+queenAmber = EE
+queenFurLength = LL
+
+sireBlack = BB
+sireRed = XoY
+sireAlbinism = CC
+sireDilution = DD
+sireDiluteMod = dmdm
+sireWhite = wdwd
+sireWhiteSpot = wsws
+sireAgouti = aa
+sireTicked = tata
+sireSpotted = spsp
+sirePrimary = McMc
+sireWideBand = wbwb
+sireSilver = ii
+sireAmber = EE
+sireFurLength = LL
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[navbar(menu)]
+<br><br><br><br>
+
+<main>
+	<h1>[title]</h1>
+			<p style="opacity:0.7; font-size:100%; margin-top:-20px; margin-bottom:25px;">[pageDescription]</p>
+
+	
+	<table>
+		<tr>
+			<td></td>
+			<td style="text-align:center"><u>Mother</u></td>
+			<td style="text-align:center"><u>Father</u></td>
+		</tr>
+
+		<tr>
+			<td>Eumelanin</td>
+			<td>
+				<select oninput="queenBlack = this.value, update()">
+					<option value="BB">Black (BB)</option>
+					<option value="Bb">Black (Bb)</option>
+					<option value="Bb1">Black (Bb1)</option>
+					<option value="bb">Chocolate (bb)</option>
+					<option value="bb1">Chocolate (bb1)</option>
+					<option value="b1b1">Cinnamon (b1b1)</option>
+				</select>
+			</td>
+			<td>
+				<select oninput="sireBlack = this.value, update()">
+					<option value="BB">Black (BB)</option>
+					<option value="Bb">Black (Bb)</option>
+					<option value="Bb1">Black (Bb1)</option>
+					<option value="bb">Chocolate (bb)</option>
+					<option value="bb1">Chocolate (bb1)</option>
+					<option value="b1b1">Cinnamon (b1b1)</option>
+				</select>
+			</td>
+		</tr>
+
+		<tr>
+			<td>Phaeomelanin</td>
+			<td>
+				<select oninput="queenRed = this.value, update()">
+					<option value="XoXo">Not Red (XoXo)</option>
+					<option value="XOXo">Tortie (XOXo)</option>
+					<option value="XOXO">Red (XOXO)</option>
+				</select>
+			</td>
+			<td>
+				<select oninput="sireRed = this.value, update()">
+					<option value="XoY">Not Red (XoY)</option>
+					<option value="XOY">Red (XOY)</option>
+				</select>
+			</td>
+		</tr>
+
+		<tr>
+			<td>Albinism</td>
+			<td>
+				<select oninput="queenAlbinism = this.value, update()">
+					<option value="CC">No Albinism (CC)</option>
+					<option value="Ccs">No Albinism (Ccs)</option>
+					<option value="Ccb">No Albinism (Ccb)</option>
+					<option value="cscs">Colorpoint (cscs)</option>
+					<option value="cscb">Mink (cscb)</option>
+					<option value="cbcb">Sepia (cbcb)</option>
+				</select>
+			</td>
+			<td>
+				<select oninput="sireAlbinism = this.value, update()">
+					<option value="CC">No Albinism (CC)</option>
+					<option value="Ccs">No Albinism (Ccs)</option>
+					<option value="Ccb">No Albinism (Ccb)</option>
+					<option value="cscs">Colorpoint (cscs)</option>
+					<option value="cscb">Mink (cscb)</option>
+					<option value="cbcb">Sepia (cbcb)</option>
+				</select>
+			</td>
+		</tr>
+
+		<tr>
+			<td>Dilution</td>
+			<td>
+				<select oninput="queenDilution = this.value, update()">
+					<option value="DD">Dense (DD)</option>
+					<option value="Dd">Dense (Dd)</option>
+					<option value="dd">Dilute (dd)</option>
+				</select>
+			</td>
+			<td>
+				<select oninput="sireDilution = this.value, update()">
+					<option value="DD">Dense (DD)</option>
+					<option value="Dd">Dense (Dd)</option>
+					<option value="dd">Dilute (dd)</option>
+				</select>
+			</td>
+		</tr>
+
+		<tr>
+			<td>Dilute Modifier</td>
+			<td>
+				<select oninput="queenDiluteMod = this.value, update()">
+					<option value ="dmdm">No Modifier (dmdm)</option>
+					<option value ="Dmdm">Caramelized (Dmdm)</option>
+					<option value ="DmDm">Caramelized (DmDm)</option>
+				</select>
+			</td>
+			<td>
+				<select oninput="sireDiluteMod = this.value, update()">
+					<option value ="dmdm">No Modifier (dmdm)</option>
+					<option value ="Dmdm">Caramelized (Dmdm)</option>
+					<option value ="DmDm">Caramelized (DmDm)</option>
+				</select>
+			</td>
+		</tr>
+
+		<tr>
+			<td>Dominant White</td>
+			<td>
+				<select oninput="queenWhite = this.value, update()">
+					<option value="wdwd">Not White (wdwd)</option>
+					<option value="Wdwd">White (Wdwd)</option>
+					<option value="WdWd">White (WdWd)</option>
+				</select>
+			</td>
+			<td>
+				<select oninput="sireWhite = this.value, update()">
+					<option value="wdwd">Not White (wdwd)</option>
+					<option value="Wdwd">White (Wdwd)</option>
+					<option value="WdWd">White (WdWd)</option>
+				</select>
+			</td>
+		</tr>
+
+		<tr>
+			<td>White Spotting</td>
+			<td>
+				<select oninput="queenWhiteSpot = this.value, update()">
+					<option value="wsws">0-20% White (wsws)</option>
+					<option value="Wsws">20-60% White (Wsws)</option>
+					<option value="WsWs">60-100% White (WsWs)</option>
+				</select>
+			</td>
+			<td>
+				<select oninput="sireWhiteSpot = this.value, update()">
+					<option value="wsws">0-20% White (wsws)</option>
+					<option value="Wsws">20-60% White (Wsws)</option>
+					<option value="WsWs">60-100% White (WsWs)</option>
+				</select>
+			</td>
+		</tr>
+
+		<tr>
+			<td>Agouti</td>
+			<td>
+				<select oninput="queenAgouti = this.value, update()">
+					<option value="aa">Solid (aa)</option>
+					<option value="Afca">Domestic Tabby (Afca)</option>
+					<option value="Apba">Charcoal Wild (Apba)</option>
+					<option value="AfcAfc">Domestic Tabby (AfcAfc)</option>
+					<option value="ApbAfc">Wild Tabby (ApbAfc)</option>
+					<option value="ApbApb">Wild Tabby (ApbApb)</option>
+				</select>
+			</td>
+			<td>
+				<select oninput="sireAgouti = this.value, update()">
+					<option value="aa">Solid (aa)</option>
+					<option value="Afca">Domestic Tabby (Afca)</option>
+					<option value="Apba">Charcoal Wild (Apba)</option>
+					<option value="AfcAfc">Domestic Tabby (AfcAfc)</option>
+					<option value="ApbAfc">Wild Tabby (ApbAfc)</option>
+					<option value="ApbApb">Wild Tabby (ApbApb)</option>
+				</select>
+			</td>
+		</tr>
+
+		<tr>
+			<td>Ticked Tabby</td>
+			<td>
+				<select oninput="queenTicked = this.value, update()">
+					<option value="tata">Normal (tata)</option>
+					<option value="Tata">Ticked (Tata)</option>
+					<option value="TaTa">Ticked (TaTa)</option>
+				</select>
+			</td>
+			<td>
+				<select oninput="sireTicked = this.value, update()">
+					<option value="tata">Normal (tata)</option>
+					<option value="Tata">Ticked (Tata)</option>
+					<option value="TaTa">Ticked (TaTa)</option>
+				</select>
+			</td>
+		</tr>
+
+		<tr>
+			<td>Spotted Tabby</td>
+			<td>
+				<select oninput="queenSpotted = this.value, update()">
+					<option value="spsp">Normal (spsp)</option>
+					<option value="Spsp">Spotted (Spsp)</option>
+					<option value="SpSp">Spotted (SpSp)</option>
+				</select>
+			</td>
+			<td>
+				<select oninput="sireSpotted = this.value, update()">
+					<option value="spsp">Normal (spsp)</option>
+					<option value="Spsp">Spotted (Spsp)</option>
+					<option value="SpSp">Spotted (SpSp)</option>
+				</select>
+			</td>
+		</tr>
+
+		<tr>
+			<td>Primary Tabby</td>
+			<td>
+				<select oninput="queenPrimary = this.value, update()">
+					<option value="McMc">Mackerel (McMc)</option>
+					<option value="Mcmc">Mackerel (Mcmc)</option>
+					<option value="mcmc">Classic (mcmc)</option>
+				</select>
+			</td>
+			<td>
+				<select oninput="sirePrimary = this.value, update()">
+					<option value="McMc">Mackerel (McMc)</option>
+					<option value="Mcmc">Mackerel (Mcmc)</option>
+					<option value="mcmc">Classic (mcmc)</option>
+				</select>
+			</td>
+		</tr>
+
+		<tr>
+			<td>Wide Band</td>
+			<td>
+				<select oninput="queenWideBand = this.value, update()">
+					<option value="wbwb">Normal (wbwb)</option>
+					<option value="Wbwb">Shading (Wbwb)</option>
+					<option value="WbWb">Chinchilla (WbWb)</option>
+				</select>
+			</td>
+			<td>
+				<select oninput="sireWideBand = this.value, update()">
+					<option value="wbwb">Normal (wbwb)</option>
+					<option value="Wbwb">Shading (Wbwb)</option>
+					<option value="WbWb">Chinchilla (WbWb)</option>
+				</select>
+			</td>
+		</tr>
+
+		<tr>
+			<td>Silver/Smoke</td>
+			<td>
+				<select oninput="queenSilver = this.value, update()">
+					<option value="ii">Not Silver (ii)</option>
+					<option value="Ii">Silver (Ii)</option>
+					<option value="II">Silver (II)</option>
+				</select>
+			</td>
+			<td>
+				<select oninput="sireSilver = this.value, update()">
+					<option value="ii">Not Silver (ii)</option>
+					<option value="Ii">Silver (Ii)</option>
+					<option value="II">Silver (II)</option>
+				</select>
+			</td>
+		</tr>
+
+		<tr>
+			<td>Amber</td>
+			<td>
+				<select oninput="queenAmber = this.value, update()">
+					<option value="EE">Not Amber (EE)</option>
+					<option value="Ee">Not Amber (Ee)</option>
+					<option value="ee">Amber (ee)</option>
+				</select>
+			</td>
+			<td>
+				<select oninput="sireAmber = this.value, update()">
+					<option value="EE">Not Amber (EE)</option>
+					<option value="Ee">Not Amber (Ee)</option>
+					<option value="ee">Amber (ee)</option>
+				</select>
+			</td>
+		</tr>
+
+		<tr>
+			<td>Fur Length</td>
+			<td>
+				<select oninput="queenFurLength = this.value, update()">
+					<option value="LL">Short (LL)</option>
+					<option value="Ll">Short (Ll)</option>
+					<option value="ll">Long (ll)</option>
+				</select>
+			</td>
+			<td>
+				<select oninput="sireFurLength = this.value, update()">
+					<option value="LL">Short (LL)</option>
+					<option value="Ll">Short (Ll)</option>
+					<option value="ll">Long (ll)</option>
+				</select>
+			</td>
+		</tr>
+	</table>
+
+	
+	<br>
+	<section>
+		
+		<p>
+			<u>[outputTitle]</u> <br><br>
+			[genotype.selectMany(numberOfKittens).joinItems("")]
+		</p>
+		
+	<br>
+		
+		<input type="number" max="8" min="1" placeholder="# of kittens"
+					 oninput="numberOfKittens = Number(this.value);
+						if(this.value < 1 || this.value > 8 || this.value === '' || isNaN(numberOfKittens))
+							{ numberOfKittens = 1; }"
+					 style="text-align:center; width: 100px;" />
+		<button onclick="update()">Randomize</button>
+	</section>
+</main>
+
+
+<footer style="font-size:75%; opacity:0.50; margin-top:20px;">
+  <p>
+		[footNote]
+	</p>
+</footer>
+
+
+<style>
+	main {
+		max-width:900px;
+		margin:0 auto;
+	}
+	section {
+		background:#fff;
+		padding:10px;
+		border-radius:4px;
+		box-shadow: 0 0.5px 0 0 #ffffff inset, 0 1px 2px 0 #B3B3B3;
+		margin-top:-20px;
+	}
+	body {
+		background-color:#f7f7f7;	
+	}
+	table {
+		margin:0 auto;
+		text-align:right;
+		margin-bottom:10px;
+	}
+	td {
+		border: 0;
+		padding: 1px 5px;
+	}
+	select {
+		width: 205px;
+		height: 30px;
+		padding: 2px 3px;
+	}
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

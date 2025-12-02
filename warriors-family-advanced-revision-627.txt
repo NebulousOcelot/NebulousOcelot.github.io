@@ -1,0 +1,1911 @@
+https://perchance.org/warriors-family-advanced
+
+This is a copy of the code used for that generator
+I coded this myself and will be using as a reference
+signing mecox8 / BraveOcelot 11/17/2025
+
+<<<<< this file contains your perchance lists first, and your HTML code underneath it >>>>>
+
+
+
+navbar = {import:navbar-plugin}
+menu = {import:ocelot-cat-generator-hub}
+
+title = Warrior Cats Family Advanced
+
+// debug efforts 11/4/2025
+// the problem seems to be where I'm writing [output] and [infobox] in the html panel
+// is it the <p> tags?
+// hmm nope
+// let's look at dev tools
+// okay I see the block where Perchance's error log is throwing
+// 3022:27, 3020:27, 1187:26, 5072:62
+// what do these numbers mean?
+// methods: to string, evaluate text
+// where am I using those?
+// not at all, apparently
+// ugh wtf
+
+// 11/11/2025
+// deprecating the exclude items function has worked
+// most likely the cause of issues with my clan generator too
+
+$meta 
+  title = [title]
+  description = For generating a family of warrior cats, using the genetics of the main cat.
+
+background = {import:background-image-plugin}
+imageUrl
+  https://file.garden/W8aIXcwzE0BjIqtT/Green%20Leaves.jpg
+remember = {import:remember-plugin}
+generatorStats = {import:generator-stats-plugin}
+selectRange = {import:select-range-plugin}
+excludeItems = {import:exclude-items-plugin}
+names = {import:warriors-family-names}
+
+infobox
+  $output=[this.joinItems("<br><br>")]
+  [hints]
+  [geninfo]
+  
+hints
+  $output=[this.joinItems("<br><br>")]
+  <b>Hints:</b>
+  + If you're unsure about cat colors, have a look at <a href\="https://cedarseed.com/portfolio/housecat-colors/" target\="_blank">this chart</a>. 
+  + Not all genes may be accurate - some are missing (colorpoint and silver), some have been split into two loci (Wd/Ws). The wild type allele for curly/hairless is currently represented by Se. 
+  + In this generator, each descendant has an eye color within the range of their parents' eye colors (in order: copper, amber, gold, yellow, hazel, green). Well, mostly - sometimes the main cat's eye color is not within the range. I do not have a fix for that.
+  + Blue eyes only occur if the cat is white (Wd allele present) or has white spotting (Ws allele present), and it's not a guaranteed chance.
+  + If you generate a cat with the -leaf suffix, that cat is a medicine cat (you are also free to ignore this; this is merely an inherited bit of fanon from cat-generators (linked below)).
+  + "Older" X or "Younger" X means that the cat belongs to a different litter. Cats can have up to three litters here (four, if you've got a Queen).
+  + If you want to generate a cat's family, but that cat already has a mate and children, use "Mate" or "Elder's Mate" mode.
+  + If you're looking to generate grandparents, aunts, uncles, and cousins, generate the main cat's parents first, then input each parent as the main cat under "Mate" or "Elder's Mate" mode.
+  
+geninfo
+  $output=[this.joinItems("<br><br>")]
+  <b>Info:</b>
+  This generator was created by BraveOcelot. I can be reached at braveocelot8222 on Discord.
+  <a href\="https://perchance.org/warriors-family-names" target\="_blank">warriors-family-names</a> was created to support this generator, based off of <a href\=" https://perchance.org/warrior-cat-names" target\="_blank">warrior-cat-names</a> (also linked in the generator collection below). I do not know who made that generator collection, but I would like to give them a sincere thank you.
+  This generator was designed for use with <a href\="https://perchance.org/cat-generators" target\="_blank">cat-generators</a>, a Warrior Cats generator collection that uses realistic cat coat genetics and color-dependent names. This set includes a kitten generator.
+  
+phaeomel = XoY
+eumel = BB
+dilute = DD
+dilutemod = dmdm
+domwhite = wdwd
+whitespot = wsws
+agouti = aa
+ticked = tata
+spotted = spsp
+primarytab = McMc
+furlength = LL
+coat = SeSe
+sparse = SpfSpf
+eyecolor = copper
+
+rank = random
+
+output
+  [x = 0, y = 0, nameloader][maincatloader]<br><br>[parentloader]<br><br>[siblingloader]<br><br>[matechildrenloader]<br><br>This family has [x+y] cats in it besides the main cat.
+
+// deprecating exclude items function to fix major bug
+nameloader
+  [nameBlack = names.Black.consumableList, nameblackBi = names.blackBi.consumableList, nameBlue = names.Blue.consumableList, nameblueBi = names.blueBi.consumableList, nameBrown = names.Brown.consumableList, namebrownBi = names.brownBi.consumableList, nameRed = names.Red.consumableList, nameredBi = names.redBi.consumableList, nameCream = names.Cream.consumableList, nameTortie = names.Tortie.consumableList, namediTortie = names.diTortie.consumableList, nameCalico = names.Calico.consumableList, nameWhite = names.White.consumableList, nameBicolor = names.Bicolor.consumableList, nameSize = names.Size.consumableList, nameBlackWhite = names.BlackWhite.consumableList, nameBlackBrownRed = names.BlackBrownRed.consumableList, nameBlackBrown = names.BlackBrown.consumableList, nameBlackBlueBrown = names.BlackBlueBrown.consumableList, nameBlackBlueBrownRed = names.BlackBlueBrownRed.consumableList, nameBlackBlue = names.BlackBlue.consumableList, nameblackBiblueBibrownBi = names.blackBiblueBibrownBi.consumableList, nameBlackblackBiCream = names.BlackblackBiCream.consumableList, nameBlackTortie = names.BlackTortie.consumableList, nameBlueBrown = names.BlueBrown.consumableList, nameBlueBrownTortie = names.BlueBrownTortie.consumableList, nameBlueblueBi = names.BlueblueBi.consumableList, nameBlueWhite = names.BlueWhite.consumableList, nameBlueRed = names.BlueRed.consumableList, nameBlueCream = names.BlueCream.consumableList, nameBlueblueBiBrownbrownBiCreamdiTortdiCaliWhite = names.BlueblueBiBrownbrownBiCreamdiTortdiCaliWhite.consumableList, nameBlueblueBiBrownbrownBiTortieCalicodiTortiediCali = names.BlueblueBiBrownbrownBiTortieCalicodiTortiediCali.consumableList, nameBlueblueBiBrownbrownBi = names.BlueblueBiBrownbrownBi.consumableList, nameblueBibrownBi = names.blueBibrownBi.consumableList, nameBrownbrownBi = names.BrownbrownBi.consumableList, nameBrownRed = names.BrownRed.consumableList, nameBrownCream = names.BrownCream.consumableList, nameBrownCreamTortie = names.BrownCreamTortie.consumableList, nameBrownCreamWhite = names.BrownCreamWhite.consumableList, nameBrownbrownBidiTortiediCali = names.BrownbrownBidiTortiediCali.consumableList, nameBrownCalicoTortie = names.BrownCalicoTortie.consumableList, nameBrownTortie = names.BrownTortie.consumableList, nameRedTortieWhite = names.RedTortieWhite.consumableList, nameRedredBiWhite = names.RedredBiWhite.consumableList, nameRedWhite = names.RedWhite.consumableList, nameCreamTortiediTortie = names.CreamTortiediTortie.consumableList, nameCreamdiTortie = names.CreamdiTortie.consumableList, nameCreamWhite = names.CreamWhite.consumableList, nameTortiediTortie = names.TortiediTortie.consumableList, ""]
+  
+genereader
+  $output=[this.joinItems(" ")]
+  [gloccoatone == "Re" || gloccoattwo == "Re" ? "Curly-haired" : gloccoatone+gloccoattwo == "hrhr" ? "Hairless" : glochairone+glochairtwo == "spfspf" ? "Sparse-haired" : glocfurone+glocfurtwo == "ll" ? "Long-haired" : "Short-haired"]
+  [glocdomwhiteone == "Wd" || glocdomwhitetwo == "Wd" ? "white" : phenotype]
+  [glocdomwhiteone == "Wd" || glocdomwhitetwo == "Wd" ? "" : glocphaeoone == "XO" || glocphaeotwo == "XO" || glocagoutione == "Afc" || glocagoutitwo == "Afc" ? gloctickone == "Ta" || glocticktwo == "Ta" ? "ticked" : glocspotone == "Sp" || glocspottwo == "Sp" ? "spotted" : gloctabone == "Mc" || gloctabtwo == "Mc" ? "mackerel" : "classic" : ""]
+  [glocdomwhiteone == "Wd" || glocdomwhitetwo == "Wd" ? "" : phenotabby]
+  [glocphaeotwo == "Y" ? "tom" : "she-cat"]
+  [glocdomwhiteone == "Wd" || glocdomwhitetwo == "Wd" ? "" : glocwspotone+glocwspottwo == "wsws" ? "with little to no white spotting" : glocwspotone+glocwspottwo == "WsWs" ? "with a high amount of white spotting" : "with a medium amount of white spotting"]
+  ([maincatflag == "true" && eyecolor == "blue" ? "blue" : phenoeyes] eyes)
+  
+phenotype
+  black^[(glocphaeoone+glocphaeotwo == "XoXo" || glocphaeoone+glocphaeotwo == "XoY") && (gloceuone == "B" || gloceutwo == "B") && glocdilone+glocdiltwo != "dd"]
+  blue^[(glocphaeoone+glocphaeotwo == "XoXo" || glocphaeoone+glocphaeotwo == "XoY") && (gloceuone == "B" || gloceutwo == "B") && glocdilone+glocdiltwo == "dd" && glocdilmodone+glocdilmodtwo == "dmdm"]
+  caramel^[(glocphaeoone+glocphaeotwo == "XoXo" || glocphaeoone+glocphaeotwo == "XoY") && (gloceuone == "B" || gloceutwo == "B") && glocdilone+glocdiltwo == "dd" && glocdilmodone+glocdilmodtwo != "dmdm"]
+  chocolate^[(glocphaeoone+glocphaeotwo == "XoXo" || glocphaeoone+glocphaeotwo == "XoY") && (gloceuone+gloceutwo == "bb" || gloceuone+gloceutwo == "bb1" || gloceuone+gloceutwo == "b1b") && glocdilone+glocdiltwo != "dd"]
+  lilac^[(glocphaeoone+glocphaeotwo == "XoXo" || glocphaeoone+glocphaeotwo == "XoY") && (gloceuone+gloceutwo == "bb" || gloceuone+gloceutwo == "bb1" || gloceuone+gloceutwo == "b1b") && glocdilone+glocdiltwo == "dd" && glocdilmodone+glocdilmodtwo == "dmdm"]
+  taupe^[(glocphaeoone+glocphaeotwo == "XoXo" || glocphaeoone+glocphaeotwo == "XoY") && (gloceuone+gloceutwo == "bb" || gloceuone+gloceutwo == "bb1" || gloceuone+gloceutwo == "b1b") && glocdilone+glocdiltwo == "dd" && glocdilmodone+glocdilmodtwo != "dmdm"]
+  cinnamon^[(glocphaeoone+glocphaeotwo == "XoXo" || glocphaeoone+glocphaeotwo == "XoY") && gloceuone+gloceutwo == "b1b1" && glocdilone+glocdiltwo != "dd"]
+  fawn^[(glocphaeoone+glocphaeotwo == "XoXo" || glocphaeoone+glocphaeotwo == "XoY") && gloceuone+gloceutwo == "b1b1" && glocdilone+glocdiltwo == "dd" && glocdilmodone+glocdilmodtwo == "dmdm"]
+  fawn-based caramel^[(glocphaeoone+glocphaeotwo == "XoXo" || glocphaeoone+glocphaeotwo == "XoY") && gloceuone+gloceutwo == "b1b1" && glocdilone+glocdiltwo == "dd" && glocdilmodone+glocdilmodtwo != "dmdm"]
+  red^[(glocphaeoone+glocphaeotwo == "XOXO" || glocphaeoone+glocphaeotwo == "XOY") && glocdilone+glocdiltwo != "dd"]
+  cream^[(glocphaeoone+glocphaeotwo == "XOXO" || glocphaeoone+glocphaeotwo == "XOY") && glocdilone+glocdiltwo == "dd" && glocdilmodone+glocdilmodtwo == "dmdm"]
+  apricot^[(glocphaeoone+glocphaeotwo == "XOXO" || glocphaeoone+glocphaeotwo == "XOY") && glocdilone+glocdiltwo == "dd" && glocdilmodone+glocdilmodtwo != "dmdm"]
+  black and red^[(glocphaeoone+glocphaeotwo == "XOXo" || glocphaeoone+glocphaeotwo == "XoXO") && (gloceuone == "B" || gloceutwo == "B") && glocdilone+glocdiltwo != "dd"]
+  blue and cream^[(glocphaeoone+glocphaeotwo == "XOXo" || glocphaeoone+glocphaeotwo == "XoXO") && (gloceuone == "B" || gloceutwo == "B") && glocdilone+glocdiltwo == "dd" && glocdilmodone+glocdilmodtwo == "dmdm"]
+  caramel and apricot^[(glocphaeoone+glocphaeotwo == "XOXo" || glocphaeoone+glocphaeotwo == "XoXO") && (gloceuone == "B" || gloceutwo == "B") && glocdilone+glocdiltwo == "dd" && glocdilmodone+glocdilmodtwo != "dmdm"]
+  chocolate and red^[(glocphaeoone+glocphaeotwo == "XOXo" || glocphaeoone+glocphaeotwo == "XoXO") && (gloceuone+gloceutwo == "bb" || gloceuone+gloceutwo == "bb1" || gloceuone+gloceutwo == "b1b") && glocdilone+glocdiltwo != "dd"]
+  lilac and cream^[(glocphaeoone+glocphaeotwo == "XOXo" || glocphaeoone+glocphaeotwo == "XoXO") && (gloceuone+gloceutwo == "bb" || gloceuone+gloceutwo == "bb1" || gloceuone+gloceutwo == "b1b") && glocdilone+glocdiltwo == "dd" && glocdilmodone+glocdilmodtwo == "dmdm"]
+  taupe and apricot^[(glocphaeoone+glocphaeotwo == "XOXo" || glocphaeoone+glocphaeotwo == "XoXO") && (gloceuone+gloceutwo == "bb" || gloceuone+gloceutwo == "bb1" || gloceuone+gloceutwo == "b1b") && glocdilone+glocdiltwo == "dd" && glocdilmodone+glocdilmodtwo != "dmdm"]
+  cinnamon and red^[(glocphaeoone+glocphaeotwo == "XOXo" || glocphaeoone+glocphaeotwo == "XoXO") && gloceuone+gloceutwo == "b1b1" && glocdilone+glocdiltwo != "dd"]
+  fawn and cream^[(glocphaeoone+glocphaeotwo == "XOXo" || glocphaeoone+glocphaeotwo == "XoXO") && gloceuone+gloceutwo == "b1b1" && glocdilone+glocdiltwo == "dd" && glocdilmodone+glocdilmodtwo == "dmdm"]
+  fawn-based caramel and apricot^[(glocphaeoone+glocphaeotwo == "XOXo" || glocphaeoone+glocphaeotwo == "XoXO") && gloceuone+gloceutwo == "b1b1" && glocdilone+glocdiltwo == "dd" && glocdilmodone+glocdilmodtwo != "dmdm"]
+
+phenotabby
+  [""]^[(glocphaeoone+glocphaeotwo == "XoXo" || glocphaeoone+glocphaeotwo == "XoY") && glocagoutione+glocagoutitwo == "aa"]
+  ghost-tabby^[(glocphaeoone+glocphaeotwo == "XOXO" || glocphaeoone+glocphaeotwo == "XOY") && glocagoutione+glocagoutitwo == "aa"]
+  tabby^[(glocphaeoone+glocphaeotwo != "XoXO" && glocphaeoone+glocphaeotwo != "XOXo") && (glocagoutione == "Afc" || glocagoutitwo == "Afc")]
+  tortoiseshell^[(glocphaeoone+glocphaeotwo == "XoXO" || glocphaeoone+glocphaeotwo == "XOXo") && glocagoutione+glocagoutitwo == "aa"]
+  tortoiseshell-tabby^[(glocphaeoone+glocphaeotwo == "XoXO" || glocphaeoone+glocphaeotwo == "XOXo") && ( glocagoutione == "Afc" || glocagoutitwo == "Afc")]
+  
+phenoeyes
+  copper^[gloceyecol == "copper"]
+  amber^[gloceyecol == "amber"]
+  gold^[gloceyecol == "gold"]
+  yellow^[gloceyecol == "yellow"]
+  hazel^[gloceyecol == "hazel"]
+  green^[gloceyecol == "green"]
+  blue^[glocwspotone+glocwspottwo != "wsws" || glocdomwhiteone+glocdomwhitetwo != "wdwd" ? 0.25 : 0]
+
+phenocol
+  black^[glocdomwhiteone+glocdomwhitetwo == "wdwd" && (glocphaeoone+glocphaeotwo == "XoXo" || glocphaeoone+glocphaeotwo == "XoY") && (gloceuone == "B" || gloceutwo == "B") && glocdilone+glocdiltwo != "dd" && glocwspotone+glocwspottwo == "wsws"]
+  blackbi^[glocdomwhiteone+glocdomwhitetwo == "wdwd" && (glocphaeoone+glocphaeotwo == "XoXo" || glocphaeoone+glocphaeotwo == "XoY") && (gloceuone == "B" || gloceutwo == "B") && glocdilone+glocdiltwo != "dd" && glocwspotone+glocwspottwo != "wsws"]
+  blue^[glocdomwhiteone+glocdomwhitetwo == "wdwd" && (glocphaeoone+glocphaeotwo == "XoXo" || glocphaeoone+glocphaeotwo == "XoY") && (gloceuone == "B" || gloceutwo == "B") && glocdilone+glocdiltwo == "dd" && glocwspotone+glocwspottwo == "wsws"]
+  bluebi^[glocdomwhiteone+glocdomwhitetwo == "wdwd" && (glocphaeoone+glocphaeotwo == "XoXo" || glocphaeoone+glocphaeotwo == "XoY") && (gloceuone == "B" || gloceutwo == "B") && glocdilone+glocdiltwo == "dd" && glocwspotone+glocwspottwo != "wsws"]
+  brown^[glocdomwhiteone+glocdomwhitetwo == "wdwd" && (glocphaeoone+glocphaeotwo == "XoXo" || glocphaeoone+glocphaeotwo == "XoY") && (gloceuone != "B" && gloceutwo != "B") && glocwspotone+glocwspottwo == "wsws"]
+  brownbi^[glocdomwhiteone+glocdomwhitetwo == "wdwd" && (glocphaeoone+glocphaeotwo == "XoXo" || glocphaeoone+glocphaeotwo == "XoY") && (gloceuone != "B" && gloceutwo != "B") && glocwspotone+glocwspottwo != "wsws"]
+  red^[glocdomwhiteone+glocdomwhitetwo == "wdwd" && (glocphaeoone+glocphaeotwo == "XOXO" || glocphaeoone+glocphaeotwo == "XOY") && glocdilone+glocdiltwo != "dd" && glocwspotone+glocwspottwo == "wsws"]
+  redbi^[glocdomwhiteone+glocdomwhitetwo == "wdwd" && (glocphaeoone+glocphaeotwo == "XOXO" || glocphaeoone+glocphaeotwo == "XOY") && glocdilone+glocdiltwo != "dd" && glocwspotone+glocwspottwo != "wsws"]
+  cream^[glocdomwhiteone+glocdomwhitetwo == "wdwd" && (glocphaeoone+glocphaeotwo == "XOXO" || glocphaeoone+glocphaeotwo == "XOY") && glocdilone+glocdiltwo == "dd" && glocwspotone+glocwspottwo == "wsws"]
+  creambi^[glocdomwhiteone+glocdomwhitetwo == "wdwd" && (glocphaeoone+glocphaeotwo == "XOXO" || glocphaeoone+glocphaeotwo == "XOY") && glocdilone+glocdiltwo == "dd" && glocwspotone+glocwspottwo != "wsws"]
+  tortie^[glocdomwhiteone+glocdomwhitetwo == "wdwd" && (glocphaeoone+glocphaeotwo == "XoXO" || glocphaeoone+glocphaeotwo == "XOXo") && (gloceuone == "B" || gloceutwo == "B") && glocdilone+glocdiltwo != "dd" && glocwspotone+glocwspottwo == "wsws"]
+  ditortie^[glocdomwhiteone+glocdomwhitetwo == "wdwd" && (glocphaeoone+glocphaeotwo == "XOXo" || glocphaeoone+glocphaeotwo == "XoXO") && (gloceuone == "B" || gloceutwo == "B") && glocdilone+glocdiltwo == "dd" && glocwspotone+glocwspottwo == "wsws"]
+  browntortie^[glocdomwhiteone+glocdomwhitetwo == "wdwd" && (glocphaeoone+glocphaeotwo == "XoXO" || glocphaeoone+glocphaeotwo == "XOXo") && (gloceuone != "B" && gloceutwo != "B") && glocdilone+glocdiltwo != "dd" && glocwspotone+glocwspottwo == "wsws"]
+  dibrowntortie^[glocdomwhiteone+glocdomwhitetwo == "wdwd" && (glocphaeoone+glocphaeotwo == "XoXO" || glocphaeoone+glocphaeotwo == "XOXo") && (gloceuone != "B" && gloceutwo != "B") && glocdilone+glocdiltwo == "dd" && glocwspotone+glocwspottwo == "wsws"]
+  calico^[glocdomwhiteone+glocdomwhitetwo == "wdwd" && (glocphaeoone+glocphaeotwo == "XoXO" || glocphaeoone+glocphaeotwo == "XOXo") && (gloceuone == "B" || gloceutwo == "B") && glocdilone+glocdiltwo != "dd" && glocwspotone+glocwspottwo != "wsws"]
+  dicalico^[glocdomwhiteone+glocdomwhitetwo == "wdwd" && (glocphaeoone+glocphaeotwo == "XOXo" || glocphaeoone+glocphaeotwo == "XoXO") && (gloceuone == "B" || gloceutwo == "B") && glocdilone+glocdiltwo == "dd" && glocwspotone+glocwspottwo != "wsws"]
+  browncalico^[glocdomwhiteone+glocdomwhitetwo == "wdwd" && (glocphaeoone+glocphaeotwo == "XoXO" || glocphaeoone+glocphaeotwo == "XOXo") && (gloceuone != "B" && gloceutwo != "B") && glocdilone+glocdiltwo != "dd" && glocwspotone+glocwspottwo != "wsws"]
+  dibrowncalico^[glocdomwhiteone+glocdomwhitetwo == "wdwd" && (glocphaeoone+glocphaeotwo == "XoXO" || glocphaeoone+glocphaeotwo == "XOXo") && (gloceuone != "B" && gloceutwo != "B") && glocdilone+glocdiltwo == "dd" && glocwspotone+glocwspottwo != "wsws"]
+  white^[glocdomwhiteone == "Wd" || glocdomwhitetwo == "Wd"]
+
+maincatloader
+  <b>Main Cat</b>: [mainlociloader]<br>[mainconverter][maincatflag = "true", genereader]<br>[mainrankreader]
+  
+mainlociloader
+  [locphaeoone = mainloci.phaeomelone.selectOne][locphaeotwo = mainloci.phaeomeltwo.selectOne] [loceuone = mainloci.eumelone.selectOne][loceutwo = mainloci.eumeltwo.selectOne] [locdilone = mainloci.diluteone.selectOne][locdiltwo = mainloci.dilutetwo.selectOne] [locdilmodone = mainloci.dilutemodone.selectOne][locdilmodtwo = mainloci.dilutemodtwo.selectOne] [locdomwhiteone = mainloci.domwhiteone.selectOne][locdomwhitetwo = mainloci.domwhitetwo.selectOne] [locwspotone = mainloci.whitespotone.selectOne][locwspottwo = mainloci.whitespottwo.selectOne] [locagoutione = mainloci.agoutione.selectOne][locagoutitwo = mainloci.agoutitwo.selectOne] [loctickone = mainloci.tickedone.selectOne][locticktwo = mainloci.tickedtwo.selectOne] [locspotone = mainloci.spottedone.selectOne][locspottwo = mainloci.spottedtwo.selectOne] [loctabone = mainloci.primarytabone.selectOne][loctabtwo = mainloci.primarytabtwo.selectOne] [locfurone = mainloci.furlengthone.selectOne][locfurtwo = mainloci.furlengthtwo.selectOne] [loccoatone = mainloci.coatone.selectOne][loccoattwo = mainloci.coattwo.selectOne] [lochairone = mainloci.sparseone.selectOne][lochairtwo = mainloci.sparsetwo.selectOne] [loceyecol = maineyecolor.selectOne]
+  
+mainconverter
+  [glocphaeoone = locphaeoone, glocphaeotwo = locphaeotwo, gloceuone = loceuone, gloceutwo = loceutwo, glocdilone = locdilone, glocdiltwo = locdiltwo, glocdilmodone = locdilmodone, glocdilmodtwo = locdilmodtwo,  glocdomwhiteone = locdomwhiteone, glocdomwhitetwo = locdomwhitetwo, glocwspotone = locwspotone, glocwspottwo = locwspottwo, glocagoutione = locagoutione, glocagoutitwo = locagoutitwo, gloctickone = loctickone, glocticktwo = locticktwo, glocspotone = locspotone, glocspottwo = locspottwo, gloctabone = loctabone, gloctabtwo = loctabtwo, glocfurone = locfurone, glocfurtwo = locfurtwo, gloccoatone = loccoatone, gloccoattwo = loccoattwo, glochairone = lochairone, glochairtwo = lochairtwo, gloceyecol = loceyecol, ""]
+  
+mainrankreader
+  This cat is {a} [setting = ranksetting.selectOne, mr = mainrank.selectOne, mr.titleCase].
+  
+ranksetting
+  lead^[rank == "random" || rank == "lead"]
+  warrior^[rank == "random" || rank == "warrior"]
+  medcat^[rank == "random" || rank == "medcat" ? 0.2 : 0]
+  appr^[rank == "random" || rank == "appr"]
+  queen^[rank == "random" || rank == "queen"]
+  elder^[rank == "random" || rank == "elder"]
+  mate^[rank == "mate"]
+  em^[rank == "em"]
+  
+mainrank
+  leader or deputy^[setting == "lead"]
+  warrior^[setting == "warrior"]
+  medicine cat^[setting == "medcat"]
+  apprentice^[setting == "appr"]
+  queen^[setting == "queen"]
+  elder^[setting == "elder"]
+  cat's mate^[setting == "mate"]
+  elder's mate^[setting == "em"]
+
+mainloci
+  phaeomelone
+    XO^[phaeomel == "XOY" || phaeomel == "XOXo" || phaeomel == "XOXO"]
+    Xo^[phaeomel == "XoY" || phaeomel == "XoXo"]
+  phaeomeltwo
+    XO^[phaeomel == "XOXO"]
+    Xo^[phaeomel == "XoXo" || phaeomel == "XOXo"]
+    Y^[phaeomel == "XOY" || phaeomel == "XoY"]
+  eumelone
+    B^[eumel == "BB" || eumel == "Bb" || eumel == "Bb1"]
+    b^[eumel == "bb" || eumel == "bb1"]
+    b1^[eumel == "b1b1"]
+  eumeltwo
+    B^[eumel == "BB"]
+    b^[eumel == "Bb" || eumel == "bb"]
+    b1^[eumel == "Bb1" || eumel == "bb1" || eumel == "b1b1"]
+  diluteone
+    D^[dilute == "DD" || dilute == "Dd"]
+    d^[dilute == "dd"]
+  dilutetwo
+    D^[dilute == "DD"]
+    d^[dilute == "Dd" || dilute == "dd"]
+  dilutemodone
+    Dm^[dilutemod == "DmDm" || dilutemod == "Dmdm"]
+    dm^[dilutemod == "dmdm"]
+  dilutemodtwo
+    Dm^[dilutemod == "DmDm"]
+    dm^[dilutemod == "Dmdm" || dilutemod == "dmdm"]
+  domwhiteone
+    Wd^[domwhite == "Wdwd" || domwhite == "WdWd"]
+    wd^[domwhite == "wdwd"]
+  domwhitetwo
+    Wd^[domwhite == "WdWd"]
+    wd^[domwhite == "Wdwd" || domwhite == "wdwd"]
+  whitespotone
+    Ws^[whitespot == "Wsws" || whitespot == "WsWs"]
+    ws^[whitespot == "wsws"]
+  whitespottwo
+    Ws^[whitespot == "WsWs"]
+    ws^[whitespot == "wsws" || whitespot == "Wsws"]
+  agoutione
+    Afc^[agouti == "AfcAfc" || agouti == "Afca"]
+    a^[agouti == "aa"]
+  agoutitwo
+    Afc^[agouti == "AfcAfc"]
+    a^[agouti == "Afca" || agouti == "aa"]
+  tickedone
+    Ta^[ticked == "Tata" || ticked == "TaTa"]
+    ta^[ticked == "tata"]
+  tickedtwo
+    Ta^[ticked == "TaTa"]
+    ta^[ticked == "Tata" || ticked == "tata"]
+  spottedone
+    Sp^[spotted == "Spsp" || spotted == "SpSp"]
+    sp^[spotted == "spsp"]
+  spottedtwo
+    Sp^[spotted == "SpSp"]
+    sp^[spotted == "Spsp" || spotted == "spsp"]
+  primarytabone
+    Mc^[primarytab == "McMc" || primarytab == "Mcmc"]
+    mc^[primarytab == "mcmc"]
+  primarytabtwo
+    Mc^[primarytab == "McMc"]
+    mc^[primarytab == "Mcmc" || primarytab == "mcmc"]
+  furlengthone
+    L^[furlength == "LL" || furlength == "Ll"]
+    l^[furlength == "ll"]
+  furlengthtwo
+    L^[furlength == "LL"]
+    l^[furlength == "ll" || furlength == "Ll"]
+  coatone
+    Re^[coat == "ReSe" || coat == "ReRe" || coat == "Rehr"]
+    Se^[coat == "SeSe" || coat == "Sehr"]
+    hr^[coat == "hrhr"]
+  coattwo
+    Re^[coat == "ReRe"]
+    Se^[coat == "ReSe" || coat == "SeSe"]
+    hr^[coat == "Rehr" || coat == "Sehr" || coat == "hrhr"]
+  sparseone
+    Spf^[sparse == "SpfSpf" || sparse == "Spfspf"]
+    spf^[sparse == "spfspf"]
+  sparsetwo
+    Spf^[sparse == "SpfSpf"]
+    spf^[sparse == "Spfspf" || sparse == "spfspf"]
+    
+maineyecolor
+  [eyeid = 1, ""]copper^[eyecolor == "copper" || eyecolor == "blue"]
+  [eyeid = 2, ""]amber^[eyecolor == "amber" || eyecolor == "blue"]
+  [eyeid = 3, ""]yellow^[eyecolor == "yellow" || eyecolor == "blue"]
+  [eyeid = 4, ""]gold^[eyecolor == "gold" || eyecolor == "blue"]
+  [eyeid = 5, ""]hazel^[eyecolor == "hazel" || eyecolor == "blue"]
+  [eyeid = 6, ""]green^[eyecolor == "green" || eyecolor == "blue"]
+  
+eyecolid = {1-6}
+    
+parentloader
+  [parentgeneloader][x = x+1, maincatflag = "false", ""]<b>Mother</b>: [momgeneloader]<br>[momconverter][genereader]<br>Name: <b>[color = phenocol.selectOne, catname]{[names.suffix]|leaf^0.002}</b> (color category: [color])<br>This cat is {alive|dead^[setting == "elder" || setting == "em" ? 999999999 : 1]}.<br><br>[x = x+1, ""]<b>Father</b>: [dadgeneloader]<br>[dadconverter][genereader]<br>Name: <b>[color = phenocol.selectOne, catname]{[names.suffix]|leaf^0.002}</b> (color category: [color])<br>This cat is {alive|dead^[setting == "elder" || setting == "em" ? 999999999 : 1]}.
+  
+parentgeneloader
+  [plocphaeomel = parentloci.phaeomel.consumableList, ploceumel = parentloci.eumel.consumableList, plocdilute = parentloci.dilute.consumableList, plocdilutemod = parentloci.dilutemod.consumableList, plocdomwhite = parentloci.domwhite.consumableList, plocwhitespot = parentloci.whitespot.consumableList, plocagouti = parentloci.agouti.consumableList, plocticked = parentloci.ticked.consumableList, plocspotted = parentloci.spotted.consumableList, plocprimarytab = parentloci.primarytab.consumableList, plocfurlength = parentloci.furlength.consumableList, ploccoat = parentloci.coat.consumableList, plocsparse = parentloci.sparse.consumableList, ""]
+
+momgeneloader
+  [locphaeotwo != "Y" ? mlocphaeoone = plocphaeomel.selectOne : mlocphaeoone = locphaeoone.selectOne][mlocphaeotwo = loci.phaeomel.selectOne] [mloceuone = ploceumel.selectOne][mloceutwo = loci.eumel.selectOne] [mlocdilone = plocdilute.selectOne][mlocdiltwo = loci.dilute.selectOne] [mlocdilmodone = plocdilutemod.selectOne][mlocdilmodtwo = loci.dilutemod.selectOne] [mlocdomwhiteone = plocdomwhite.selectOne][mlocdomwhitetwo = loci.domwhite.selectOne] [mlocwspotone = plocwhitespot.selectOne][mlocwspottwo = loci.whitespot.selectOne] [mlocagoutione = plocagouti.selectOne][mlocagoutitwo = loci.agouti.selectOne] [mloctickone = plocticked.selectOne][mlocticktwo = loci.ticked.selectOne] [mlocspotone = plocspotted.selectOne][mlocspottwo = loci.spotted.selectOne] [mloctabone = plocprimarytab.selectOne][mloctabtwo = loci.primarytab.selectOne] [mlocfurone = plocfurlength.selectOne][mlocfurtwo = loci.furlength.selectOne] [mloccoatone = ploccoat.selectOne][mloccoattwo = loci.coat.selectOne] [mlochairone = plocsparse.selectOne][mlochairtwo = loci.sparse.selectOne] [momeyecolorloader]
+  
+momeyecolorloader
+  {[meyecolid = eyecolid.selectOne, meyecolid > eyeid ? eyerangel = eyeid : eyerangel = meyecolid, meyecolid > eyeid ? eyerangeh = meyecolid : eyerangeh = eyeid, mloceyecol = selectRange(momeyecolor, eyerangel, eyerangeh).selectOne]|[meyeid = eyeid, mloceyecol = loceyecol]}
+  
+momconverter
+  [glocphaeoone = mlocphaeoone, glocphaeotwo = mlocphaeotwo, gloceuone = mloceuone, gloceutwo = mloceutwo, glocdilone = mlocdilone, glocdiltwo = mlocdiltwo, glocdilmodone = mlocdilmodone, glocdilmodtwo = mlocdilmodtwo,  glocdomwhiteone = mlocdomwhiteone, glocdomwhitetwo = mlocdomwhitetwo, glocwspotone = mlocwspotone, glocwspottwo = mlocwspottwo, glocagoutione = mlocagoutione, glocagoutitwo = mlocagoutitwo, gloctickone = mloctickone, glocticktwo = mlocticktwo, glocspotone = mlocspotone, glocspottwo = mlocspottwo, gloctabone = mloctabone, gloctabtwo = mloctabtwo, glocfurone = mlocfurone, glocfurtwo = mlocfurtwo, gloccoatone = mloccoatone, gloccoattwo = mloccoattwo, glochairone = mlochairone, glochairtwo = mlochairtwo, gloceyecol = mloceyecol, ""]
+
+dadgeneloader
+  [locphaeotwo == "Y" ? dlocphaeoone = loci.phaeomel.selectOne : dlocphaeoone = plocphaeomel.selectOne][dlocphaeotwo = "Y"] [dloceuone = ploceumel.selectOne][dloceutwo = loci.eumel.selectOne] [dlocdilone = plocdilute.selectOne][dlocdiltwo = loci.dilute.selectOne] [dlocdilmodone = plocdilutemod.selectOne][dlocdilmodtwo = loci.dilutemod.selectOne] [dlocdomwhiteone = plocdomwhite.selectOne][dlocdomwhitetwo = loci.domwhite.selectOne] [dlocwspotone = plocwhitespot.selectOne][dlocwspottwo = loci.whitespot.selectOne] [dlocagoutione = plocagouti.selectOne][dlocagoutitwo = loci.agouti.selectOne] [dloctickone = plocticked.selectOne][dlocticktwo = loci.ticked.selectOne] [dlocspotone = plocspotted.selectOne][dlocspottwo = loci.spotted.selectOne] [dloctabone = plocprimarytab.selectOne][dloctabtwo = loci.primarytab.selectOne] [dlocfurone = plocfurlength.selectOne][dlocfurtwo = loci.furlength.selectOne] [dloccoatone = ploccoat.selectOne][dloccoattwo = loci.coat.selectOne] [dlochairone = plocsparse.selectOne][dlochairtwo = loci.sparse.selectOne] [dadeyecolorloader]
+  
+dadconverter
+  [glocphaeoone = dlocphaeoone, glocphaeotwo = dlocphaeotwo, gloceuone = dloceuone, gloceutwo = dloceutwo, glocdilone = dlocdilone, glocdiltwo = dlocdiltwo, glocdilmodone = dlocdilmodone, glocdilmodtwo = dlocdilmodtwo,  glocdomwhiteone = dlocdomwhiteone, glocdomwhitetwo = dlocdomwhitetwo, glocwspotone = dlocwspotone, glocwspottwo = dlocwspottwo, glocagoutione = dlocagoutione, glocagoutitwo = dlocagoutitwo, gloctickone = dloctickone, glocticktwo = dlocticktwo, glocspotone = dlocspotone, glocspottwo = dlocspottwo, gloctabone = dloctabone, gloctabtwo = dloctabtwo, glocfurone = dlocfurone, glocfurtwo = dlocfurtwo, gloccoatone = dloccoatone, gloccoattwo = dloccoattwo, glochairone = dlochairone, glochairtwo = dlochairtwo, gloceyecol = dloceyecol, ""]
+  
+dadeyecolorloader
+  {[deyecolid = eyecolid.selectOne, deyecolid > eyeid ? eyerangel = eyeid : eyerangel = deyecolid, deyecolid > eyeid ? eyerangeh = deyecolid : eyerangeh = eyeid, dloceyecol = selectRange(dadeyecolor, eyerangel, eyerangeh).selectOne]|[deyeid = eyeid, dloceyecol = loceyecol]}
+  
+parentloci // thank you joinlists for not functioning
+  phaeomel
+    [locphaeoone]
+    [locphaeotwo]
+  eumel
+    [loceuone]
+    [loceutwo]
+  dilute
+    [locdilone]
+    [locdiltwo]
+  dilutemod
+    [locdilmodone]
+    [locdilmodtwo]
+  domwhite
+    [locdomwhiteone]
+    [locdomwhitetwo]
+  whitespot
+    [locwspotone]
+    [locwspottwo]
+  agouti
+    [locagoutione]
+    [locagoutitwo]
+  ticked
+    [loctickone]
+    [locticktwo]
+  spotted
+    [locspotone]
+    [locspottwo]
+  primarytab
+    [loctabone]
+    [loctabtwo]
+  furlength
+    [locfurone]
+    [locfurtwo]
+  coat
+    [loccoatone]
+    [loccoattwo]
+  sparse
+    [lochairone]
+    [lochairtwo]
+    
+momeyecolor
+  [meyeid = 1, ""]copper
+  [meyeid = 2, ""]amber
+  [meyeid = 3, ""]yellow
+  [meyeid = 4, ""]gold
+  [meyeid = 5, ""]hazel
+  [meyeid = 6, ""]green
+  
+dadeyecolor
+  [deyeid = 1, ""]copper
+  [deyeid = 2, ""]amber
+  [deyeid = 3, ""]yellow
+  [deyeid = 4, ""]gold
+  [deyeid = 5, ""]hazel
+  [deyeid = 6, ""]green
+    
+lrange = {1-5}
+srange = {1-4}
+
+youngdeathflag
+  true^[im == "no" ? 0.2 : 0]
+  false
+  
+ifmate
+  yes^[setting == "appr" && sage != "older" ? 0 : 0.5]
+  no
+    
+siblingloader
+  This cat has no siblings.^0.25
+  [sr = srange.selectOne, y = y+sr, sage = "", sibling.selectMany(sr).joinItems("<br><br>")]
+  [lr = lrange.selectOne, y = y+lr, sage = "older", sibling.selectMany(lr).joinItems("<br><br>")]^0.125
+  [lr = lrange.selectOne, y = y+lr, sage = "older", sibling.selectMany(lr).joinItems("<br><br>")]<br><br>[sr = srange.selectOne, y = y+sr, sage = "", sibling.selectMany(sr).joinItems("<br><br>")]^0.25
+  [lr = lrange.selectOne, y = y+lr, sage = "younger", sibling.selectMany(lr).joinItems("<br><br>")]^0.125
+  [sr = srange.selectOne, y = y+sr, sage = "", sibling.selectMany(sr).joinItems("<br><br>")]<br><br>[lr = lrange.selectOne, y = y+lr, sage = "younger", sibling.selectMany(lr).joinItems("<br><br>")]^0.25
+  [lr = lrange.selectOne, y = y+lr, sage = "older", sibling.selectMany(lr).joinItems("<br><br>")]<br><br>[lr = lrange.selectOne, y = y+lr, sage = "younger", sibling.selectMany(lr).joinItems("<br><br>")]^0.125
+  [lr = lrange.selectOne, y = y+lr, sage = "older", sibling.selectMany(lr).joinItems("<br><br>")]<br><br>[sr = srange.selectOne, y = y+sr, sage = "", sibling.selectMany(sr).joinItems("<br><br>")]<br><br>[lr = lrange.selectOne, y = y+lr, sage = "younger", sibling.selectMany(lr).joinItems("<br><br>")]^0.05
+  
+sibling
+  [siblingpregene]<b>[sage.titleCase] [slocphaeotwo == "Y" ? "Brother" : "Sister"]</b>: [siblinggeneloader]<br>[siblingconverter][genereader]<br>Name: <b>[color = phenocol.selectOne, catname]{{[names.suffix]|leaf^0.005}^[sydf == "false" && (setting != "appr" || sage == "older")]|kit^[sydf == "true" || (setting == "appr" && sage == "younger")]|paw^[setting == "appr" && sage != "older" && sage != "younger"]}</b> (color category: [color])<br>This cat {died young^[sydf == "true" ? 999999999 : 0]|is alive^[sydf == "false"]|is dead^[sydf == "false" ? 0 : setting == "elder" || setting == "em" ? 3 : 0.5]}.{^[im == "no" ? 0 : 1]|<br><br>[siblingmateloader]^[sydf == "false" && im == "yes" ? 1 : 0]|<br><br>[siblingmateloader]<br><br>[niblingloader]^[sydf == "false" && im == "yes" ? 1 : 0]}
+
+siblingpregene
+  [im = ifmate.selectOne, sydf = youngdeathflag.selectOne, slocphaeoone = siblingloci.phaeomelone.selectOne, slocphaeotwo = siblingloci.phaeomeltwo.selectOne, ""]
+
+siblinggeneloader
+  [slocphaeoone][slocphaeotwo] [sloceuone = siblingloci.eumelone.selectOne][sloceutwo = siblingloci.eumeltwo.selectOne] [slocdilone = siblingloci.diluteone.selectOne][slocdiltwo = siblingloci.dilutetwo.selectOne] [slocdilmodone = siblingloci.dilutemodone.selectOne][slocdilmodtwo = siblingloci.dilutemodtwo.selectOne] [slocdomwhiteone = siblingloci.domwhiteone.selectOne][slocdomwhitetwo = siblingloci.domwhitetwo.selectOne] [slocwspotone = siblingloci.whitespotone.selectOne][slocwspottwo = siblingloci.whitespottwo.selectOne] [slocagoutione = siblingloci.agoutione.selectOne][slocagoutitwo = siblingloci.agoutitwo.selectOne] [sloctickone = siblingloci.tickedone.selectOne][slocticktwo = siblingloci.tickedtwo.selectOne] [slocspotone = siblingloci.spottedone.selectOne][slocspottwo = siblingloci.spottedtwo.selectOne] [sloctabone = siblingloci.primarytabone.selectOne][sloctabtwo = siblingloci.primarytabtwo.selectOne] [slocfurone = siblingloci.furlengthone.selectOne][slocfurtwo = siblingloci.furlengthtwo.selectOne] [sloccoatone = siblingloci.coatone.selectOne][sloccoattwo = siblingloci.coattwo.selectOne] [slochairone = siblingloci.sparseone.selectOne][slochairtwo = siblingloci.sparsetwo.selectOne] [siblingeyecolorloader]
+  
+siblingeyecolorloader
+  [meyeid > deyeid ? eyerangeh = meyeid : eyerangeh = deyeid, meyeid > deyeid ? eyerangel = deyeid : eyerangel = meyeid, sloceyecol = selectRange(siblingeyecolor, eyerangel, eyerangeh).selectOne]
+  
+siblingconverter
+  [glocphaeoone = slocphaeoone, glocphaeotwo = slocphaeotwo, gloceuone = sloceuone, gloceutwo = sloceutwo, glocdilone = slocdilone, glocdiltwo = slocdiltwo, glocdilmodone = slocdilmodone, glocdilmodtwo = slocdilmodtwo,  glocdomwhiteone = slocdomwhiteone, glocdomwhitetwo = slocdomwhitetwo, glocwspotone = slocwspotone, glocwspottwo = slocwspottwo, glocagoutione = slocagoutione, glocagoutitwo = slocagoutitwo, gloctickone = sloctickone, glocticktwo = slocticktwo, glocspotone = slocspotone, glocspottwo = slocspottwo, gloctabone = sloctabone, gloctabtwo = sloctabtwo, glocfurone = slocfurone, glocfurtwo = slocfurtwo, gloccoatone = sloccoatone, gloccoattwo = sloccoattwo, glochairone = slochairone, glochairtwo = slochairtwo, gloceyecol = sloceyecol, ""]
+  
+siblingloci
+  phaeomelone
+    [mlocphaeoone]
+    [mlocphaeotwo]
+  phaeomeltwo
+    [dlocphaeoone]
+    [dlocphaeotwo]
+  eumelone
+    [mloceuone]
+    [mloceutwo]
+  eumeltwo
+    [dloceuone]
+    [dloceutwo]
+  diluteone 
+    [mlocdilone]
+    [mlocdiltwo]
+  dilutetwo
+    [dlocdilone]
+    [dlocdiltwo]
+  dilutemodone
+    [mlocdilmodone]
+    [mlocdilmodtwo]
+  dilutemodtwo
+    [dlocdilmodone]
+    [dlocdilmodtwo]
+  domwhiteone
+    [mlocdomwhiteone]
+    [mlocdomwhitetwo]
+  domwhitetwo
+    [dlocdomwhiteone]
+    [dlocdomwhitetwo]
+  whitespotone
+    [mlocwspotone]
+    [mlocwspottwo]
+  whitespottwo
+    [dlocwspotone]
+    [dlocwspottwo]
+  agoutione
+    [mlocagoutione]
+    [mlocagoutitwo]
+  agoutitwo
+    [dlocagoutione]
+    [dlocagoutitwo]
+  tickedone
+    [mloctickone]
+    [mlocticktwo]
+  tickedtwo
+    [dloctickone]
+    [dlocticktwo]
+  spottedone
+    [mlocspotone]
+    [mlocspottwo]
+  spottedtwo
+    [dlocspotone]
+    [dlocspottwo]
+  primarytabone
+    [mloctabone]
+    [mloctabtwo]
+  primarytabtwo
+    [dloctabone]
+    [dloctabtwo]
+  furlengthone
+    [mlocfurone]
+    [mlocfurtwo]
+  furlengthtwo
+    [dlocfurone]
+    [dlocfurtwo]
+  coatone
+    [mloccoatone]
+    [mloccoattwo]
+  coattwo
+    [dloccoatone]
+    [dloccoattwo]
+  sparseone
+    [mlochairone]
+    [mlochairtwo]
+  sparsetwo
+    [dlochairone]
+    [dlochairtwo]
+    
+siblingeyecolor
+  [seyeid = 1, ""]copper
+  [seyeid = 2, ""]amber
+  [seyeid = 3, ""]yellow
+  [seyeid = 4, ""]gold
+  [seyeid = 5, ""]hazel
+  [seyeid = 6, ""]green
+  
+siblingmateloader
+  [x = x+1, siblingmatepregene]<b>[slocphaeotwo == "Y" ? "Brother" : "Sister"]'s Mate</b>: [siblingmategeneloader]<br>[siblingmateconverter][genereader]<br>Name: <b>[color = phenocol.selectOne, catname]{[names.suffix]|leaf^0.007}</b> (color category: [color])<br>This cat is {alive|dead^[setting == "elder" || setting == "em" ? 3 : 0.5]}.
+
+siblingmatepregene
+  [mg = siblingmategender.selectOne, ""]
+
+siblingmategender
+  [slocphaeotwo]
+
+siblingmateloci
+  phaeomel
+    XO^[mg == "Y" ? 0.5 : 0]
+    Xo^[mg == "Y"]
+    Y^[mg != "Y"]
+  
+siblingmategeneloader
+  [smalocphaeoone = loci.phaeomel.selectOne][smalocphaeotwo = siblingmateloci.phaeomel.selectOne] [smaloceuone = loci.eumel.selectOne][smaloceutwo = loci.eumel.selectOne] [smalocdilone = loci.dilute.selectOne][smalocdiltwo = loci.dilute.selectOne] [smalocdilmodone = loci.dilutemod.selectOne][smalocdilmodtwo = loci.dilutemod.selectOne] [smalocdomwhiteone = loci.domwhite.selectOne][smalocdomwhitetwo = loci.domwhite.selectOne] [smalocwspotone = loci.whitespot.selectOne][smalocwspottwo = loci.whitespot.selectOne] [smalocagoutione = loci.agouti.selectOne][smalocagoutitwo = loci.agouti.selectOne] [smaloctickone = loci.ticked.selectOne][smalocticktwo = loci.ticked.selectOne] [smalocspotone = loci.spotted.selectOne][smalocspottwo = loci.spotted.selectOne] [smaloctabone = loci.primarytab.selectOne][smaloctabtwo = loci.primarytab.selectOne] [smalocfurone = loci.furlength.selectOne][smalocfurtwo = loci.furlength.selectOne] [smaloccoatone = loci.coat.selectOne][smaloccoattwo = loci.coat.selectOne] [smalochairone = loci.sparse.selectOne][smalochairtwo = loci.sparse.selectOne] [smaloceyecol = siblingmateeyecolor.selectOne]
+
+siblingmateconverter
+  [glocphaeoone = smalocphaeoone, glocphaeotwo = smalocphaeotwo, gloceuone = smaloceuone, gloceutwo = smaloceutwo, glocdilone = smalocdilone, glocdiltwo = smalocdiltwo, glocdilmodone = smalocdilmodone, glocdilmodtwo = smalocdilmodtwo,  glocdomwhiteone = smalocdomwhiteone, glocdomwhitetwo = smalocdomwhitetwo, glocwspotone = smalocwspotone, glocwspottwo = smalocwspottwo, glocagoutione = smalocagoutione, glocagoutitwo = smalocagoutitwo, gloctickone = smaloctickone, glocticktwo = smalocticktwo, glocspotone = smalocspotone, glocspottwo = smalocspottwo, gloctabone = smaloctabone, gloctabtwo = smaloctabtwo, glocfurone = smalocfurone, glocfurtwo = smalocfurtwo, gloccoatone = smaloccoatone, gloccoattwo = smaloccoattwo, glochairone = smalochairone, glochairtwo = smalochairtwo, gloceyecol = smaloceyecol, ""]
+  
+siblingmateeyecolor
+  [smaeyeid = 1, ""]copper
+  [smaeyeid = 2, ""]amber
+  [smaeyeid = 3, ""]yellow
+  [smaeyeid = 4, ""]gold
+  [smaeyeid = 5, ""]hazel
+  [smaeyeid = 6, ""]green
+
+niblingloader
+  [lr = lrange.selectOne, y=y+lr, nage = "", nibling.selectMany(lr).joinItems("<br><br>")]
+  [lr = lrange.selectOne, y=y+lr, nage = "", nibling.selectMany(lr).joinItems("<br><br>")]<br><br>[lr = lrange.selectOne, y=y+lr, nage = "younger", nibling.selectMany(lr).joinItems("<br><br>")]^0.25
+  [lr = lrange.selectOne, y=y+lr, nage = "older", nibling.selectMany(lr).joinItems("<br><br>")]<br><br>[lr = lrange.selectOne, y=y+lr, nage = "", nibling.selectMany(lr).joinItems("<br><br>")]<br><br>[lr = lrange.selectOne, y=y+lr, nage = "younger", nibling.selectMany(lr).joinItems("<br><br>")]^0.125
+
+nibling
+  [niblingpregene]<b>[nage.titleCase] [nlocphaeotwo == "Y" ? "Nephew" : "Niece"]</b>: [niblinggeneloader]<br>[niblingconverter][genereader]<br>Name: <b>[color = phenocol.selectOne, catname]{{[names.suffix]|leaf^0.007}^[nydf == "false"]|kit^[nydf == "true" ? 999999999 : 0]}</b> (color category: [color])<br>This cat {died young^[nydf == "true" ? 999999999 : 0]|is alive^[nydf == "false"]|is dead^[nydf == "false" ? 0 : setting == "elder" || setting == "em" ? 1 : 0.25]}.{^[im == "no" ? 0 : 1]|<br><br>[niblingmateloader]^[nydf == "false" && im == "yes" ? 1 : 0]|<br><br>[niblingmateloader]<br><br>[gniblingloader]^[nydf == "false" && im == "yes" ? 1 : 0]}
+  
+siblingphaeo
+  [slocphaeoone]
+  [slocphaeotwo]
+
+siblingmatephaeo
+  [smalocphaeoone]
+  [smalocphaeotwo]
+
+niblingpregene
+  [im = ifmate.selectOne, nydf = youngdeathflag.selectOne, (slocphaeoone+slocphaeotwo).includes("Y") ? nlocphaeoone = siblingmatephaeo.selectOne : nlocphaeoone = siblingphaeo.selectOne, (slocphaeoone+slocphaeotwo).includes("Y") ? nlocphaeotwo = siblingphaeo.selectOne : nlocphaeotwo = siblingmatephaeo.selectOne, ""]
+
+niblinggeneloader
+  [nlocphaeoone][nlocphaeotwo] [nloceuone = niblingloci.eumelone.selectOne][nloceutwo = niblingloci.eumeltwo.selectOne] [nlocdilone = niblingloci.diluteone.selectOne][nlocdiltwo = niblingloci.dilutetwo.selectOne] [nlocdilmodone = niblingloci.dilutemodone.selectOne][nlocdilmodtwo = niblingloci.dilutemodtwo.selectOne] [nlocdomwhiteone = niblingloci.domwhiteone.selectOne][nlocdomwhitetwo = niblingloci.domwhitetwo.selectOne] [nlocwspotone = niblingloci.whitespotone.selectOne][nlocwspottwo = niblingloci.whitespottwo.selectOne] [nlocagoutione = niblingloci.agoutione.selectOne][nlocagoutitwo = niblingloci.agoutitwo.selectOne] [nloctickone = niblingloci.tickedone.selectOne][nlocticktwo = niblingloci.tickedtwo.selectOne] [nlocspotone = niblingloci.spottedone.selectOne][nlocspottwo = niblingloci.spottedtwo.selectOne] [nloctabone = niblingloci.primarytabone.selectOne][nloctabtwo = niblingloci.primarytabtwo.selectOne] [nlocfurone = niblingloci.furlengthone.selectOne][nlocfurtwo = niblingloci.furlengthtwo.selectOne] [nloccoatone = niblingloci.coatone.selectOne][nloccoattwo = niblingloci.coattwo.selectOne] [nlochairone = niblingloci.sparseone.selectOne][nlochairtwo = niblingloci.sparsetwo.selectOne] [niblingeyecolorloader]
+  
+niblingeyecolorloader
+  [seyeid > smaeyeid ? eyerangeh = seyeid : eyerangeh = smaeyeid, seyeid > smaeyeid ? eyerangel = smaeyeid : eyerangel = seyeid, nloceyecol = selectRange(niblingeyecolor, eyerangel, eyerangeh).selectOne]
+  
+niblingconverter
+  [glocphaeoone = nlocphaeoone, glocphaeotwo = nlocphaeotwo, gloceuone = nloceuone, gloceutwo = nloceutwo, glocdilone = nlocdilone, glocdiltwo = nlocdiltwo, glocdilmodone = nlocdilmodone, glocdilmodtwo = nlocdilmodtwo,  glocdomwhiteone = nlocdomwhiteone, glocdomwhitetwo = nlocdomwhitetwo, glocwspotone = nlocwspotone, glocwspottwo = nlocwspottwo, glocagoutione = nlocagoutione, glocagoutitwo = nlocagoutitwo, gloctickone = nloctickone, glocticktwo = nlocticktwo, glocspotone = nlocspotone, glocspottwo = nlocspottwo, gloctabone = nloctabone, gloctabtwo = nloctabtwo, glocfurone = nlocfurone, glocfurtwo = nlocfurtwo, gloccoatone = nloccoatone, gloccoattwo = nloccoattwo, glochairone = nlochairone, glochairtwo = nlochairtwo, gloceyecol = nloceyecol, ""]
+  
+niblingloci
+  eumelone
+    [sloceuone]
+    [sloceutwo]
+  eumeltwo
+    [smaloceuone]
+    [smaloceutwo]
+  diluteone 
+    [slocdilone]
+    [slocdiltwo]
+  dilutetwo
+    [smalocdilone]
+    [smalocdiltwo]
+  dilutemodone
+    [slocdilmodone]
+    [slocdilmodtwo]
+  dilutemodtwo
+    [smalocdilmodone]
+    [smalocdilmodtwo]
+  domwhiteone
+    [slocdomwhiteone]
+    [slocdomwhitetwo]
+  domwhitetwo
+    [smalocdomwhiteone]
+    [smalocdomwhitetwo]
+  whitespotone
+    [slocwspotone]
+    [slocwspottwo]
+  whitespottwo
+    [smalocwspotone]
+    [smalocwspottwo]
+  agoutione
+    [slocagoutione]
+    [slocagoutitwo]
+  agoutitwo
+    [smalocagoutione]
+    [smalocagoutitwo]
+  tickedone
+    [sloctickone]
+    [slocticktwo]
+  tickedtwo
+    [smaloctickone]
+    [smalocticktwo]
+  spottedone
+    [slocspotone]
+    [slocspottwo]
+  spottedtwo
+    [smalocspotone]
+    [smalocspottwo]
+  primarytabone
+    [sloctabone]
+    [sloctabtwo]
+  primarytabtwo
+    [smaloctabone]
+    [smaloctabtwo]
+  furlengthone
+    [slocfurone]
+    [slocfurtwo]
+  furlengthtwo
+    [smalocfurone]
+    [smalocfurtwo]
+  coatone
+    [sloccoatone]
+    [sloccoattwo]
+  coattwo
+    [smaloccoatone]
+    [smaloccoattwo]
+  sparseone
+    [slochairone]
+    [slochairtwo]
+  sparsetwo
+    [smalochairone]
+    [smalochairtwo]
+    
+niblingeyecolor
+  [neyeid = 1, ""]copper
+  [neyeid = 2, ""]amber
+  [neyeid = 3, ""]yellow
+  [neyeid = 4, ""]gold
+  [neyeid = 5, ""]hazel
+  [neyeid = 6, ""]green
+  
+niblingmateloader
+  [x = x+1, niblingmatepregene]<b>[nlocphaeotwo == "Y" ? "Nephew" : "Niece"]'s Mate</b>: [niblingmategeneloader]<br>[niblingmateconverter][genereader]<br>Name: <b>[color = phenocol.selectOne, catname]{[names.suffix]|leaf^0.002}</b> (color category: [color])<br>This cat is {alive|dead^[setting == "elder" || setting == "em" ? 1 : 0.25]}.
+
+niblingmatepregene
+  [mg = niblingmategender.selectOne, ""]
+
+niblingmategender
+  [nlocphaeotwo]
+
+niblingmateloci
+  phaeomel
+    XO^[mg == "Y" ? 0.5 : 0]
+    Xo^[mg == "Y"]
+    Y^[mg != "Y"]
+  
+niblingmategeneloader
+  [nmalocphaeoone = loci.phaeomel.selectOne][nmalocphaeotwo = niblingmateloci.phaeomel.selectOne] [nmaloceuone = loci.eumel.selectOne][nmaloceutwo = loci.eumel.selectOne] [nmalocdilone = loci.dilute.selectOne][nmalocdiltwo = loci.dilute.selectOne] [nmalocdilmodone = loci.dilutemod.selectOne][nmalocdilmodtwo = loci.dilutemod.selectOne] [nmalocdomwhiteone = loci.domwhite.selectOne][nmalocdomwhitetwo = loci.domwhite.selectOne] [nmalocwspotone = loci.whitespot.selectOne][nmalocwspottwo = loci.whitespot.selectOne] [nmalocagoutione = loci.agouti.selectOne][nmalocagoutitwo = loci.agouti.selectOne] [nmaloctickone = loci.ticked.selectOne][nmalocticktwo = loci.ticked.selectOne] [nmalocspotone = loci.spotted.selectOne][nmalocspottwo = loci.spotted.selectOne] [nmaloctabone = loci.primarytab.selectOne][nmaloctabtwo = loci.primarytab.selectOne] [nmalocfurone = loci.furlength.selectOne][nmalocfurtwo = loci.furlength.selectOne] [nmaloccoatone = loci.coat.selectOne][nmaloccoattwo = loci.coat.selectOne] [nmalochairone = loci.sparse.selectOne][nmalochairtwo = loci.sparse.selectOne] [nmaloceyecol = niblingmateeyecolor.selectOne]
+
+niblingmateconverter
+  [glocphaeoone = nmalocphaeoone, glocphaeotwo = nmalocphaeotwo, gloceuone = nmaloceuone, gloceutwo = nmaloceutwo, glocdilone = nmalocdilone, glocdiltwo = nmalocdiltwo, glocdilmodone = nmalocdilmodone, glocdilmodtwo = nmalocdilmodtwo,  glocdomwhiteone = nmalocdomwhiteone, glocdomwhitetwo = nmalocdomwhitetwo, glocwspotone = nmalocwspotone, glocwspottwo = nmalocwspottwo, glocagoutione = nmalocagoutione, glocagoutitwo = nmalocagoutitwo, gloctickone = nmaloctickone, glocticktwo = nmalocticktwo, glocspotone = nmalocspotone, glocspottwo = nmalocspottwo, gloctabone = nmaloctabone, gloctabtwo = nmaloctabtwo, glocfurone = nmalocfurone, glocfurtwo = nmalocfurtwo, gloccoatone = nmaloccoatone, gloccoattwo = nmaloccoattwo, glochairone = nmalochairone, glochairtwo = nmalochairtwo, gloceyecol = nmaloceyecol, ""]
+  
+niblingmateeyecolor
+  [nmaeyeid = 1, ""]copper
+  [nmaeyeid = 2, ""]amber
+  [nmaeyeid = 3, ""]yellow
+  [nmaeyeid = 4, ""]gold
+  [nmaeyeid = 5, ""]hazel
+  [nmaeyeid = 6, ""]green
+
+gniblingloader
+  [lr = lrange.selectOne, y=y+lr, gnage = "", gnibling.selectMany(lr).joinItems("<br><br>")]
+  [lr = lrange.selectOne, y=y+lr, gnage = "", gnibling.selectMany(lr).joinItems("<br><br>")]<br><br>[lr = lrange.selectOne, y=y+lr, gnage = "younger", gnibling.selectMany(lr).joinItems("<br><br>")]^0.25
+  [lr = lrange.selectOne, y=y+lr, gnage = "older", gnibling.selectMany(lr).joinItems("<br><br>")]<br><br>[lr = lrange.selectOne, y=y+lr, gnage = "", gnibling.selectMany(lr).joinItems("<br><br>")]<br><br>[lr = lrange.selectOne, y=y+lr, gnage = "younger", gnibling.selectMany(lr).joinItems("<br><br>")]^0.125
+
+gnibling
+  [gniblingpregene]<b>[gnage.titleCase] Great-[gnlocphaeotwo == "Y" ? "Nephew" : "Niece"]</b>: [gniblinggeneloader]<br>[gniblingconverter][genereader]<br>Name: <b>[color = phenocol.selectOne, catname]{{[names.suffix]|leaf^0.007}^[gnydf == "false"]|kit^[gnydf == "true" ? 999999999 : 0]}</b> (color category: [color])<br>This cat {died young^[gnydf == "true" ? 999999999 : 0]|is alive^[gnydf == "false"]|is dead^[gnydf == "false" ? 0 : setting == "elder" || setting == "em" ? 1 : 0.25]}.{^[im == "no" ? 0 : 1]|<br><br>[gniblingmateloader]^[gnydf == "false" && im == "yes" ? 1 : 0]}
+  
+niblingphaeo
+  [nlocphaeoone]
+  [nlocphaeotwo]
+  
+niblingmphaeo
+  [nmalocphaeoone]
+  [nmalocphaeotwo]
+
+gniblingpregene
+  [im = ifmate.selectOne, gnydf = youngdeathflag.selectOne, ""][(nlocphaeoone+nlocphaeotwo).includes("Y") ? gnlocphaeoone = niblingmphaeo.selectOne : gnlocphaeoone = niblingphaeo.selectOne, (nlocphaeoone+nlocphaeotwo).includes("Y") ? gnlocphaeotwo = niblingphaeo.selectOne : gnlocphaeotwo = niblingmphaeo.selectOne, ""]
+
+gniblinggeneloader
+  [gnlocphaeoone][gnlocphaeotwo] [gnloceuone = gniblingloci.eumelone.selectOne][gnloceutwo = gniblingloci.eumeltwo.selectOne] [gnlocdilone = gniblingloci.diluteone.selectOne][gnlocdiltwo = gniblingloci.dilutetwo.selectOne] [gnlocdilmodone = gniblingloci.dilutemodone.selectOne][gnlocdilmodtwo = gniblingloci.dilutemodtwo.selectOne] [gnlocdomwhiteone = gniblingloci.domwhiteone.selectOne][gnlocdomwhitetwo = gniblingloci.domwhitetwo.selectOne] [gnlocwspotone = gniblingloci.whitespotone.selectOne][gnlocwspottwo = gniblingloci.whitespottwo.selectOne] [gnlocagoutione = gniblingloci.agoutione.selectOne][gnlocagoutitwo = gniblingloci.agoutitwo.selectOne] [gnloctickone = gniblingloci.tickedone.selectOne][gnlocticktwo = gniblingloci.tickedtwo.selectOne] [gnlocspotone = gniblingloci.spottedone.selectOne][gnlocspottwo = gniblingloci.spottedtwo.selectOne] [gnloctabone = gniblingloci.primarytabone.selectOne][gnloctabtwo = gniblingloci.primarytabtwo.selectOne] [gnlocfurone = gniblingloci.furlengthone.selectOne][gnlocfurtwo = gniblingloci.furlengthtwo.selectOne] [gnloccoatone = gniblingloci.coatone.selectOne][gnloccoattwo = gniblingloci.coattwo.selectOne] [gnlochairone = gniblingloci.sparseone.selectOne][gnlochairtwo = gniblingloci.sparsetwo.selectOne] [gniblingeyecolorloader]
+  
+gniblingeyecolorloader
+  [neyeid > nmaeyeid ? eyerangeh = neyeid : eyerangeh = nmaeyeid, neyeid > nmaeyeid ? eyerangel = nmaeyeid : eyerangel = neyeid, gnloceyecol = selectRange(gniblingeyecolor, eyerangel, eyerangeh).selectOne]
+  
+gniblingconverter
+  [glocphaeoone = gnlocphaeoone, glocphaeotwo = gnlocphaeotwo, gloceuone = gnloceuone, gloceutwo = gnloceutwo, glocdilone = gnlocdilone, glocdiltwo = gnlocdiltwo, glocdilmodone = gnlocdilmodone, glocdilmodtwo = gnlocdilmodtwo,  glocdomwhiteone = gnlocdomwhiteone, glocdomwhitetwo = gnlocdomwhitetwo, glocwspotone = gnlocwspotone, glocwspottwo = gnlocwspottwo, glocagoutione = gnlocagoutione, glocagoutitwo = gnlocagoutitwo, gloctickone = gnloctickone, glocticktwo = gnlocticktwo, glocspotone = gnlocspotone, glocspottwo = gnlocspottwo, gloctabone = gnloctabone, gloctabtwo = gnloctabtwo, glocfurone = gnlocfurone, glocfurtwo = gnlocfurtwo, gloccoatone = gnloccoatone, gloccoattwo = gnloccoattwo, glochairone = gnlochairone, glochairtwo = gnlochairtwo, gloceyecol = gnloceyecol, ""]
+  
+gniblingloci
+  eumelone
+    [nloceuone]
+    [nloceutwo]
+  eumeltwo
+    [nmaloceuone]
+    [nmaloceutwo]
+  diluteone 
+    [nlocdilone]
+    [nlocdiltwo]
+  dilutetwo
+    [nmalocdilone]
+    [nmalocdiltwo]
+  dilutemodone
+    [nlocdilmodone]
+    [nlocdilmodtwo]
+  dilutemodtwo
+    [nmalocdilmodone]
+    [nmalocdilmodtwo]
+  domwhiteone
+    [nlocdomwhiteone]
+    [nlocdomwhitetwo]
+  domwhitetwo
+    [nmalocdomwhiteone]
+    [nmalocdomwhitetwo]
+  whitespotone
+    [nlocwspotone]
+    [nlocwspottwo]
+  whitespottwo
+    [nmalocwspotone]
+    [nmalocwspottwo]
+  agoutione
+    [nlocagoutione]
+    [nlocagoutitwo]
+  agoutitwo
+    [nmalocagoutione]
+    [nmalocagoutitwo]
+  tickedone
+    [nloctickone]
+    [nlocticktwo]
+  tickedtwo
+    [nmaloctickone]
+    [nmalocticktwo]
+  spottedone
+    [nlocspotone]
+    [nlocspottwo]
+  spottedtwo
+    [nmalocspotone]
+    [nmalocspottwo]
+  primarytabone
+    [nloctabone]
+    [nloctabtwo]
+  primarytabtwo
+    [nmaloctabone]
+    [nmaloctabtwo]
+  furlengthone
+    [nlocfurone]
+    [nlocfurtwo]
+  furlengthtwo
+    [nmalocfurone]
+    [nmalocfurtwo]
+  coatone
+    [nloccoatone]
+    [nloccoattwo]
+  coattwo
+    [nmaloccoatone]
+    [nmaloccoattwo]
+  sparseone
+    [nlochairone]
+    [nlochairtwo]
+  sparsetwo
+    [nmalochairone]
+    [nmalochairtwo]
+    
+gniblingeyecolor
+  [gneyeid = 1, ""]copper
+  [gneyeid = 2, ""]amber
+  [gneyeid = 3, ""]yellow
+  [gneyeid = 4, ""]gold
+  [gneyeid = 5, ""]hazel
+  [gneyeid = 6, ""]green
+
+gniblingmateloader
+  [x = x+1, gniblingmatepregene]<b>Great-[gnlocphaeotwo == "Y" ? "Nephew" : "Niece"]'s Mate</b>: [gniblingmategeneloader]<br>[gniblingmateconverter][genereader]<br>Name: <b>[color = phenocol.selectOne, catname]{[names.suffix]|leaf^0.002}</b> (color category: [color])<br>This cat is {alive|dead^[setting == "elder" || setting == "em" ? 1 : 0.25]}.
+
+gniblingmatepregene
+  [mg = gniblingmategender.selectOne, ""]
+
+gniblingmategender
+  [gnlocphaeotwo]
+
+gniblingmateloci
+  phaeomel
+    XO^[mg == "Y" ? 0.5 : 0]
+    Xo^[mg == "Y"]
+    Y^[mg != "Y"]
+  
+gniblingmategeneloader
+  [gnmalocphaeoone = loci.phaeomel.selectOne][gnmalocphaeotwo = gniblingmateloci.phaeomel.selectOne] [gnmaloceuone = loci.eumel.selectOne][gnmaloceutwo = loci.eumel.selectOne] [gnmalocdilone = loci.dilute.selectOne][gnmalocdiltwo = loci.dilute.selectOne] [gnmalocdilmodone = loci.dilutemod.selectOne][gnmalocdilmodtwo = loci.dilutemod.selectOne] [gnmalocdomwhiteone = loci.domwhite.selectOne][gnmalocdomwhitetwo = loci.domwhite.selectOne] [gnmalocwspotone = loci.whitespot.selectOne][gnmalocwspottwo = loci.whitespot.selectOne] [gnmalocagoutione = loci.agouti.selectOne][gnmalocagoutitwo = loci.agouti.selectOne] [gnmaloctickone = loci.ticked.selectOne][gnmalocticktwo = loci.ticked.selectOne] [gnmalocspotone = loci.spotted.selectOne][gnmalocspottwo = loci.spotted.selectOne] [gnmaloctabone = loci.primarytab.selectOne][gnmaloctabtwo = loci.primarytab.selectOne] [gnmalocfurone = loci.furlength.selectOne][gnmalocfurtwo = loci.furlength.selectOne] [gnmaloccoatone = loci.coat.selectOne][gnmaloccoattwo = loci.coat.selectOne] [gnmalochairone = loci.sparse.selectOne][gnmalochairtwo = loci.sparse.selectOne] [gnmaloceyecol = gniblingmateeyecolor.selectOne]
+
+gniblingmateconverter
+  [glocphaeoone = gnmalocphaeoone, glocphaeotwo = gnmalocphaeotwo, gloceuone = gnmaloceuone, gloceutwo = gnmaloceutwo, glocdilone = gnmalocdilone, glocdiltwo = gnmalocdiltwo, glocdilmodone = gnmalocdilmodone, glocdilmodtwo = gnmalocdilmodtwo,  glocdomwhiteone = gnmalocdomwhiteone, glocdomwhitetwo = gnmalocdomwhitetwo, glocwspotone = gnmalocwspotone, glocwspottwo = gnmalocwspottwo, glocagoutione = gnmalocagoutione, glocagoutitwo = gnmalocagoutitwo, gloctickone = gnmaloctickone, glocticktwo = gnmalocticktwo, glocspotone = gnmalocspotone, glocspottwo = gnmalocspottwo, gloctabone = gnmaloctabone, gloctabtwo = gnmaloctabtwo, glocfurone = gnmalocfurone, glocfurtwo = gnmalocfurtwo, gloccoatone = gnmaloccoatone, gloccoattwo = gnmaloccoattwo, glochairone = gnmalochairone, glochairtwo = gnmalochairtwo, gloceyecol = gnmaloceyecol, ""]
+  
+gniblingmateeyecolor
+  [gnmaeyeid = 1, ""]copper
+  [gnmaeyeid = 2, ""]amber
+  [gnmaeyeid = 3, ""]yellow
+  [gnmaeyeid = 4, ""]gold
+  [gnmaeyeid = 5, ""]hazel
+  [gnmaeyeid = 6, ""]green
+
+matechildrenloader
+  This cat has no mate or children.^[setting == "appr" || setting == "mate" || setting == "em" ? 999999999 : setting == "queen" ? 0 : 1]
+  [mt = "maincat", mateloader]^[setting == "appr" || setting == "queen" || setting == "mate" || setting == "em" ? 0 : setting == "medcat" ? 0.1 : 0.5]
+  [mt = "maincat", mateloader]<br><br>[kitsloader]^[setting == "queen" ? 1 : setting == "lead" ? 0.1 : 0]
+  [mt = "maincat", mateloader]<br><br>[kitsloader]<br><br>[childrenloader]^[setting == "queen" ? 0.5 : setting == "lead" ? 0.05 : 0]
+  [mt = "maincat", mateloader]<br><br>[childrenloader]^[setting == "queen" || setting == "appr" || setting == "mate" || setting == "em" ? 0 : setting == "medccat" ? 0.1 : 0.5]
+  
+mateloader
+  [x = x+1, matepregene]<b>Main Cat's Mate</b>: [mategeneloader]<br>[mateconverter][genereader]<br>Name: <b>[color = phenocol.selectOne, catname]{[names.suffix]|leaf^0.002}</b> (color category: [color])<br>This cat is {alive|dead^[setting == "elder" || setting == "em" ? 3 : 0.5]}.
+
+matepregene
+  [mg = mategender.selectOne, ""]
+
+mategender
+  [locphaeotwo]
+
+mateloci
+  phaeomel
+    XO^[mg == "Y" ? 0.5 : 0]
+    Xo^[mg == "Y"]
+    Y^[mg != "Y"]
+  
+mategeneloader
+  [malocphaeoone = loci.phaeomel.selectOne][malocphaeotwo = mateloci.phaeomel.selectOne] [maloceuone = loci.eumel.selectOne][maloceutwo = loci.eumel.selectOne] [malocdilone = loci.dilute.selectOne][malocdiltwo = loci.dilute.selectOne] [malocdilmodone = loci.dilutemod.selectOne][malocdilmodtwo = loci.dilutemod.selectOne] [malocdomwhiteone = loci.domwhite.selectOne][malocdomwhitetwo = loci.domwhite.selectOne] [malocwspotone = loci.whitespot.selectOne][malocwspottwo = loci.whitespot.selectOne] [malocagoutione = loci.agouti.selectOne][malocagoutitwo = loci.agouti.selectOne] [maloctickone = loci.ticked.selectOne][malocticktwo = loci.ticked.selectOne] [malocspotone = loci.spotted.selectOne][malocspottwo = loci.spotted.selectOne] [maloctabone = loci.primarytab.selectOne][maloctabtwo = loci.primarytab.selectOne] [malocfurone = loci.furlength.selectOne][malocfurtwo = loci.furlength.selectOne] [maloccoatone = loci.coat.selectOne][maloccoattwo = loci.coat.selectOne] [malochairone = loci.sparse.selectOne][malochairtwo = loci.sparse.selectOne] [maloceyecol = mateeyecolor.selectOne]
+
+mateconverter
+  [glocphaeoone = malocphaeoone, glocphaeotwo = malocphaeotwo, gloceuone = maloceuone, gloceutwo = maloceutwo, glocdilone = malocdilone, glocdiltwo = malocdiltwo, glocdilmodone = malocdilmodone, glocdilmodtwo = malocdilmodtwo,  glocdomwhiteone = malocdomwhiteone, glocdomwhitetwo = malocdomwhitetwo, glocwspotone = malocwspotone, glocwspottwo = malocwspottwo, glocagoutione = malocagoutione, glocagoutitwo = malocagoutitwo, gloctickone = maloctickone, glocticktwo = malocticktwo, glocspotone = malocspotone, glocspottwo = malocspottwo, gloctabone = maloctabone, gloctabtwo = maloctabtwo, glocfurone = malocfurone, glocfurtwo = malocfurtwo, gloccoatone = maloccoatone, gloccoattwo = maloccoattwo, glochairone = malochairone, glochairtwo = malochairtwo, gloceyecol = maloceyecol, ""]
+  
+mateeyecolor
+  [maeyeid = 1, ""]copper
+  [maeyeid = 2, ""]amber
+  [maeyeid = 3, ""]yellow
+  [maeyeid = 4, ""]gold
+  [maeyeid = 5, ""]hazel
+  [maeyeid = 6, ""]green
+  
+expectedflag
+  true
+  false
+
+kitsloader
+  [expectflag = expectedflag.selectOne, lifeflag = "alive", kitflag = "true", cage = "", x = x+1, child]{<br><br>[lifeflag = "false", sr = srange.selectOne, y = y+sr, child.selectMany(sr).joinItems("<br><br>")]|^0.25}
+
+childrenloader
+  [expectflag = "false", lifeflag = "false", kitflag = "false", cage = "", lr = lrange.selectOne, y = y+lr, child.selectMany(lr).joinItems("<br><br>")]
+  [expectflag = "false", lifeflag = "false", kitflag = "false", cage = "", lr = lrange.selectOne, y = y+lr, child.selectMany(lr).joinItems("<br><br>")]<br><br>[cage = "younger", lr = lrange.selectOne, y = y+lr, child.selectMany(lr).joinItems("<br><br>")]^0.25
+  [expectflag = "false", lifeflag = "false", kitflag = "false", cage = "older", lr = lrange.selectOne, y = y+lr, child.selectMany(lr).joinItems("<br><br>")]<br><br>[cage = "", lr = lrange.selectOne, y = y+lr, child.selectMany(lr).joinItems("<br><br>")]<br><br>[cage = "younger", lr = lrange.selectOne, y = y+lr, child.selectMany(lr).joinItems("<br><br>")]^0.125
+  
+child
+  [childpregene]<b>[cage.titleCase] [klocphaeotwo == "Y" ? "Son" : "Daughter"]</b>: [childgeneloader]<br>[childconverter][genereader]<br>Name: <b>[color = phenocol.selectOne, catname]{{[names.suffix]|leaf^0.005}^[cydf == "false" && kitflag == "false"]|kit^[cydf == "true" || kitflag == "true" ? 999999999 : 0]}</b> (color category: [color])<br>This cat {died young^[cydf == "true" ? 999999999 : 0]|is alive^[lifeflag == "alive" ? 999999999 : 1]|is dead^[setting == "elder" || setting == "em" ? 1 : 0.25]|has not been born yet^[expectflag == "true" ? 999999999999999999 : 0]}.{^[im == "no" ? 999999999 : 1]|<br><br>[childmateloader]^[kitflag == "false" && cydf == "false" && im == "yes" ? 1 : 0]|<br><br>[childmateloader]<br><br>[grandchildloader]^[kitflag == "false" && cydf == "false" && im == "yes" ? 1 : 0]}
+  
+mainphaeo
+  [locphaeoone]
+  [locphaeotwo]
+  
+matephaeo
+  [malocphaeoone]
+  [malocphaeotwo]
+
+childpregene
+  [im = ifmate.selectOne, cydf = youngdeathflag.selectOne, ""][(locphaeoone+locphaeotwo).includes("Y") ? klocphaeoone = matephaeo.selectOne : klocphaeoone = mainphaeo.selectOne, (locphaeoone+locphaeotwo).includes("Y") ? klocphaeotwo = mainphaeo.selectOne : klocphaeotwo = matephaeo.selectOne, ""]
+
+childgeneloader
+  [klocphaeoone][klocphaeotwo] [kloceuone = childloci.eumelone.selectOne][kloceutwo = childloci.eumeltwo.selectOne] [klocdilone = childloci.diluteone.selectOne][klocdiltwo = childloci.dilutetwo.selectOne] [klocdilmodone = childloci.dilutemodone.selectOne][klocdilmodtwo = childloci.dilutemodtwo.selectOne] [klocdomwhiteone = childloci.domwhiteone.selectOne][klocdomwhitetwo = childloci.domwhitetwo.selectOne] [klocwspotone = childloci.whitespotone.selectOne][klocwspottwo = childloci.whitespottwo.selectOne] [klocagoutione = childloci.agoutione.selectOne][klocagoutitwo = childloci.agoutitwo.selectOne] [kloctickone = childloci.tickedone.selectOne][klocticktwo = childloci.tickedtwo.selectOne] [klocspotone = childloci.spottedone.selectOne][klocspottwo = childloci.spottedtwo.selectOne] [kloctabone = childloci.primarytabone.selectOne][kloctabtwo = childloci.primarytabtwo.selectOne] [klocfurone = childloci.furlengthone.selectOne][klocfurtwo = childloci.furlengthtwo.selectOne] [kloccoatone = childloci.coatone.selectOne][kloccoattwo = childloci.coattwo.selectOne] [klochairone = childloci.sparseone.selectOne][klochairtwo = childloci.sparsetwo.selectOne] [childeyecolorloader]
+  
+childeyecolorloader
+  [eyeid > maeyeid ? eyerangeh = eyeid : eyerangeh = maeyeid, eyeid > maeyeid ? eyerangel = maeyeid : eyerangel = eyeid, kloceyecol = selectRange(childeyecolor, eyerangel, eyerangeh).selectOne]
+  
+childconverter
+  [glocphaeoone = klocphaeoone, glocphaeotwo = klocphaeotwo, gloceuone = kloceuone, gloceutwo = kloceutwo, glocdilone = klocdilone, glocdiltwo = klocdiltwo, glocdilmodone = klocdilmodone, glocdilmodtwo = klocdilmodtwo,  glocdomwhiteone = klocdomwhiteone, glocdomwhitetwo = klocdomwhitetwo, glocwspotone = klocwspotone, glocwspottwo = klocwspottwo, glocagoutione = klocagoutione, glocagoutitwo = klocagoutitwo, gloctickone = kloctickone, glocticktwo = klocticktwo, glocspotone = klocspotone, glocspottwo = klocspottwo, gloctabone = kloctabone, gloctabtwo = kloctabtwo, glocfurone = klocfurone, glocfurtwo = klocfurtwo, gloccoatone = kloccoatone, gloccoattwo = kloccoattwo, glochairone = klochairone, glochairtwo = klochairtwo, gloceyecol = kloceyecol, ""]
+  
+childloci
+  eumelone
+    [loceuone]
+    [loceutwo]
+  eumeltwo
+    [maloceuone]
+    [maloceutwo]
+  diluteone 
+    [locdilone]
+    [locdiltwo]
+  dilutetwo
+    [malocdilone]
+    [malocdiltwo]
+  dilutemodone
+    [locdilmodone]
+    [locdilmodtwo]
+  dilutemodtwo
+    [malocdilmodone]
+    [malocdilmodtwo]
+  domwhiteone
+    [locdomwhiteone]
+    [locdomwhitetwo]
+  domwhitetwo
+    [malocdomwhiteone]
+    [malocdomwhitetwo]
+  whitespotone
+    [locwspotone]
+    [locwspottwo]
+  whitespottwo
+    [malocwspotone]
+    [malocwspottwo]
+  agoutione
+    [locagoutione]
+    [locagoutitwo]
+  agoutitwo
+    [malocagoutione]
+    [malocagoutitwo]
+  tickedone
+    [loctickone]
+    [locticktwo]
+  tickedtwo
+    [maloctickone]
+    [malocticktwo]
+  spottedone
+    [locspotone]
+    [locspottwo]
+  spottedtwo
+    [malocspotone]
+    [malocspottwo]
+  primarytabone
+    [loctabone]
+    [loctabtwo]
+  primarytabtwo
+    [maloctabone]
+    [maloctabtwo]
+  furlengthone
+    [locfurone]
+    [locfurtwo]
+  furlengthtwo
+    [malocfurone]
+    [malocfurtwo]
+  coatone
+    [loccoatone]
+    [loccoattwo]
+  coattwo
+    [maloccoatone]
+    [maloccoattwo]
+  sparseone
+    [lochairone]
+    [lochairtwo]
+  sparsetwo
+    [malochairone]
+    [malochairtwo]
+    
+childeyecolor
+  [keyeid = 1, ""]copper
+  [keyeid = 2, ""]amber
+  [keyeid = 3, ""]yellow
+  [keyeid = 4, ""]gold
+  [keyeid = 5, ""]hazel
+  [keyeid = 6, ""]green
+  
+childmateloader
+  [x = x+1, childmatepregene]<b>[klocphaeotwo == "Y" ? "Son" : "Daughter"]'s Mate</b>: [childmategeneloader]<br>[childmateconverter][genereader]<br>Name: <b>[color = phenocol.selectOne, catname]{[names.suffix]|leaf^0.002}</b> (color category: [color])<br>This cat is {alive|dead^[setting == "elder" || setting == "em" ? 1 : 0.25]}.
+
+childmatepregene
+  [mg = childmategender.selectOne, ""]
+
+childmategender
+  [klocphaeotwo]
+
+childmateloci
+  phaeomel
+    XO^[mg == "Y" ? 0.5 : 0]
+    Xo^[mg == "Y"]
+    Y^[mg != "Y"]
+  
+childmategeneloader
+  [kmalocphaeoone = loci.phaeomel.selectOne][kmalocphaeotwo = childmateloci.phaeomel.selectOne] [kmaloceuone = loci.eumel.selectOne][kmaloceutwo = loci.eumel.selectOne] [kmalocdilone = loci.dilute.selectOne][kmalocdiltwo = loci.dilute.selectOne] [kmalocdilmodone = loci.dilutemod.selectOne][kmalocdilmodtwo = loci.dilutemod.selectOne] [kmalocdomwhiteone = loci.domwhite.selectOne][kmalocdomwhitetwo = loci.domwhite.selectOne] [kmalocwspotone = loci.whitespot.selectOne][kmalocwspottwo = loci.whitespot.selectOne] [kmalocagoutione = loci.agouti.selectOne][kmalocagoutitwo = loci.agouti.selectOne] [kmaloctickone = loci.ticked.selectOne][kmalocticktwo = loci.ticked.selectOne] [kmalocspotone = loci.spotted.selectOne][kmalocspottwo = loci.spotted.selectOne] [kmaloctabone = loci.primarytab.selectOne][kmaloctabtwo = loci.primarytab.selectOne] [kmalocfurone = loci.furlength.selectOne][kmalocfurtwo = loci.furlength.selectOne] [kmaloccoatone = loci.coat.selectOne][kmaloccoattwo = loci.coat.selectOne] [kmalochairone = loci.sparse.selectOne][kmalochairtwo = loci.sparse.selectOne] [kmaloceyecol = childmateeyecolor.selectOne]
+
+childmateconverter
+  [glocphaeoone = kmalocphaeoone, glocphaeotwo = kmalocphaeotwo, gloceuone = kmaloceuone, gloceutwo = kmaloceutwo, glocdilone = kmalocdilone, glocdiltwo = kmalocdiltwo, glocdilmodone = kmalocdilmodone, glocdilmodtwo = kmalocdilmodtwo,  glocdomwhiteone = kmalocdomwhiteone, glocdomwhitetwo = kmalocdomwhitetwo, glocwspotone = kmalocwspotone, glocwspottwo = kmalocwspottwo, glocagoutione = kmalocagoutione, glocagoutitwo = kmalocagoutitwo, gloctickone = kmaloctickone, glocticktwo = kmalocticktwo, glocspotone = kmalocspotone, glocspottwo = kmalocspottwo, gloctabone = kmaloctabone, gloctabtwo = kmaloctabtwo, glocfurone = kmalocfurone, glocfurtwo = kmalocfurtwo, gloccoatone = kmaloccoatone, gloccoattwo = kmaloccoattwo, glochairone = kmalochairone, glochairtwo = kmalochairtwo, gloceyecol = kmaloceyecol, ""]
+  
+childmateeyecolor
+  [kmaeyeid = 1, ""]copper
+  [kmaeyeid = 2, ""]amber
+  [kmaeyeid = 3, ""]yellow
+  [kmaeyeid = 4, ""]gold
+  [kmaeyeid = 5, ""]hazel
+  [kmaeyeid = 6, ""]green
+  
+grandchildloader
+  [lr = lrange.selectOne, y=y+lr, gkage = "", grandchild.selectMany(lr).joinItems("<br><br>")]
+  [lr = lrange.selectOne, y=y+lr, gkage = "", grandchild.selectMany(lr).joinItems("<br><br>")]<br><br>[lr = lrange.selectOne, y=y+lr, gkage = "younger", grandchild.selectMany(lr).joinItems("<br><br>")]^0.25
+  [lr = lrange.selectOne, y=y+lr, gkage = "older", grandchild.selectMany(lr).joinItems("<br><br>")]<br><br>[lr = lrange.selectOne, y=y+lr, gkage = "", grandchild.selectMany(lr).joinItems("<br><br>")]<br><br>[lr = lrange.selectOne, y=y+lr, gkage = "younger", grandchild.selectMany(lr).joinItems("<br><br>")]^0.125
+
+grandchild
+  [grandchildpregene]<b>[gkage.titleCase] Grand[gklocphaeotwo == "Y" ? "son" : "daughter"]</b>: [grandchildgeneloader]<br>[grandchildconverter][genereader]<br>Name: <b>[color = phenocol.selectOne, catname]{{[names.suffix]|leaf^0.005}^[gkydf == "false" && kitflag == "false"]|kit^[gkydf == "true" ? 999999999 : 0]}</b> (color category: [color])<br>This cat {died young^[gkydf == "true" ? 999999999 : 0]|is alive|is dead^0.25}.{^[im == "no" ? 999999999 : 1]|<br><br>[grandchildmateloader]^[gkydf == "false" && im == "yes" ? 1 : 0]|<br><br>[grandchildmateloader]<br><br>[greatgrandchildloader]^[gkydf == "false" && im == "yes" && setting == "elder" ? 1 : 0]}
+  
+childphaeo
+  [klocphaeoone]
+  [klocphaeotwo]
+  
+childmatephaeo
+  [kmalocphaeoone]
+  [kmalocphaeotwo]
+
+grandchildpregene
+  [im = ifmate.selectOne, gkydf = youngdeathflag.selectOne, ""][(klocphaeoone+klocphaeotwo).includes("Y") ? gklocphaeoone = childmatephaeo.selectOne : gklocphaeoone = childphaeo.selectOne, (klocphaeoone+klocphaeotwo).includes("Y") ? gklocphaeotwo = childphaeo.selectOne : gklocphaeotwo = childmatephaeo.selectOne, ""]
+
+grandchildgeneloader
+  [gklocphaeoone][gklocphaeotwo] [gkloceuone = grandchildloci.eumelone.selectOne][gkloceutwo = grandchildloci.eumeltwo.selectOne] [gklocdilone = grandchildloci.diluteone.selectOne][gklocdiltwo = grandchildloci.dilutetwo.selectOne] [gklocdilmodone = grandchildloci.dilutemodone.selectOne][gklocdilmodtwo = grandchildloci.dilutemodtwo.selectOne] [gklocdomwhiteone = grandchildloci.domwhiteone.selectOne][gklocdomwhitetwo = grandchildloci.domwhitetwo.selectOne] [gklocwspotone = grandchildloci.whitespotone.selectOne][gklocwspottwo = grandchildloci.whitespottwo.selectOne] [gklocagoutione = grandchildloci.agoutione.selectOne][gklocagoutitwo = grandchildloci.agoutitwo.selectOne] [gkloctickone = grandchildloci.tickedone.selectOne][gklocticktwo = grandchildloci.tickedtwo.selectOne] [gklocspotone = grandchildloci.spottedone.selectOne][gklocspottwo = grandchildloci.spottedtwo.selectOne] [gkloctabone = grandchildloci.primarytabone.selectOne][gkloctabtwo = grandchildloci.primarytabtwo.selectOne] [gklocfurone = grandchildloci.furlengthone.selectOne][gklocfurtwo = grandchildloci.furlengthtwo.selectOne] [gkloccoatone = grandchildloci.coatone.selectOne][gkloccoattwo = grandchildloci.coattwo.selectOne] [gklochairone = grandchildloci.sparseone.selectOne][gklochairtwo = grandchildloci.sparsetwo.selectOne] [grandchildeyecolorloader]
+  
+grandchildeyecolorloader
+  [keyeid > kmaeyeid ? eyerangeh = keyeid : eyerangeh = kmaeyeid, keyeid > kmaeyeid ? eyerangel = kmaeyeid : eyerangel = keyeid, gkloceyecol = selectRange(grandchildeyecolor, eyerangel, eyerangeh).selectOne]
+  
+grandchildconverter
+  [glocphaeoone = gklocphaeoone, glocphaeotwo = gklocphaeotwo, gloceuone = gkloceuone, gloceutwo = gkloceutwo, glocdilone = gklocdilone, glocdiltwo = gklocdiltwo, glocdilmodone = gklocdilmodone, glocdilmodtwo = gklocdilmodtwo,  glocdomwhiteone = gklocdomwhiteone, glocdomwhitetwo = gklocdomwhitetwo, glocwspotone = gklocwspotone, glocwspottwo = gklocwspottwo, glocagoutione = gklocagoutione, glocagoutitwo = gklocagoutitwo, gloctickone = gkloctickone, glocticktwo = gklocticktwo, glocspotone = gklocspotone, glocspottwo = gklocspottwo, gloctabone = gkloctabone, gloctabtwo = gkloctabtwo, glocfurone = gklocfurone, glocfurtwo = gklocfurtwo, gloccoatone = gkloccoatone, gloccoattwo = gkloccoattwo, glochairone = gklochairone, glochairtwo = gklochairtwo, gloceyecol = gkloceyecol, ""]
+  
+grandchildloci
+  eumelone
+    [kloceuone]
+    [kloceutwo]
+  eumeltwo
+    [kmaloceuone]
+    [kmaloceutwo]
+  diluteone 
+    [klocdilone]
+    [klocdiltwo]
+  dilutetwo
+    [kmalocdilone]
+    [kmalocdiltwo]
+  dilutemodone
+    [klocdilmodone]
+    [klocdilmodtwo]
+  dilutemodtwo
+    [kmalocdilmodone]
+    [kmalocdilmodtwo]
+  domwhiteone
+    [klocdomwhiteone]
+    [klocdomwhitetwo]
+  domwhitetwo
+    [kmalocdomwhiteone]
+    [kmalocdomwhitetwo]
+  whitespotone
+    [klocwspotone]
+    [klocwspottwo]
+  whitespottwo
+    [kmalocwspotone]
+    [kmalocwspottwo]
+  agoutione
+    [klocagoutione]
+    [klocagoutitwo]
+  agoutitwo
+    [kmalocagoutione]
+    [kmalocagoutitwo]
+  tickedone
+    [kloctickone]
+    [klocticktwo]
+  tickedtwo
+    [kmaloctickone]
+    [kmalocticktwo]
+  spottedone
+    [klocspotone]
+    [klocspottwo]
+  spottedtwo
+    [kmalocspotone]
+    [kmalocspottwo]
+  primarytabone
+    [kloctabone]
+    [kloctabtwo]
+  primarytabtwo
+    [kmaloctabone]
+    [kmaloctabtwo]
+  furlengthone
+    [klocfurone]
+    [klocfurtwo]
+  furlengthtwo
+    [kmalocfurone]
+    [kmalocfurtwo]
+  coatone
+    [kloccoatone]
+    [kloccoattwo]
+  coattwo
+    [kmaloccoatone]
+    [kmaloccoattwo]
+  sparseone
+    [klochairone]
+    [klochairtwo]
+  sparsetwo
+    [kmalochairone]
+    [kmalochairtwo]
+    
+grandchildeyecolor
+  [gkeyeid = 1, ""]copper
+  [gkeyeid = 2, ""]amber
+  [gkeyeid = 3, ""]yellow
+  [gkeyeid = 4, ""]gold
+  [gkeyeid = 5, ""]hazel
+  [gkeyeid = 6, ""]green
+
+grandchildmateloader
+  [x = x+1, grandchildmatepregene]<b>Grand[gklocphaeotwo == "Y" ? "son" : "daughter"]'s Mate</b>: [grandchildmategeneloader]<br>[grandchildmateconverter][genereader]<br>Name: <b>[color = phenocol.selectOne, catname]{[names.suffix]|leaf^0.002}</b> (color category: [color])<br>This cat is {alive|dead^0.25}.
+
+grandchildmatepregene
+  [mg = grandchildmategender.selectOne, ""]
+
+grandchildmategender
+  [gklocphaeotwo]
+
+grandchildmateloci
+  phaeomel
+    XO^[mg == "Y" ? 0.5 : 0]
+    Xo^[mg == "Y"]
+    Y^[mg != "Y"]
+  
+grandchildmategeneloader
+  [gkmalocphaeoone = loci.phaeomel.selectOne][gkmalocphaeotwo = grandchildmateloci.phaeomel.selectOne] [gkmaloceuone = loci.eumel.selectOne][gkmaloceutwo = loci.eumel.selectOne] [gkmalocdilone = loci.dilute.selectOne][gkmalocdiltwo = loci.dilute.selectOne] [gkmalocdilmodone = loci.dilutemod.selectOne][gkmalocdilmodtwo = loci.dilutemod.selectOne] [gkmalocdomwhiteone = loci.domwhite.selectOne][gkmalocdomwhitetwo = loci.domwhite.selectOne] [gkmalocwspotone = loci.whitespot.selectOne][gkmalocwspottwo = loci.whitespot.selectOne] [gkmalocagoutione = loci.agouti.selectOne][gkmalocagoutitwo = loci.agouti.selectOne] [gkmaloctickone = loci.ticked.selectOne][gkmalocticktwo = loci.ticked.selectOne] [gkmalocspotone = loci.spotted.selectOne][gkmalocspottwo = loci.spotted.selectOne] [gkmaloctabone = loci.primarytab.selectOne][gkmaloctabtwo = loci.primarytab.selectOne] [gkmalocfurone = loci.furlength.selectOne][gkmalocfurtwo = loci.furlength.selectOne] [gkmaloccoatone = loci.coat.selectOne][gkmaloccoattwo = loci.coat.selectOne] [gkmalochairone = loci.sparse.selectOne][gkmalochairtwo = loci.sparse.selectOne] [gkmaloceyecol = grandchildmateeyecolor.selectOne]
+
+grandchildmateconverter
+  [glocphaeoone = gkmalocphaeoone, glocphaeotwo = gkmalocphaeotwo, gloceuone = gkmaloceuone, gloceutwo = gkmaloceutwo, glocdilone = gkmalocdilone, glocdiltwo = gkmalocdiltwo, glocdilmodone = gkmalocdilmodone, glocdilmodtwo = gkmalocdilmodtwo,  glocdomwhiteone = gkmalocdomwhiteone, glocdomwhitetwo = gkmalocdomwhitetwo, glocwspotone = gkmalocwspotone, glocwspottwo = gkmalocwspottwo, glocagoutione = gkmalocagoutione, glocagoutitwo = gkmalocagoutitwo, gloctickone = gkmaloctickone, glocticktwo = gkmalocticktwo, glocspotone = gkmalocspotone, glocspottwo = gkmalocspottwo, gloctabone = gkmaloctabone, gloctabtwo = gkmaloctabtwo, glocfurone = gkmalocfurone, glocfurtwo = gkmalocfurtwo, gloccoatone = gkmaloccoatone, gloccoattwo = gkmaloccoattwo, glochairone = gkmalochairone, glochairtwo = gkmalochairtwo, gloceyecol = gkmaloceyecol, ""]
+  
+grandchildmateeyecolor
+  [gkmaeyeid = 1, ""]copper
+  [gkmaeyeid = 2, ""]amber
+  [gkmaeyeid = 3, ""]yellow
+  [gkmaeyeid = 4, ""]gold
+  [gkmaeyeid = 5, ""]hazel
+  [gkmaeyeid = 6, ""]green
+
+greatgrandchildloader
+  [lr = lrange.selectOne, y=y+lr, ggkage = "", greatgrandchild.selectMany(lr).joinItems("<br><br>")]
+  [lr = lrange.selectOne, y=y+lr, ggkage = "", greatgrandchild.selectMany(lr).joinItems("<br><br>")]<br><br>[lr = lrange.selectOne, y=y+lr, ggkage = "younger", greatgrandchild.selectMany(lr).joinItems("<br><br>")]^0.25
+  [lr = lrange.selectOne, y=y+lr, ggkage = "older", greatgrandchild.selectMany(lr).joinItems("<br><br>")]<br><br>[lr = lrange.selectOne, y=y+lr, ggkage = "", greatgrandchild.selectMany(lr).joinItems("<br><br>")]<br><br>[lr = lrange.selectOne, y=y+lr, ggkage = "younger", greatgrandchild.selectMany(lr).joinItems("<br><br>")]^0.125
+
+greatgrandchild
+  [greatgrandchildpregene]<b>[ggkage.titleCase] Great-Grand[ggklocphaeotwo == "Y" ? "son" : "daughter"]</b>: [greatgrandchildgeneloader]<br>[greatgrandchildconverter][genereader]<br>Name: <b>[color = phenocol.selectOne, catname]{{[names.suffix]|leaf^0.005}^[ggkydf == "false" && kitflag == "false"]|kit^[ggkydf == "true" ? 999999999 : 0]}</b> (color category: [color])<br>This cat {died young^[ggkydf == "true" ? 999999999 : 0]|is alive|is dead^0.25}.{^[im == "no" ? 999999999 : 1]|<br><br>[greatgrandchildmateloader]^[ggkydf == "false" && im == "yes" ? 1 : 0]}
+  
+grandchildphaeo
+  [gklocphaeoone]
+  [gklocphaeotwo]
+  
+grandchildmatephaeo
+  [gkmalocphaeoone]
+  [gkmalocphaeotwo]
+
+greatgrandchildpregene
+  [im = ifmate.selectOne, ggkydf = youngdeathflag.selectOne, ""][(gklocphaeoone+gklocphaeotwo).includes("Y") ? ggklocphaeoone = grandchildmatephaeo.selectOne : ggklocphaeoone = grandchildphaeo.selectOne, (gklocphaeoone+gklocphaeotwo).includes("Y") ? ggklocphaeotwo = grandchildphaeo.selectOne : ggklocphaeotwo = grandchildmatephaeo.selectOne, ""]
+
+greatgrandchildgeneloader
+  [ggklocphaeoone][ggklocphaeotwo] [ggkloceuone = greatgrandchildloci.eumelone.selectOne][ggkloceutwo = greatgrandchildloci.eumeltwo.selectOne] [ggklocdilone = greatgrandchildloci.diluteone.selectOne][ggklocdiltwo = greatgrandchildloci.dilutetwo.selectOne] [ggklocdilmodone = greatgrandchildloci.dilutemodone.selectOne][ggklocdilmodtwo = greatgrandchildloci.dilutemodtwo.selectOne] [ggklocdomwhiteone = greatgrandchildloci.domwhiteone.selectOne][ggklocdomwhitetwo = greatgrandchildloci.domwhitetwo.selectOne] [ggklocwspotone = greatgrandchildloci.whitespotone.selectOne][ggklocwspottwo = greatgrandchildloci.whitespottwo.selectOne] [ggklocagoutione = greatgrandchildloci.agoutione.selectOne][ggklocagoutitwo = greatgrandchildloci.agoutitwo.selectOne] [ggkloctickone = greatgrandchildloci.tickedone.selectOne][ggklocticktwo = greatgrandchildloci.tickedtwo.selectOne] [ggklocspotone = greatgrandchildloci.spottedone.selectOne][ggklocspottwo = greatgrandchildloci.spottedtwo.selectOne] [ggkloctabone = greatgrandchildloci.primarytabone.selectOne][ggkloctabtwo = greatgrandchildloci.primarytabtwo.selectOne] [ggklocfurone = greatgrandchildloci.furlengthone.selectOne][ggklocfurtwo = greatgrandchildloci.furlengthtwo.selectOne] [ggkloccoatone = greatgrandchildloci.coatone.selectOne][ggkloccoattwo = greatgrandchildloci.coattwo.selectOne] [ggklochairone = greatgrandchildloci.sparseone.selectOne][ggklochairtwo = greatgrandchildloci.sparsetwo.selectOne] [greatgrandchildeyecolorloader]
+  
+greatgrandchildeyecolorloader
+  [gkeyeid > gkmaeyeid ? eyerangeh = gkeyeid : eyerangeh = gkmaeyeid, gkeyeid > gkmaeyeid ? eyerangel = gkmaeyeid : eyerangel = gkeyeid, ggkloceyecol = selectRange(greatgrandchildeyecolor, eyerangel, eyerangeh).selectOne]
+  
+greatgrandchildconverter
+  [glocphaeoone = ggklocphaeoone, glocphaeotwo = ggklocphaeotwo, gloceuone = ggkloceuone, gloceutwo = ggkloceutwo, glocdilone = ggklocdilone, glocdiltwo = ggklocdiltwo, glocdilmodone = ggklocdilmodone, glocdilmodtwo = ggklocdilmodtwo,  glocdomwhiteone = ggklocdomwhiteone, glocdomwhitetwo = ggklocdomwhitetwo, glocwspotone = ggklocwspotone, glocwspottwo = ggklocwspottwo, glocagoutione = ggklocagoutione, glocagoutitwo = ggklocagoutitwo, gloctickone = ggkloctickone, glocticktwo = ggklocticktwo, glocspotone = ggklocspotone, glocspottwo = ggklocspottwo, gloctabone = ggkloctabone, gloctabtwo = ggkloctabtwo, glocfurone = ggklocfurone, glocfurtwo = ggklocfurtwo, gloccoatone = ggkloccoatone, gloccoattwo = ggkloccoattwo, glochairone = ggklochairone, glochairtwo = ggklochairtwo, gloceyecol = ggkloceyecol, ""]
+  
+greatgrandchildloci
+  eumelone
+    [gkloceuone]
+    [gkloceutwo]
+  eumeltwo
+    [gkmaloceuone]
+    [gkmaloceutwo]
+  diluteone 
+    [gklocdilone]
+    [gklocdiltwo]
+  dilutetwo
+    [gkmalocdilone]
+    [gkmalocdiltwo]
+  dilutemodone
+    [gklocdilmodone]
+    [gklocdilmodtwo]
+  dilutemodtwo
+    [gkmalocdilmodone]
+    [gkmalocdilmodtwo]
+  domwhiteone
+    [gklocdomwhiteone]
+    [gklocdomwhitetwo]
+  domwhitetwo
+    [gkmalocdomwhiteone]
+    [gkmalocdomwhitetwo]
+  whitespotone
+    [gklocwspotone]
+    [gklocwspottwo]
+  whitespottwo
+    [gkmalocwspotone]
+    [gkmalocwspottwo]
+  agoutione
+    [gklocagoutione]
+    [gklocagoutitwo]
+  agoutitwo
+    [gkmalocagoutione]
+    [gkmalocagoutitwo]
+  tickedone
+    [gkloctickone]
+    [gklocticktwo]
+  tickedtwo
+    [gkmaloctickone]
+    [gkmalocticktwo]
+  spottedone
+    [gklocspotone]
+    [gklocspottwo]
+  spottedtwo
+    [gkmalocspotone]
+    [gkmalocspottwo]
+  primarytabone
+    [gkloctabone]
+    [gkloctabtwo]
+  primarytabtwo
+    [gkmaloctabone]
+    [gkmaloctabtwo]
+  furlengthone
+    [gklocfurone]
+    [gklocfurtwo]
+  furlengthtwo
+    [gkmalocfurone]
+    [gkmalocfurtwo]
+  coatone
+    [gkloccoatone]
+    [gkloccoattwo]
+  coattwo
+    [gkmaloccoatone]
+    [gkmaloccoattwo]
+  sparseone
+    [gklochairone]
+    [gklochairtwo]
+  sparsetwo
+    [gkmalochairone]
+    [gkmalochairtwo]
+    
+greatgrandchildeyecolor
+  [ggkeyeid = 1, ""]copper
+  [ggkeyeid = 2, ""]amber
+  [ggkeyeid = 3, ""]yellow
+  [ggkeyeid = 4, ""]gold
+  [ggkeyeid = 5, ""]hazel
+  [ggkeyeid = 6, ""]green
+
+greatgrandchildmateloader
+  [x = x+1, greatgrandchildmatepregene]<b>Great-Grand[ggklocphaeotwo == "Y" ? "son" : "daughter"]'s Mate</b>: [greatgrandchildmategeneloader]<br>[greatgrandchildmateconverter][genereader]<br>Name: <b>[color = phenocol.selectOne, catname]{[names.suffix]|leaf^0.002}</b> (color category: [color])<br>This cat is {alive|dead^0.25}.
+
+greatgrandchildmatepregene
+  [mg = greatgrandchildmategender.selectOne, ""]
+
+greatgrandchildmategender
+  [ggklocphaeotwo]
+
+greatgrandchildmateloci
+  phaeomel
+    XO^[mg == "Y" ? 0.5 : 0]
+    Xo^[mg == "Y"]
+    Y^[mg != "Y"]
+  
+greatgrandchildmategeneloader
+  [ggkmalocphaeoone = loci.phaeomel.selectOne][ggkmalocphaeotwo = greatgrandchildmateloci.phaeomel.selectOne] [ggkmaloceuone = loci.eumel.selectOne][ggkmaloceutwo = loci.eumel.selectOne] [ggkmalocdilone = loci.dilute.selectOne][ggkmalocdiltwo = loci.dilute.selectOne] [ggkmalocdilmodone = loci.dilutemod.selectOne][ggkmalocdilmodtwo = loci.dilutemod.selectOne] [ggkmalocdomwhiteone = loci.domwhite.selectOne][ggkmalocdomwhitetwo = loci.domwhite.selectOne] [ggkmalocwspotone = loci.whitespot.selectOne][ggkmalocwspottwo = loci.whitespot.selectOne] [ggkmalocagoutione = loci.agouti.selectOne][ggkmalocagoutitwo = loci.agouti.selectOne] [ggkmaloctickone = loci.ticked.selectOne][ggkmalocticktwo = loci.ticked.selectOne] [ggkmalocspotone = loci.spotted.selectOne][ggkmalocspottwo = loci.spotted.selectOne] [ggkmaloctabone = loci.primarytab.selectOne][ggkmaloctabtwo = loci.primarytab.selectOne] [ggkmalocfurone = loci.furlength.selectOne][ggkmalocfurtwo = loci.furlength.selectOne] [ggkmaloccoatone = loci.coat.selectOne][ggkmaloccoattwo = loci.coat.selectOne] [ggkmalochairone = loci.sparse.selectOne][ggkmalochairtwo = loci.sparse.selectOne] [ggkmaloceyecol = greatgrandchildmateeyecolor.selectOne]
+
+greatgrandchildmateconverter
+  [glocphaeoone = ggkmalocphaeoone, glocphaeotwo = ggkmalocphaeotwo, gloceuone = ggkmaloceuone, gloceutwo = ggkmaloceutwo, glocdilone = ggkmalocdilone, glocdiltwo = ggkmalocdiltwo, glocdilmodone = ggkmalocdilmodone, glocdilmodtwo = ggkmalocdilmodtwo,  glocdomwhiteone = ggkmalocdomwhiteone, glocdomwhitetwo = ggkmalocdomwhitetwo, glocwspotone = ggkmalocwspotone, glocwspottwo = ggkmalocwspottwo, glocagoutione = ggkmalocagoutione, glocagoutitwo = ggkmalocagoutitwo, gloctickone = ggkmaloctickone, glocticktwo = ggkmalocticktwo, glocspotone = ggkmalocspotone, glocspottwo = ggkmalocspottwo, gloctabone = ggkmaloctabone, gloctabtwo = ggkmaloctabtwo, glocfurone = ggkmalocfurone, glocfurtwo = ggkmalocfurtwo, gloccoatone = ggkmaloccoatone, gloccoattwo = ggkmaloccoattwo, glochairone = ggkmalochairone, glochairtwo = ggkmalochairtwo, gloceyecol = ggkmaloceyecol, ""]
+  
+greatgrandchildmateeyecolor
+  [ggkmaeyeid = 1, ""]copper
+  [ggkmaeyeid = 2, ""]amber
+  [ggkmaeyeid = 3, ""]yellow
+  [ggkmaeyeid = 4, ""]gold
+  [ggkmaeyeid = 5, ""]hazel
+  [ggkmaeyeid = 6, ""]green
+  
+loci
+  phaeomel
+    XO^0.5
+    Xo
+  eumel
+    B
+    b^0.25
+    b1^0.05
+  dilute
+    D
+    d^0.5
+  dilutemod
+    Dm^0.05
+    dm
+  domwhite
+    Wd^0.05
+    wd
+  whitespot
+    Ws^0.5
+    ws
+  agouti
+    Afc
+    a^0.5
+  ticked
+    Ta^0.1
+    ta
+  spotted
+    Sp^0.2
+    sp
+  primarytab
+    Mc
+    mc^0.25
+  furlength
+    L
+    l^0.5
+  coat
+    Re^0.05
+    Se
+    hr^0.05
+  sparse
+    Spf
+    spf^0.05
+    
+cutnames
+  default
+  
+catname
+  [prefixBlack]^[color == "black" || color == "blackbi" || color == "tortie" || color == "calico"]
+  [prefixblackBi]^[color == "blackbi" || color == "calico"]
+  [prefixBlue]^[color == "blue" || color == "bluebi" || color == "ditortie" || color == "dicalico"]
+  [prefixblueBi]^[color == "bluebi" || color == "dicalico"]
+  [prefixBrown]^[color == "brown" || color == "brownbi" || color == "browntortie" || color == "dibrowntortie" || color == "browncalico" || color == "dibrowncalico"]
+  [prefixbrownBi]^[color == "brownbi" || color == "browncalico" || color == "dibrowncalico"]
+  [prefixRed]^[color == "red" || color == "redbi" || color == "tortie" || color == "calico"]
+  [prefixredBi]^[color == "redbi" || color == "calico" || color == "browncalico"]
+  [prefixCream]^[color == "red" || color == "redbi" || color == "cream" || color == "creambi" || color == "ditortie" || color == "dibrowntortie" || color == "dicalico" || color == "dibrowncalico"]
+  [prefixcreamBi]^[color == "creambi" || color == "dicalico" || color == "dibrowncalico"]
+  [prefixTortie]^[color == "tortie" || color == "browntortie" || color == "calico" || color == "browncalico"]
+  [prefixdiTortie]^[color == "ditortie" || color == "dibrowntortie" || color == "dicalico" || color == "dibrowncalico"]
+  [prefixCalico]^[color == "calico" || color == "browncalico"]
+  [prefixdiCali]^[color == "dicalico" || color == "dibrowncalico"]
+  [prefixWhite]^[color == "white" || color == "blackbi" || color == "bluebi" || color == "brownbi" || color == "redbi" || color == "creambi" || color == "calico" || color == "dicalico" || color == "browncalico" || color == "dibrowncalico"]  
+  
+prefixBlack
+  [nameBlack]^[nameBlack.getLength]
+  [nameBlackWhite]^[nameBlackWhite.getLength]
+  [nameBlackBrownRed]^[nameBlackBrownRed.getLength]
+  [nameBlackBrown]^[nameBlackBrown.getLength]
+  [nameBlackBlueBrown]^[nameBlackBlueBrown.getLength]
+  [nameBlackBlueBrownRed]^[nameBlackBlueBrownRed.getLength]
+  [nameBlackBlue]^[nameBlackBlue.getLength]
+  [nameBlackblackBiCream]^[nameBlackblackBiCream.getLength]
+  [nameBlackTortie]^[nameBlackTortie.getLength]
+  [nameSize]^[nameSize.getLength]
+  
+prefixblackBi
+  [nameBlack]^[nameBlack.getLength]
+  [nameBlackWhite]^[nameBlackWhite.getLength]
+  [nameBlackBrownRed]^[nameBlackBrownRed.getLength]
+  [nameBlackBrown]^[nameBlackBrown.getLength]
+  [nameBlackBlueBrown]^[nameBlackBlueBrown.getLength]
+  [nameBlackBlueBrownRed]^[nameBlackBlueBrownRed.getLength]
+  [nameBlackBlue]^[nameBlackBlue.getLength]
+  [nameBlackblackBiCream]^[nameBlackblackBiCream.getLength]
+  [nameBlackTortie]^[nameBlackTortie.getLength]
+  [nameblackBi]^[nameblackBi.getLength]
+  [nameblackBiblueBibrownBi]^[nameblackBiblueBibrownBi.getLength]
+  [nameWhite]^[nameWhite.getLength]
+  [nameBlueWhite]^[nameBlueWhite.getLength] 
+  [nameBlueblueBiBrownbrownBiCreamdiTortdiCaliWhite]^[nameBlueblueBiBrownbrownBiCreamdiTortdiCaliWhite.getLength]
+  [nameBrownCreamWhite]^[nameBrownCreamWhite.getLength]
+  [nameRedTortieWhite]^[nameRedTortieWhite.getLength]
+  [nameRedredBiWhite]^[nameRedredBiWhite.getLength]
+  [nameRedWhite]^[nameRedWhite.getLength]
+  [nameCreamWhite]^[nameCreamWhite.getLength]
+  [nameBicolor]^[nameBicolor.getLength]
+  [nameSize]^[nameSize.getLength]
+  
+prefixBlue
+  [nameBlue]^[nameBlue.getLength]
+  [nameBlackBlueBrown]^[nameBlackBlueBrown.getLength]
+  [nameBlackBlueBrownRed]^[nameBlackBlueBrownRed.getLength]
+  [nameBlackBlue]^[nameBlackBlue.getLength]
+  [nameBlueBrown]^[nameBlueBrown.getLength]
+  [nameBlueBrownTortie]^[nameBlueBrownTortie.getLength]
+  [nameBlueblueBi]^[nameBlueblueBi.getLength]
+  [nameBlueWhite]^[nameBlueWhite.getLength]
+  [nameBlueRed]^[nameBlueRed.getLength]
+  [nameBlueCream]^[nameBlueCream.getLength]
+  [nameBlueblueBiBrownbrownBiCreamdiTortdiCaliWhite]^[nameBlueblueBiBrownbrownBiCreamdiTortdiCaliWhite.getLength]
+  [nameBlueblueBiBrownbrownBiTortieCalicodiTortiediCali]^[nameBlueblueBiBrownbrownBiTortieCalicodiTortiediCali.getLength]
+  [nameBlueblueBiBrownbrownBi]^[nameBlueblueBiBrownbrownBi.getLength]
+  [nameSize]^[nameSize.getLength]
+
+prefixblueBi
+  [nameblueBi]^[nameblueBi.getLength]
+  [nameBlue]^[nameBlue.getLength]
+  [nameBlackBlueBrown]^[nameBlackBlueBrown.getLength]
+  [nameBlackBlueBrownRed]^[nameBlackBlueBrownRed.getLength]
+  [nameBlackBlue]^[nameBlackBlue.getLength]
+  [nameBlueBrown]^[nameBlueBrown.getLength]
+  [nameBlueBrownTortie]^[nameBlueBrownTortie.getLength]
+  [nameBlueblueBi]^[nameBlueblueBi.getLength]
+  [nameBlueWhite]^[nameBlueWhite.getLength]
+  [nameBlueRed]^[nameBlueRed.getLength]
+  [nameBlueCream]^[nameBlueCream.getLength]
+  [nameBlueblueBiBrownbrownBiCreamdiTortdiCaliWhite]^[nameBlueblueBiBrownbrownBiCreamdiTortdiCaliWhite.getLength]
+  [nameBlueblueBiBrownbrownBiTortieCalicodiTortiediCali]^[nameBlueblueBiBrownbrownBiTortieCalicodiTortiediCali.getLength]
+  [nameBlueblueBiBrownbrownBi]^[nameBlueblueBiBrownbrownBi.getLength]
+  [nameWhite]^[nameWhite.getLength]
+  [nameBlackWhite]^[nameBlackWhite.getLength]
+  [nameBrownCreamWhite]^[nameBrownCreamWhite.getLength]
+  [nameRedTortieWhite]^[nameRedTortieWhite.getLength]
+  [nameRedredBiWhite]^[nameRedredBiWhite.getLength]
+  [nameRedWhite]^[nameRedWhite.getLength]
+  [nameCreamWhite]^[nameCreamWhite.getLength]
+  [nameblackBiblueBibrownBi]^[nameblackBiblueBibrownBi.getLength]
+  [nameblueBibrownBi]^[nameblueBibrownBi.getLength]
+  [nameBicolor]^[nameBicolor.getLength]
+  [nameSize]^[nameSize.getLength]
+  
+prefixBrown
+  [nameBrown]^[nameBrown.getLength]
+  [nameBlackBrownRed]^[nameBlackBrownRed.getLength]
+  [nameBlackBrown]^[nameBlackBrown.getLength]
+  [nameBlackBlueBrown]^[nameBlackBlueBrown.getLength]
+  [nameBlackBlueBrownRed]^[nameBlackBlueBrownRed.getLength]
+  [nameBlueBrown]^[nameBlueBrown.getLength]
+  [nameBlueBrownTortie]^[nameBlueBrownTortie.getLength]
+  [nameBlueblueBiBrownbrownBiCreamdiTortdiCaliWhite]^[nameBlueblueBiBrownbrownBiCreamdiTortdiCaliWhite.getLength]
+  [nameBlueblueBiBrownbrownBiTortieCalicodiTortiediCali]^[nameBlueblueBiBrownbrownBiTortieCalicodiTortiediCali.getLength]
+  [nameBlueblueBiBrownbrownBi]^[nameBlueblueBiBrownbrownBi.getLength]
+  [nameBrownbrownBi]^[nameBrownbrownBi.getLength]
+  [nameBrownRed]^[nameBrownRed.getLength]
+  [nameBrownCream]^[nameBrownCream.getLength]
+  [nameBrownCreamTortie]^[nameBrownCreamTortie.getLength]
+  [nameBrownCreamWhite]^[nameBrownCreamWhite.getLength]
+  [nameBrownbrownBidiTortiediCali]^[nameBrownbrownBidiTortiediCali.getLength]
+  [nameBrownCalicoTortie]^[nameBrownCalicoTortie.getLength]
+  [nameBrownTortie]^[nameBrownTortie.getLength]
+  [nameSize]^[nameSize.getLength]
+
+prefixbrownBi
+  [namebrownBi]^[namebrownBi.getLength]
+  [nameblackBiblueBibrownBi]^[nameblackBiblueBibrownBi.getLength]
+  [nameblueBibrownBi]^[nameblueBibrownBi.getLength]
+  [nameBrown]^[nameBrown.getLength]
+  [nameBlackBrownRed]^[nameBlackBrownRed.getLength]
+  [nameBlackBrown]^[nameBlackBrown.getLength]
+  [nameBlackBlueBrown]^[nameBlackBlueBrown.getLength]
+  [nameBlackBlueBrownRed]^[nameBlackBlueBrownRed.getLength]
+  [nameBlueBrown]^[nameBlueBrown.getLength]
+  [nameBlueBrownTortie]^[nameBlueBrownTortie.getLength]
+  [nameBlueblueBiBrownbrownBiCreamdiTortdiCaliWhite]^[nameBlueblueBiBrownbrownBiCreamdiTortdiCaliWhite.getLength]
+  [nameBlueblueBiBrownbrownBiTortieCalicodiTortiediCali]^[nameBlueblueBiBrownbrownBiTortieCalicodiTortiediCali.getLength]
+  [nameBlueblueBiBrownbrownBi]^[nameBlueblueBiBrownbrownBi.getLength]
+  [nameBrownbrownBi]^[nameBrownbrownBi.getLength]
+  [nameBrownRed]^[nameBrownRed.getLength]
+  [nameBrownCream]^[nameBrownCream.getLength]
+  [nameBrownCreamTortie]^[nameBrownCreamTortie.getLength]
+  [nameBrownbrownBidiTortiediCali]^[nameBrownbrownBidiTortiediCali.getLength]
+  [nameBrownCalicoTortie]^[nameBrownCalicoTortie.getLength]
+  [nameBrownTortie]^[nameBrownTortie.getLength]
+  [nameWhite]^[nameWhite.getLength]
+  [nameBlackWhite]^[nameBlackWhite.getLength]
+  [nameBlueWhite]^[nameBlueWhite.getLength] 
+  [nameBrownCreamWhite]^[nameBrownCreamWhite.getLength]
+  [nameRedTortieWhite]^[nameRedTortieWhite.getLength]
+  [nameRedredBiWhite]^[nameRedredBiWhite.getLength]
+  [nameRedWhite]^[nameRedWhite.getLength]
+  [nameCreamWhite]^[nameCreamWhite.getLength]
+  [nameBicolor]^[nameBicolor.getLength]
+  [nameSize]^[nameSize.getLength]
+  
+prefixRed
+  [nameRed]^[nameRed.getLength]
+  [nameCream]^[nameCream.getLength]
+  [nameBlackBrownRed]^[nameBlackBrownRed.getLength]
+  [nameBlackBlueBrownRed]^[nameBlackBlueBrownRed.getLength]
+  [nameBlackblackBiCream]^[nameBlackblackBiCream.getLength]
+  [nameBlueRed]^[nameBlueRed.getLength]
+  [nameBlueCream]^[nameBlueCream.getLength]
+  [nameBlueblueBiBrownbrownBiCreamdiTortdiCaliWhite]^[nameBlueblueBiBrownbrownBiCreamdiTortdiCaliWhite.getLength]
+  [nameBrownRed]^[nameBrownRed.getLength]
+  [nameBrownCream]^[nameBrownCream.getLength]
+  [nameBrownCreamTortie]^[nameBrownCreamTortie.getLength]
+  [nameBrownCreamWhite]^[nameBrownCreamWhite.getLength]
+  [nameRedTortieWhite]^[nameRedTortieWhite.getLength]
+  [nameRedredBiWhite]^[nameRedredBiWhite.getLength]
+  [nameRedWhite]^[nameRedWhite.getLength]
+  [nameCreamTortiediTortie]^[nameCreamTortiediTortie.getLength]
+  [nameCreamdiTortie]^[nameCreamdiTortie.getLength]
+  [nameCreamWhite]^[nameCreamWhite.getLength]
+  [nameSize]^[nameSize.getLength]
+
+prefixredBi
+  [nameredBi]^[nameredBi.getLength]
+  [nameRed]^[nameRed.getLength]
+  [nameCream]^[nameCream.getLength]
+  [nameBlackBrownRed]^[nameBlackBrownRed.getLength]
+  [nameBlackBlueBrownRed]^[nameBlackBlueBrownRed.getLength]
+  [nameBlackblackBiCream]^[nameBlackblackBiCream.getLength]
+  [nameBlueRed]^[nameBlueRed.getLength]
+  [nameBlueCream]^[nameBlueCream.getLength]
+  [nameBrownRed]^[nameBrownRed.getLength]
+  [nameBrownCream]^[nameBrownCream.getLength]
+  [nameBrownCreamTortie]^[nameBrownCreamTortie.getLength]
+  [nameCreamTortiediTortie]^[nameCreamTortiediTortie.getLength]
+  [nameCreamdiTortie]^[nameCreamdiTortie.getLength]
+  [nameWhite]^[nameWhite.getLength]
+  [nameBlackWhite]^[nameBlackWhite.getLength]
+  [nameBlueWhite]^[nameBlueWhite.getLength] 
+  [nameBlueblueBiBrownbrownBiCreamdiTortdiCaliWhite]^[nameBlueblueBiBrownbrownBiCreamdiTortdiCaliWhite.getLength]
+  [nameBrownCreamWhite]^[nameBrownCreamWhite.getLength]
+  [nameRedTortieWhite]^[nameRedTortieWhite.getLength]
+  [nameRedredBiWhite]^[nameRedredBiWhite.getLength]
+  [nameRedWhite]^[nameRedWhite.getLength]
+  [nameCreamWhite]^[nameCreamWhite.getLength]
+  [nameBicolor]^[nameBicolor.getLength]
+  [nameSize]^[nameSize.getLength]
+  
+prefixCream
+  [nameCream]^[nameCream.getLength]
+  [nameBlackblackBiCream]^[nameBlackblackBiCream.getLength]
+  [nameBlueCream]^[nameBlueCream.getLength]
+  [nameBlueblueBiBrownbrownBiCreamdiTortdiCaliWhite]^[nameBlueblueBiBrownbrownBiCreamdiTortdiCaliWhite.getLength]
+  [nameBrownCream]^[nameBrownCream.getLength]
+  [nameBrownCreamTortie]^[nameBrownCreamTortie.getLength]
+  [nameBrownCreamWhite]^[nameBrownCreamWhite.getLength]
+  [nameCreamTortiediTortie]^[nameCreamTortiediTortie.getLength]
+  [nameCreamdiTortie]^[nameCreamdiTortie.getLength]
+  [nameCreamWhite]^[nameCreamWhite.getLength]
+  [nameSize]^[nameSize.getLength]
+  
+prefixcreamBi
+  [nameCream]^[nameCream.getLength]
+  [nameBlackblackBiCream]^[nameBlackblackBiCream.getLength]
+  [nameBlueCream]^[nameBlueCream.getLength]
+  [nameBrownCream]^[nameBrownCream.getLength]
+  [nameBrownCreamTortie]^[nameBrownCreamTortie.getLength]
+  [nameCreamTortiediTortie]^[nameCreamTortiediTortie.getLength]
+  [nameCreamdiTortie]^[nameCreamdiTortie.getLength]
+  [nameWhite]^[nameWhite.getLength]
+  [nameBlackWhite]^[nameBlackWhite.getLength]
+  [nameBlueWhite]^[nameBlueWhite.getLength] 
+  [nameBlueblueBiBrownbrownBiCreamdiTortdiCaliWhite]^[nameBlueblueBiBrownbrownBiCreamdiTortdiCaliWhite.getLength]
+  [nameBrownCreamWhite]^[nameBrownCreamWhite.getLength]
+  [nameRedTortieWhite]^[nameRedTortieWhite.getLength]
+  [nameRedredBiWhite]^[nameRedredBiWhite.getLength]
+  [nameRedWhite]^[nameRedWhite.getLength]
+  [nameCreamWhite]^[nameCreamWhite.getLength]
+  [nameBicolor]^[nameBicolor.getLength]
+  [nameSize]^[nameSize.getLength]
+
+prefixTortie
+  [nameTortie]^[nameTortie.getLength]
+  [nameBlackTortie]^[nameBlackTortie.getLength]
+  [nameBlueBrownTortie]^[nameBlueBrownTortie.getLength]
+  [nameBlueblueBiBrownbrownBiTortieCalicodiTortiediCali]^[nameBlueblueBiBrownbrownBiTortieCalicodiTortiediCali.getLength]
+  [nameBrownCreamTortie]^[nameBrownCreamTortie.getLength]
+  [nameBrownCalicoTortie]^[nameBrownCalicoTortie.getLength]
+  [nameBrownTortie]^[nameBrownTortie.getLength]
+  [nameRedTortieWhite]^[nameRedTortieWhite.getLength]
+  [nameCreamTortiediTortie]^[nameCreamTortiediTortie.getLength]
+  [nameTortiediTortie]^[nameTortiediTortie.getLength]
+  [nameBlack]^[nameBlack.getLength]
+  [nameBlackWhite]^[nameBlackWhite.getLength]
+  [nameBlackBrownRed]^[nameBlackBrownRed.getLength]
+  [nameBlackBrown]^[nameBlackBrown.getLength]
+  [nameBlackBlueBrown]^[nameBlackBlueBrown.getLength]
+  [nameBlackBlueBrownRed]^[nameBlackBlueBrownRed.getLength]
+  [nameBlackBlue]^[nameBlackBlue.getLength]
+  [nameBlackblackBiCream]^[nameBlackblackBiCream.getLength]
+  [nameRed]^[nameRed.getLength]
+  [nameCream]^[nameCream.getLength]
+  [nameBlueRed]^[nameBlueRed.getLength]
+  [nameBlueCream]^[nameBlueCream.getLength]
+  [nameBlueblueBiBrownbrownBiCreamdiTortdiCaliWhite]^[nameBlueblueBiBrownbrownBiCreamdiTortdiCaliWhite.getLength]
+  [nameBrownRed]^[nameBrownRed.getLength]
+  [nameBrownCream]^[nameBrownCream.getLength]
+  [nameBrownCreamWhite]^[nameBrownCreamWhite.getLength]
+  [nameRedredBiWhite]^[nameRedredBiWhite.getLength]
+  [nameRedWhite]^[nameRedWhite.getLength]
+  [nameCreamdiTortie]^[nameCreamdiTortie.getLength]
+  [nameCreamWhite]^[nameCreamWhite.getLength]
+  [nameSize]^[nameSize.getLength]
+
+prefixdiTortie
+  [namediTortie]^[namediTortie.getLength]
+  [nameBlueblueBiBrownbrownBiCreamdiTortdiCaliWhite]^[nameBlueblueBiBrownbrownBiCreamdiTortdiCaliWhite.getLength]
+  [nameBlueblueBiBrownbrownBiTortieCalicodiTortiediCali]^[nameBlueblueBiBrownbrownBiTortieCalicodiTortiediCali.getLength]
+  [nameBrownbrownBidiTortiediCali]^[nameBrownbrownBidiTortiediCali.getLength]
+  [nameCreamTortiediTortie]^[nameCreamTortiediTortie.getLength]
+  [nameCreamdiTortie]^[nameCreamdiTortie.getLength]
+  [nameTortiediTortie]^[nameTortiediTortie.getLength]
+  [nameBlue]^[nameBlue.getLength]
+  [nameBlackBlueBrown]^[nameBlackBlueBrown.getLength]
+  [nameBlackBlueBrownRed]^[nameBlackBlueBrownRed.getLength]
+  [nameBlackBlue]^[nameBlackBlue.getLength]
+  [nameBlueBrown]^[nameBlueBrown.getLength]
+  [nameBlueBrownTortie]^[nameBlueBrownTortie.getLength]
+  [nameBlueblueBi]^[nameBlueblueBi.getLength]
+  [nameBlueWhite]^[nameBlueWhite.getLength]
+  [nameBlueRed]^[nameBlueRed.getLength]
+  [nameBlueCream]^[nameBlueCream.getLength]
+  [nameBlueblueBiBrownbrownBi]^[nameBlueblueBiBrownbrownBi.getLength]
+  [nameCream]^[nameCream.getLength]
+  [nameBlackblackBiCream]^[nameBlackblackBiCream.getLength]
+  [nameBlueCream]^[nameBlueCream.getLength]
+  [nameBrownCream]^[nameBrownCream.getLength]
+  [nameBrownCreamTortie]^[nameBrownCreamTortie.getLength]
+  [nameBrownCreamWhite]^[nameBrownCreamWhite.getLength]
+  [nameCreamWhite]^[nameCreamWhite.getLength]
+  [nameSize]^[nameSize.getLength]
+
+prefixCalico
+  [nameCalico]^[nameCalico.getLength]
+  [nameTortie]^[nameTortie.getLength]
+  [nameBlackTortie]^[nameBlackTortie.getLength]
+  [nameBlueBrownTortie]^[nameBlueBrownTortie.getLength]
+  [nameBlueblueBiBrownbrownBiTortieCalicodiTortiediCali]^[nameBlueblueBiBrownbrownBiTortieCalicodiTortiediCali.getLength]
+  [nameBrownCreamTortie]^[nameBrownCreamTortie.getLength]
+  [nameBrownCalicoTortie]^[nameBrownCalicoTortie.getLength]
+  [nameBrownTortie]^[nameBrownTortie.getLength]
+  [nameRedTortieWhite]^[nameRedTortieWhite.getLength]
+  [nameCreamTortiediTortie]^[nameCreamTortiediTortie.getLength]
+  [nameTortiediTortie]^[nameTortiediTortie.getLength]
+  [nameBlack]^[nameBlack.getLength]
+  [nameBlackWhite]^[nameBlackWhite.getLength]
+  [nameBlackBrownRed]^[nameBlackBrownRed.getLength]
+  [nameBlackBrown]^[nameBlackBrown.getLength]
+  [nameBlackBlueBrown]^[nameBlackBlueBrown.getLength]
+  [nameBlackBlueBrownRed]^[nameBlackBlueBrownRed.getLength]
+  [nameBlackBlue]^[nameBlackBlue.getLength]
+  [nameBlackblackBiCream]^[nameBlackblackBiCream.getLength]
+  [nameRed]^[nameRed.getLength]
+  [nameCream]^[nameCream.getLength]
+  [nameBlueRed]^[nameBlueRed.getLength]
+  [nameBlueCream]^[nameBlueCream.getLength]
+  [nameBlueblueBiBrownbrownBiCreamdiTortdiCaliWhite]^[nameBlueblueBiBrownbrownBiCreamdiTortdiCaliWhite.getLength]
+  [nameBrownRed]^[nameBrownRed.getLength]
+  [nameBrownCream]^[nameBrownCream.getLength]
+  [nameBrownCreamWhite]^[nameBrownCreamWhite.getLength]
+  [nameRedredBiWhite]^[nameRedredBiWhite.getLength]
+  [nameRedWhite]^[nameRedWhite.getLength]
+  [nameCreamdiTortie]^[nameCreamdiTortie.getLength]
+  [nameCreamWhite]^[nameCreamWhite.getLength]
+  [nameblackBi]^[nameblackBi.getLength]
+  [nameblackBiblueBibrownBi]^[nameblackBiblueBibrownBi.getLength]
+  [nameredBi]^[nameredBi.getLength]
+  [nameWhite]^[nameWhite.getLength]
+  [nameBlueWhite]^[nameBlueWhite.getLength] 
+  
+prefixdiCali
+  [namediTortie]^[namediTortie.getLength]
+  [nameBlueblueBiBrownbrownBiCreamdiTortdiCaliWhite]^[nameBlueblueBiBrownbrownBiCreamdiTortdiCaliWhite.getLength]
+  [nameBlueblueBiBrownbrownBiTortieCalicodiTortiediCali]^[nameBlueblueBiBrownbrownBiTortieCalicodiTortiediCali.getLength]
+  [nameBrownbrownBidiTortiediCali]^[nameBrownbrownBidiTortiediCali.getLength]
+  [nameCreamTortiediTortie]^[nameCreamTortiediTortie.getLength]
+  [nameCreamdiTortie]^[nameCreamdiTortie.getLength]
+  [nameTortiediTortie]^[nameTortiediTortie.getLength]
+  [nameBlue]^[nameBlue.getLength]
+  [nameBlackBlueBrown]^[nameBlackBlueBrown.getLength]
+  [nameBlackBlueBrownRed]^[nameBlackBlueBrownRed.getLength]
+  [nameBlackBlue]^[nameBlackBlue.getLength]
+  [nameBlueBrown]^[nameBlueBrown.getLength]
+  [nameBlueBrownTortie]^[nameBlueBrownTortie.getLength]
+  [nameBlueblueBi]^[nameBlueblueBi.getLength]
+  [nameBlueWhite]^[nameBlueWhite.getLength]
+  [nameBlueRed]^[nameBlueRed.getLength]
+  [nameBlueCream]^[nameBlueCream.getLength]
+  [nameBlueblueBiBrownbrownBi]^[nameBlueblueBiBrownbrownBi.getLength]
+  [nameCream]^[nameCream.getLength]
+  [nameBlackblackBiCream]^[nameBlackblackBiCream.getLength]
+  [nameBlueCream]^[nameBlueCream.getLength]
+  [nameBrownCream]^[nameBrownCream.getLength]
+  [nameBrownCreamTortie]^[nameBrownCreamTortie.getLength]
+  [nameBrownCreamWhite]^[nameBrownCreamWhite.getLength]
+  [nameCreamWhite]^[nameCreamWhite.getLength]
+  [nameblueBi]^[nameblueBi.getLength]
+  [nameblackBiblueBibrownBi]^[nameblackBiblueBibrownBi.getLength]
+  [nameblueBibrownBi]^[nameblueBibrownBi.getLength]
+  [nameWhite]^[nameWhite.getLength]
+  [nameBlackWhite]^[nameBlackWhite.getLength]
+  [nameRedTortieWhite]^[nameRedTortieWhite.getLength]
+  [nameRedredBiWhite]^[nameRedredBiWhite.getLength]
+  [nameRedWhite]^[nameRedWhite.getLength]
+  [nameBicolor]^[nameBicolor.getLength]
+  [nameSize]^[nameSize.getLength]
+
+prefixWhite
+  [nameWhite]^[nameWhite.getLength]
+  [nameBlackWhite]^[nameBlackWhite.getLength]
+  [nameBlueWhite]^[nameBlueWhite.getLength] 
+  [nameBlueblueBiBrownbrownBiCreamdiTortdiCaliWhite]^[nameBlueblueBiBrownbrownBiCreamdiTortdiCaliWhite.getLength]
+  [nameBrownCreamWhite]^[nameBrownCreamWhite.getLength]
+  [nameRedTortieWhite]^[nameRedTortieWhite.getLength]
+  [nameRedredBiWhite]^[nameRedredBiWhite.getLength]
+  [nameRedWhite]^[nameRedWhite.getLength]
+  [nameCreamWhite]^[nameCreamWhite.getLength]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[remember(root, "a")]
+
+[navbar(menu)]
+<br><br><br><br>
+<h1>[title]</h1>
+<br>
+<button id="show-settings" onclick="document.getElementById('main-cat').showModal()">Input Main Cat Genetics</button> 
+<button id="show-settings" onclick="document.getElementById('settings').showModal()">Settings</button> 
+<!-- <button id="show-name-input" onclick="document.getElementById('exclude-names').showModal()">Exclude Names</button> deprecating-->
+<br><br>
+<button onclick="update()">Randomize</button>
+<section>
+<p>[output]</p>
+</section>
+<section>
+<p>[infobox]</p>
+</section>
+<br>
+
+<dialog id="main-cat">
+  <button class="close-btn" onclick="document.getElementById('main-cat').close()">Close Input Panel</button>
+  <br><br>
+  Phaeomelanin: <select oninput="phaeomel=this.value">
+  <option value="XoY">Black Male (XoY)</option>
+  <option value="XOY">Red Male (XOY)</option>
+  <option value="XoXo">Black Female (XoXo)</option>
+  <option value="XOXo">Tortie Female (XOXo)</option>
+  <option value="XOXO">Red Female (XOXO)</option>
+  </select>
+  <br>
+  Eumelanin: <select oninput="eumel=this.value">
+  <option value="BB">Black (BB)</option>
+  <option value="Bb">Black (Bb)</option>
+  <option value="Bb1">Black (Bb1)</option>
+  <option value="bb">Chocolate (bb)</option>
+  <option value="bb1">Chocolate (bb1)</option>
+  <option value="b1b1">Cinnamon (b1b1)</option>
+  </select>
+  <br>
+  Dilution: <select oninput="dilute=this.value">
+  <option value="DD">Dense (DD)</option>
+  <option value="Dd">Dense (Dd)</option>
+  <option value="dd">Dilute (dd)</option>
+  </select>
+  <br>
+  Dilute Modifier: <select oninput="dilutemod=this.value">
+  <option value="dmdm">No Modifier (dmdm)</option>
+  <option value="Dmdm">Caramelized (Dmdm)</option>
+  <option value="DmDm">Caramelized (DmDm)</option>
+  </select>
+  <br>
+  Dominant White: <select oninput="domwhite=this.value">
+  <option value="wdwd">Not White (wdwd)</option>
+  <option value="Wdwd">White (Wdwd)</option>
+  <option value="WdWd">White (WdWd)</option>
+  </select>
+  <br>
+  White Spotting: <select oninput="whitespot=this.value">
+  <option value="wsws">0-20% White (wsws)</option>
+  <option value="Wsws">20-60% White (Wsws)</option>
+  <option value="WsWs">60-100% White (WsWs)</option>
+  </select>
+  <br>
+  Tabby: <select oninput="agouti=this.value">
+  <option value="aa">Solid (aa)</option>
+  <option value="Afca">Tabby (Afca)</option>
+  <option value="AfcAfc">Tabby (AfcAfc)</option>
+  </select>
+  <br>
+  Ticked Tabby: <select oninput="ticked=this.value">
+  <option value="tata">Normal (tata)</option>
+  <option value="Tata">Ticked (Tata)</option>
+  <option value="TaTa">Ticked (TaTa)</option>
+  </select>
+  <br>
+  Spotted Tabby: <select oninput="spotted=this.value">
+  <option value="spsp">Normal (spsp)</option>
+  <option value="Spsp">Spotted (Spsp)</option>
+  <option value="SpSp">Spotted (SpSp)</option>
+  </select>
+  <br>
+  Primary Tabby: <select oninput="primarytab=this.value">
+  <option value="McMc">Mackerel (McMc)</option>
+  <option value="Mcmc">Mackerel (Mcmc)</option>
+  <option value="mcmc">Classic (mcmc)</option>
+  </select>
+  <br>
+  Fur Length: <select oninput="furlength=this.value">
+  <option value="LL">Shorthair (LL)</option>
+  <option value="Ll">Shorthair (Ll)</option>
+  <option value="ll">Longhair (ll)</option>
+  </select>
+  <br>
+  Coat: <select oninput="coat=this.value">
+  <option value="SeSe">Normal (SeSe)</option>
+  <option value="Sehr">Normal (Sehr)</option>
+  <option value="ReSe">Curly (ReSe)</option>
+  <option value="ReRe">Curly (ReRe)</option>
+  <option value="Rehr">Curly (Rehr)</option>
+  <option value="hrhr">Hairless (hrhr)</option>
+  </select>
+  <br>
+  Sparse Hair: <select oninput="sparse=this.value">
+  <option value="SpfSpf">Normal (SpfSpf)</option>
+  <option value="Spfspf">Normal (Spfspf)</option>
+  <option value="spfspf">Sparse (spfspf)</option>
+  </select>
+  <br>
+  Eye Color: <select oninput="eyecolor=this.value">
+  <option value="copper">Copper</option>
+  <option value="amber">Amber</option>
+  <option value="yellow">Yellow</option>
+  <option value="gold">Gold</option>
+  <option value="hazel">Hazel</option>
+  <option value="green">Green</option>
+  <option value="blue">Blue</option>
+  </select>
+  <br><br>
+  <button onclick="remember(root, '@forget')">Reset Genetics</button>
+</dialog>
+
+<dialog id="settings">
+  <button class="close-btn" onclick="document.getElementById('settings').close()">Close Settings</button>
+  <br><br>
+  Main Cat's Rank: <select oninput="rank=this.value">
+  <option value="random">Random</option>
+  <option value="lead">Leader or Deputy</option>
+  <option value="warrior">Warrior</option>
+  <option value="medcat">Medicine Cat</option>
+  <option value="appr">Apprentice</option>
+  <option value="queen">Queen</option>
+  <option value="elder">Elder</option>
+  <option value="mate">Mate</option>
+  <option value="em">Elder's Mate</option>
+  </select>
+</dialog>
+
+<dialog id="exclude-names">
+  <button class="close-btn" onclick="document.getElementById('exclude-names').close()">Close Input Panel</button>
+  <br><br>
+  <textarea oninput="cutnames=this.value.split('\n');" style="height:100px;" placeholder="add prefixes to be excluded here..."></textarea>
+</dialog>
+
+<style>
+  h1 {
+    margin:0 auto;
+    padding:0.5em;
+    border:1px solid darkolivegreen;
+    background:floralwhite;
+    color:darkslategray;
+    max-width:550px;
+  }
+  section {
+    margin:0 auto;
+    margin-top:1em;
+    padding:1em;
+    max-width:950px;
+    border-radius:3px;
+    border:1px solid darkolivegreen;
+    background:floralwhite;
+    color:darkslategray;
+  }
+  button {
+    background:antiquewhite;
+    border:1px solid darkolivegreen;
+    color:darkslategray;
+  } 
+  dialog {
+    background:floralwhite;
+    border:1px solid darkolivegreen;
+    color:darkslategray;
+  }
+  select {
+    background:antiquewhite;
+    border:1px solid darkolivegreen;
+  }
+  body {
+    background:darkseagreen;
+  }
+  p {
+    margin:1em auto; 
+    padding:0 1em; 
+    max-width:900px;
+  }
+</style>
+
+[background(imageUrl, 0.2)]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
